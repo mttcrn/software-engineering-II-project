@@ -10,6 +10,9 @@
 \newgeometry{left=3cm,right=3cm,bottom=3.5cm,top=3.5cm}
 
 \usepackage{enumitem}
+\newcommand{\printitem}[1] {
+	\ref{#1} \useitemtext{#1}\break\par
+}
 
 \begin{document}
 	\include{structure/title}

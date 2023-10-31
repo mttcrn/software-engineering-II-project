@@ -12,36 +12,84 @@
 \clearpage
 
 \section{Product functions}\label{desc:prodFunc}
+\subsection{Sign Up and Login}
+These function will be available for all user.\newline All users can create a new profile by the sign up function. Each profile is uniquely identified by a username. Each user will be ask to provide an email, a password and role (student or educator). \newline
+A login can occur every time by the use of username (or email) and password.
 
-\subsection{function1}
-\subsection{function2}
-\subsection{function3}
-	
+\subsection{Create and manage a tournament}
+This function will be available only for educators. \newline Each educator can create a new tournament and invite other colleagues to create battles within that tournament. At the creation the educator must specify the subscription deadline.
+A tournament can then be closed by its creator, and as soon as the final tournament rank is available the CKB platform notify all students subscribed.
+
+\subsection{Create a battle within a tournament}
+This function will be available only for educators. \newline An educator can create a new battle in a tournament only if he/she created it or he/she have been invited to collaborate by another colleague.
+The system allow the educator to specify: 
+\begin{itemize}
+    \item code kata, that consist in the description and software project including test cases and build automated scripts,
+    \item minimum and maximum number of students per group, 
+    \item registration deadline.
+    \item final submission deadline.
+\end{itemize}
+When the registration deadline expires, the CKB platform automatically creates a GitHub repository, with the use of a GitHub API, that contain the code kata, and sends the link to all the students enrolled in the battle.
+
+\subsection{Subscribe to a tournament}
+This function will be available only for students. \newline When a new tournament is created all registered students are notified and can subscribe within a given deadline.
+
+
+\subsection{Join a battle or a team}
+This function will be available only for students. \newline When there is an upcoming battle in a tournament all subscribed students are notified. Each student can join a battle on his/her own or with a team. Teams are formed by invite.
+
+\subsection{Update scores}
+When the students push a new commit into the main branch of the GitHub repository, the CKB platform automatically analyze it and runs the tests to calculate and update the battle score of the team.\newline
+The score of each battle is evaluated in two ways:
+\begin{itemize}
+    \item Mandatory automated evaluation:
+        \begin{itemize}
+            \item functional aspects, measured in terms of number of test cases passed.
+            \item time, the lower time between the registration deadline and the last commit the better.
+            \item quality level of the source, extracted through static analysis tools based on aspects chosen by the educator when creating the battle.
+        \end{itemize}
+    \item Optional manual evaluation:
+        Done by the educator that checks and evaluate the work done by the student. It can be done during the consolidations stage right after the submission deadline expiration.
+\end{itemize}
+Once the consolidation stage finishes, when the final battle rank is available all enrolled students are notified.
+
+\subsection{View all rankings}
+Every user can see the list of ongoing tournaments and the corresponding rank (that compares all subscribed students' performance) in the CKB platform.
+At the end of each battle the personal tournament score of each student is automatically updated ad the sum of all battle scores received. 
+
+\subsection{View a student profile}
+Every user can view a profile of a student by searching for his/her username. In each profile are shown badges earned, battles won, and tournament rankings. 
+
+\subsection{Create and manage gamification badges}
+This function will be available only for educators. \newline A badge can be created by specifying a title and at least one rule that must be satisfied to achieve it. Each badge is then automatically assigned to one or more students by checking the validity of the rules.
+Educators can also create new variables that represent relevant information for scoring. A variable is identified by a unique name and a measurement unit, that can be selected by a list of predefined (e.g. integer, float, date, ..).
+
 \clearpage
 
 \subsection{Scenarios}
-
-\subsubsection{Scenario 1}\label{sc:first}
-\subsubsection{Scenario 2}\label{sc:second}
-\subsubsection{Scenario 3}\label{sc:third}
-
+\subsubsection{Scenario 1: User registration}\label{sc:first}
+(distinguish between students and educators)
+\subsubsection{Scenario 2: Tournament and battle creation}\label{sc:second}
+\subsubsection{Scenario 3: Student team formation}\label{sc:third}
+(limit cases: 1) a student want to enroll in a team that is full, or there are a restricted number of invites that can be sent 2) a team does not reach the minimum number of student -> their team is cancelled or their score is automatically 0)
+\subsection{Scenario 4: Students upload the code after the deadline}\label{sc:fourth}
+(limit case: 0 score, every submission after the deadline is ignored)
 
 \clearpage
 \subsection{Use cases description}
 Use cases capture functional requirements of a system from the users' perspective.
 
 \section{User characteristics}
-CLup has four different groups of users:
+Each user must have a profile to be able to use the CKB platform.
+There are two different type of users:
 \begin{itemize}
-	\item \textbf{User1}:
-	
-	\item \textbf{User2}: 
-		
+	\item \textbf{Students}:
+	    The students the primary users of the CKB platform. They range from beginners to advanced learners. Each student has a personal profile that display their badges earned, battles won, and tournament rankings. 
+	\item \textbf{Educators}: 
+		The educators can creates and manages tournaments and/or battles. They challenge the students and then evaluate and grade them based on their submissions. An educator must be officially recognized as he/she should have the adequate knowledge.
 \end{itemize}
 
 \section{Constraints}
-In this topic it is put on paper a general description about considerations, boundaries and items that will limit the system's options.
-
 \subsection{Regulatory policies}
 \subsection{Hardware limitations}
 \subsection{Interfaces to other applications}
@@ -49,4 +97,14 @@ In this topic it is put on paper a general description about considerations, bou
 \clearpage
 
 \section{Assumptions and Dependencies}
+In this section are listed all assumption made for the domain in which the system operates. These are conditions that the system take for granted because they are external to it but influence its behaviour.
+
 \subsection{Domain assumptions}
+\begin{enumerate}[label=\textbf{DA.\arabic*}]
+        \item Users must have internet connection to interacts with the CKB platform. 
+        \item Students must have a GitHub account to be able to deliver a solution.
+        \item Students must fork the GitHub repository created by the CKB platform and set up an automated workflow through GitHub Actions.
+        \item Students must have a development environment with the necessary software tools and libraries to complete code kata battles.
+        \item Educators must be qualified and experienced in software development and related fields.
+        \item The uploaded code by the educators must be correct and complete.
+\end{enumerate}
