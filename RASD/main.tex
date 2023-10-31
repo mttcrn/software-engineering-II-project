@@ -1,0 +1,30 @@
+\documentclass[a4paper, 11pt, oneside, openright, english]{memoir}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage{graphicx}
+\graphicspath{{./figures/}{./images/}}
+
+\usepackage{geometry}
+\newgeometry{left=3cm,right=3cm,bottom=3.5cm,top=3.5cm}
+
+\usepackage{enumitem}
+
+\begin{document}
+	\include{structure/title}
+
+	\pagenumbering{Roman}
+
+	\include{structure/revision_history}
+
+	\tableofcontents
+
+	\pagenumbering{arabic}
+
+	\include{chapters/1_introduction}
+	\include{chapters/2_overall_description}
+	\include{chapters/3_specific_requirements}
+	\include{chapters/4_alloy}
+	\include{chapters/5_effort}
+\end{document}

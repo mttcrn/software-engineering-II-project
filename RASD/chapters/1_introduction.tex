@@ -1,0 +1,134 @@
+\chapter{Introduction}
+
+\section{Purpose}
+The purpose of CodeKataBattle is to provide a platform where students can improve their software development skills by training with peers. 
+Educators can create battles in which teams of students can compete against each other by developing a solution following a test-first approach.
+At the end of each battle, every gruop is evaluated to create a competition rank that measures each student's performance.
+
+
+\subsection{Goals}\label{intro:goals}
+Below are presented the goals of CodeKata Battle. Further description will be discussed in section \ref{desc:prodFunc}.
+\begin{enumerate}[label=\textbf{G.\arabic*}]
+	\item Educators can create a tournament.
+        \item Educators can create a battle within a tournament to which they have access to.
+        \item Students can subscribe to a tournament within the specified deadline.
+        \item Students can enroll in a battle within their tournaments.
+        \item Students can form a team by invite.
+        \item Users can see the list of ongoing tournaments.
+        \item Users can see all tournaments rank.
+        \item Educators can create new badges.
+        \item Users can visualize collected badges of other users by visiting their profile.
+        \item Users can create an account.
+        \item Students can see their actual team score in a battle.
+\end{enumerate}
+
+\section{Scope}
+CodeKataBattle is an online platform that allows students to improve their development skills in a entertaining way. 
+
+\null
+Educators use the platform to create a code kata battle in which teams can compete against each other. A battle is a programming exercise that the students are expected to solve by following a test-first approach. Each battle belongs to a tournament, that is also created by an educator.
+The platform shows to the registered students a list of published tournament and each student can choose to enroll into one of them (before the registration deadline) and form a group by inviting other students.
+
+When the registration deadline expires, the platform automatically creates a GitHub repository containing all necessary code and send the link to all students who enrolled. 
+Then the students must push their code in the repository triggering the CKB platform that automatically updates the battle score of the team.
+
+
+
+\null
+The score is a natural number between 1 and 100. It consist of both an automatic and manual evaluation.  
+The automatic evaluation is based on:
+
+\begin{itemize}
+    \item functional aspects, mesured in terms of number of test cases passed.
+    \item timeliness, mesured in terms of time passed between the registration deadline and the last commit.
+    \item quality level of the sources, extracted thoroug static analisys tool that consider multiple aspects.
+\end{itemize}
+
+When the submission deadline expires, the educators can manually change the score (if needed) and then the platform automatically updates the personal tournament score of each students. These information are then available for all subscribed users.
+
+\null
+The CKB platform also include gamification badges, a reward that represent the achievements of individual students. Educators can create a badge by specifing the title and one or more rules that must be fulfilled to achieve it. Each badge can be assigned to one or more students depending on the rules. Earned badges are visible on the personal profile of the student.
+
+
+
+\subsection{World Phenomena}
+\begin{enumerate}[label=\textbf{WP.\arabic*}]
+	\item Students choose which tournament to partecipate to.
+	\item Educators ideate the battle (problem's code, minimum/maximum number of student per group, registration deadline, final submission deadline, additional configuration for scoring).
+        \item Students write a solution to the battle and push it in the github repository.
+\end{enumerate}
+
+\subsection{Shared Phenomena}
+\begin{enumerate}[label=\textbf{SP.\arabic*}]
+        \item Educators create a new tournament by inserting on the platform all needed information.
+        \item Users visualize the list of published tournament.
+        \item Students join a new tournament.
+        \item Students invite a team member or join another group.
+	\item Educators review the score manually for each student.
+        \item Educators create new badges by inserting on the platform a title and one or more rules.
+        \item Users visualize all students's personal profile with their collected badges.
+        \item The system send a notification to all students when a new tournament is created.
+        \item The system send a notification regarding new battles to all students enrolled in that tournament.
+        \item The system send a notification when the final battle rank is available to all students that participated.
+        \item The system send a notification when the final tournament rank is available to all students that participated.
+\end{enumerate}
+
+\section{Glossary}
+\subsection{Definitions}
+\begin{center}
+	\begin{tabular}{@{}p{0.25\linewidth} p{0.71\linewidth}@{}}
+		\toprule
+		\textbf{Term} & \textbf{Definition}\\
+		\midrule
+		Users & Identify both students and educators that are logged in. \\
+		\bottomrule
+	\end{tabular}
+\end{center}
+
+\subsection{Acronyms}
+\begin{center}
+	\begin{tabular}{@{}p{0.25\linewidth} p{0.71\linewidth}@{}}
+		\toprule
+		\textbf{Acronyms} & \textbf{Term}\\
+		\midrule
+		CKB & CodeKataBattle\\
+            G & Goal\\
+		WP & World Phenomena\\
+		SP & Shared Phenomena\\
+            R & Requirement\\
+		\bottomrule
+	\end{tabular}
+\end{center}
+
+\subsection{Abbreviations}
+\begin{center}
+	\begin{tabular}{@{}p{0.25\linewidth} p{0.71\linewidth}@{}}
+		\toprule
+		\textbf{Abbreviations} & \textbf{Term}\\
+		\midrule
+		e.g. & Exempli gratia\\
+		i.e. & Id est\\
+		w.r.t. & With reference to\\
+		\bottomrule
+	\end{tabular}
+\end{center}
+
+\section{Reference documents}
+\begin{itemize}
+	\item Project assignment specification document.
+	\item Slides of software engineering 2 course on WeBeep.
+\end{itemize}
+
+\section{Document Structure}
+This document is divided in 5 chapters, as follow:
+\begin{enumerate}
+	\item \textbf{Introduction}: contains a summary of the given problem, focusing on all phenomena that must be taken into account and the goals that the system aim to achieve.
+
+	\item \textbf{Overall Description}: gives a general description of the system, focusing on its functions and constraints. It provides the domain assumptions of the analysed world.
+
+	\item \textbf{Specific Requirements}: explains in detail the functional and non functional requirements. It lists the possible interactions with the system in the form of scenarios, use cases and sequence diagrams.
+
+	\item \textbf{Formal Analysis Using Alloy}: contains a formal description of some critical aspects of the system by using Alloy.
+
+	\item \textbf{Effort Spent}: keeps track of the time spent to realize this document.
+\end{enumerate}
