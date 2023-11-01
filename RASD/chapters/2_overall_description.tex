@@ -1,13 +1,53 @@
 \chapter{Overall Description}
 
 \section{Product perspective}
-
-
 \subsection{Class diagram}
-
+\subsection{State diagrams}
 \clearpage
 
-\subsection{State diagrams}
+\section{Scenarios}
+In this section we will analyze all possible scenario that can occur in using the CKB platform.
+
+\subsection{Scenario 1: User registration (both students and educators)}
+Mario is a professor and wants to challenge his students, so he choose the CKB platform. He creates a personal account by inserting some personal information and then get a confirmation e-mail about the creation of a new account. He now can be able to create tournaments and battle. \newline
+Peach is a computer science student and wants to improve her software development skills. She learns about the CKB platform from her professor, and decide to create an account to be able to participate to battles. The platform request some personal information and then she get a confirmation e-mail about the creation of his new account. She now have a personal profile where every other user can see her progress, in terms of badges earned, battles won, and tournament rankings. \newline
+In both cases the platform request some personal information such as name, surname, username, password, e-mail and the role, that can be student or educator. The account is created after the user clicks on the link sent in the confirmation e-mail. All future notifications will be sent through that e-mail. \newline
+Every registered user can log-in with username and password any time, in order to access the personal dashboard and use the CKB platform.
+
+\subsection{Scenario 2: Tournament and battle creation}
+Mario, that is a registered educator, wants to create a new tournament called "Super Smash". He open the CKB platform, log-in, and from his personal dashboard he select the option "create new tournament". He then follows all the steps that allows him to set a registration deadline and a minimum and maximum number of participants. He can then invite other educators to create battles within his tournament. \newline
+Mario invites Luigi to his tournament by adding his username to the list of collaborator. Luigi will be notified by e-mail, and if interested have to join the tournament. \newline
+Luigi, that is also a registered educator, wants to create a new battle in Mario's tournament. He open the CKB platform, log-in, and from his personal dashboard he select "Super Smash" from the list of his tournaments.
+He then select the option "create new battle" and follows all the steps that allows him to upload the code kata, set a registration deadline, minimum and maximum number of students per group and a final submission deadline.
+The tournament "Super Smash" with the first battle are now open, in the list of all ongoing tournaments. \newline
+Mario can close the tournament whenever he wants, all ongoing battles will finish within their final submission deadline. Then the CKB platform will publish the final tournament rank when is available and send a notification to all enrolled students.
+
+\subsection{Scenario 3: Students team formation}
+Peach, that is a registered student, wants to join a tournament. She open the CKB platform, log-in, and from her personal dashboard she is able to see the list of all ongoing tournaments. She selects a tournament and, if the subscription phase is still open, she enrolls.
+Daisy enrolls in the same tournament as Peach. \newline
+Peach decides to form a team. She can invite students up to the maximum number allowed. She has a limited number of invitations, and if someone does not accept the invitation within a fixed time, she can re-send the invite to someone else.
+She sends the invite to Daisy and Toad by adding their username in the team. They will receive a notification by e-mail, and if interested can join the team. Toad decided to join, while Daisy decline the invite. \newline
+If the team reach the minimum number of participants for the battle by the registration deadline, they can compete.
+
+\subsubsection{A team does not reach the minimum number of participants}
+Let's say that the minimum number of participant for the  previously mentioned battle is 3, in this case Peach can re-send the invite to another student but she forgot and the registration deadline expires.
+Peach's team cannot compete in the battle, therefore their score will be automatically 0.
+
+\subsection{Scenario 4: Real-time battle progress}
+Peach has formed a valid team for a battle within a tournament. The CKB platform has automatically created a GitHub repository with all the essential elements for the resolution of the battle, and send a link to all enrolled students.
+Peach and her team have to fork this repository and set up an automated workflow 
+through GitHub Actions. At each pushed commit the platform automatically update the total score of the team. Teams are also able to see the current rank evolving during the battle, so that they can improve their solution to get a better rank.
+
+\subsubsection{Students push the solution after the deadline}
+Every submission after the deadline is ignored, therefore the team will get a score of 0.
+
+\subsection{Scenario 5: Manual evaluation}
+After the final submission deadline of a battle expires, a consolidation phase open. During this phase Luigi, that is the creator of the battle, can optionally assign a personal score to each student that will be added to the total score of the entire team.
+
+\subsubsection{The score exceed the maximum value}
+Luigi can make a mistake and assign a score to a student making the overall team score higher than 100. In this case the score will be automatically cut off to 100.
+
+\subsection{Scenario 6: Gamification badges management}
 
 \clearpage
 
@@ -64,18 +104,6 @@ Every user can view a profile of a student by searching for his/her username. In
 This function will be available only for educators. \newline A badge can be created by specifying a title and at least one rule that must be satisfied to achieve it. Each badge is then automatically assigned to one or more students by checking the validity of the rules.
 Educators can also create new variables that represent relevant information for scoring. A variable is identified by a unique name and a measurement unit, that can be selected by a list of predefined (e.g. integer, float, date, ..).
 
-\clearpage
-
-\subsection{Scenarios}
-\subsubsection{Scenario 1: User registration}\label{sc:first}
-(distinguish between students and educators)
-\subsubsection{Scenario 2: Tournament and battle creation}\label{sc:second}
-\subsubsection{Scenario 3: Student team formation}\label{sc:third}
-(limit cases: 1) a student want to enroll in a team that is full, or there are a restricted number of invites that can be sent 2) a team does not reach the minimum number of student -> their team is cancelled or their score is automatically 0)
-\subsection{Scenario 4: Students upload the code after the deadline}\label{sc:fourth}
-(limit case: 0 score, every submission after the deadline is ignored)
-
-\clearpage
 \subsection{Use cases description}
 Use cases capture functional requirements of a system from the users' perspective.
 
