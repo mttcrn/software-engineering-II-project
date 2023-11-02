@@ -5,16 +5,16 @@
 \subsection{State diagrams}
 \clearpage
 
-\section{Scenarios}
-In this section we will analyze all possible scenario that can occur in using the CKB platform.
+\subsection{Scenarios}
+In this section we will analyze all possible scenarios that can occur in using the CKB platform.
 
-\subsection{Scenario 1: User registration (both students and educators)}
+\subsubsection{Scenario 1: User registration (both students and educators)}
 Mario is a professor and wants to challenge his students, so he choose the CKB platform. He creates a personal account by inserting some personal information and then get a confirmation e-mail about the creation of a new account. He now can be able to create tournaments and battle. \newline
 Peach is a computer science student and wants to improve her software development skills. She learns about the CKB platform from her professor, and decide to create an account to be able to participate to battles. The platform request some personal information and then she get a confirmation e-mail about the creation of his new account. She now have a personal profile where every other user can see her progress, in terms of badges earned, battles won, and tournament rankings. \newline
 In both cases the platform request some personal information such as name, surname, username, password, e-mail and the role, that can be student or educator. The account is created after the user clicks on the link sent in the confirmation e-mail. All future notifications will be sent through that e-mail. \newline
 Every registered user can log-in with username and password any time, in order to access the personal dashboard and use the CKB platform.
 
-\subsection{Scenario 2: Tournament and battle creation}
+\subsubsection{Scenario 2: Tournament and battle creation}
 Mario, that is a registered educator, wants to create a new tournament called "Super Smash". He open the CKB platform, log-in, and from his personal dashboard he select the option "create new tournament". He then follows all the steps that allows him to set a registration deadline and a minimum and maximum number of participants. He can then invite other educators to create battles within his tournament. \newline
 Mario invites Luigi to his tournament by adding his username to the list of collaborator. Luigi will be notified by e-mail, and if interested have to join the tournament. \newline
 Luigi, that is also a registered educator, wants to create a new battle in Mario's tournament. He open the CKB platform, log-in, and from his personal dashboard he select "Super Smash" from the list of his tournaments.
@@ -22,36 +22,34 @@ He then select the option "create new battle" and follows all the steps that all
 The tournament "Super Smash" with the first battle are now open, in the list of all ongoing tournaments. \newline
 Mario can close the tournament whenever he wants, all ongoing battles will finish within their final submission deadline. Then the CKB platform will publish the final tournament rank when is available and send a notification to all enrolled students.
 
-\subsection{Scenario 3: Students team formation}
+\subsubsection{Scenario 3: Students team formation}
 Peach, that is a registered student, wants to join a tournament. She open the CKB platform, log-in, and from her personal dashboard she is able to see the list of all ongoing tournaments. She selects a tournament and, if the subscription phase is still open, she enrolls.
 Daisy enrolls in the same tournament as Peach. \newline
 Peach decides to form a team. She can invite students up to the maximum number allowed. She has a limited number of invitations, and if someone does not accept the invitation within a fixed time, she can re-send the invite to someone else.
 She sends the invite to Daisy and Toad by adding their username in the team. They will receive a notification by e-mail, and if interested can join the team. Toad decided to join, while Daisy decline the invite. \newline
-If the team reach the minimum number of participants for the battle by the registration deadline, they can compete.
-
-\subsubsection{A team does not reach the minimum number of participants}
-Let's say that the minimum number of participant for the  previously mentioned battle is 3, in this case Peach can re-send the invite to another student but she forgot and the registration deadline expires.
+If the team reach the minimum number of participants for the battle by the registration deadline, they can compete. \newline
+\textbf{A team does not reach the minimum number of participants:} Let's say that the minimum number of participant for the  previously mentioned battle is 3, in this case Peach can re-send the invite to another student but she forgot and the registration deadline expires.
 Peach's team cannot compete in the battle, therefore their score will be automatically 0.
 
-\subsection{Scenario 4: Real-time battle progress}
+\subsubsection{Scenario 4: Real-time battle progress}
 Peach has formed a valid team for a battle within a tournament. The CKB platform has automatically created a GitHub repository with all the essential elements for the resolution of the battle, and send a link to all enrolled students.
 Peach and her team have to fork this repository and set up an automated workflow 
-through GitHub Actions. At each pushed commit the platform automatically update the total score of the team. Teams are also able to see the current rank evolving during the battle, so that they can improve their solution to get a better rank.
+through GitHub Actions. At each pushed commit the platform automatically update the total score of the team. Teams are also able to see the current rank evolving during the battle, so that they can improve their solution to get a better rank.\newline
+\textbf{Students push the solution after the deadline:} Every submission after the deadline is ignored, therefore the team will get a score of 0.
 
-\subsubsection{Students push the solution after the deadline}
-Every submission after the deadline is ignored, therefore the team will get a score of 0.
-
-\subsection{Scenario 5: Manual evaluation}
+\subsubsection{Scenario 5: Manual evaluation}
 After the final submission deadline of a battle expires, a consolidation phase open. During this phase Luigi, that is the creator of the battle, can optionally assign a personal score to each student that will be added to the total score of the entire team.
+As soon as Luigi has finished to evaluate all students, he will end the consolidation phase, and when the ranking are available all students will be notified.\newline
+\textbf{The score exceed the maximum value:} Luigi can make a mistake and assign a score to a student making the overall team score higher than 100. In this case the score will be automatically cut off to 100.
 
-\subsubsection{The score exceed the maximum value}
-Luigi can make a mistake and assign a score to a student making the overall team score higher than 100. In this case the score will be automatically cut off to 100.
-
-\subsection{Scenario 6: Gamification badges management}
+\subsubsection{Scenario 6: Gamification badges management}
+Mario, that is a registered educator, wants to create a new badge that is earned by the student who wrote the most lines of code. From his personal dashboard he select the option "create new badge", then he has to specify the name, a description and one or more rules that regulates if a student is eligible to get that badge. In this case the name will be "Top Writer" and it will be awarded to the student who wrote the most lines of code within a battle. \newline
+Peach, that is a student, aspires to earn the "Top Writer" badge, and so she heavily contributed on the last battle. At the end of the battle the CKB platform automatically checks if any student is eligible for a badge, and Peach is assigned the "Top Writer", which will appear on her CKB profile.
 
 \clearpage
 
 \section{Product functions}\label{desc:prodFunc}
+In this section are explained the main functions that the CKB should provide to its users.
 \subsection{Sign Up and Login}
 These function will be available for all user.\newline All users can create a new profile by the sign up function. Each profile is uniquely identified by a username. Each user will be ask to provide an email, a password and role (student or educator). \newline
 A login can occur every time by the use of username (or email) and password.
@@ -74,24 +72,21 @@ When the registration deadline expires, the CKB platform automatically creates a
 \subsection{Subscribe to a tournament}
 This function will be available only for students. \newline When a new tournament is created all registered students are notified and can subscribe within a given deadline.
 
-
 \subsection{Join a battle or a team}
 This function will be available only for students. \newline When there is an upcoming battle in a tournament all subscribed students are notified. Each student can join a battle on his/her own or with a team. Teams are formed by invite.
 
-\subsection{Update scores}
+\subsection{Automatic scores updates}
 When the students push a new commit into the main branch of the GitHub repository, the CKB platform automatically analyze it and runs the tests to calculate and update the battle score of the team.\newline
-The score of each battle is evaluated in two ways:
+The score of each battle is automatically evaluated in the following ways:
 \begin{itemize}
-    \item Mandatory automated evaluation:
-        \begin{itemize}
-            \item functional aspects, measured in terms of number of test cases passed.
-            \item time, the lower time between the registration deadline and the last commit the better.
-            \item quality level of the source, extracted through static analysis tools based on aspects chosen by the educator when creating the battle.
-        \end{itemize}
-    \item Optional manual evaluation:
-        Done by the educator that checks and evaluate the work done by the student. It can be done during the consolidations stage right after the submission deadline expiration.
+        \item functional aspects, measured in terms of number of test cases passed over all test available. The higher the better.
+        \item time passed between the registration deadline and the last commit. The lower the better.
+        \item quality level of the source, extracted through static analysis tools based on aspects chosen by the educator when creating the battle. 
 \end{itemize}
-Once the consolidation stage finishes, when the final battle rank is available all enrolled students are notified.
+
+\subsection{Manually scores updates}
+When a battle ends, a consolidation stage open. The creator of the battle is able to optionally perform a manual evaluation for each student enrolled.
+Once the educator has evaluated all students he can end the consolidation, and when the final battle rank is available all enrolled students will be notified.
 
 \subsection{View all rankings}
 Every user can see the list of ongoing tournaments and the corresponding rank (that compares all subscribed students' performance) in the CKB platform.
@@ -104,35 +99,34 @@ Every user can view a profile of a student by searching for his/her username. In
 This function will be available only for educators. \newline A badge can be created by specifying a title and at least one rule that must be satisfied to achieve it. Each badge is then automatically assigned to one or more students by checking the validity of the rules.
 Educators can also create new variables that represent relevant information for scoring. A variable is identified by a unique name and a measurement unit, that can be selected by a list of predefined (e.g. integer, float, date, ..).
 
-\subsection{Use cases description}
-Use cases capture functional requirements of a system from the users' perspective.
-
 \section{User characteristics}
 Each user must have a profile to be able to use the CKB platform.
 There are two different type of users:
 \begin{itemize}
 	\item \textbf{Students}:
-	    The students the primary users of the CKB platform. They range from beginners to advanced learners. Each student has a personal profile that display their badges earned, battles won, and tournament rankings. 
+	    The students are the primary users of the CKB platform. They range from beginners to advanced learners. Each student has a personal profile that display their badges earned, battles won, and tournament rankings. 
 	\item \textbf{Educators}: 
 		The educators can creates and manages tournaments and/or battles. They challenge the students and then evaluate and grade them based on their submissions. An educator must be officially recognized as he/she should have the adequate knowledge.
 \end{itemize}
 
-\section{Constraints}
-\subsection{Regulatory policies}
-\subsection{Hardware limitations}
-\subsection{Interfaces to other applications}
-
-\clearpage
-
-\section{Assumptions and Dependencies}
+\section{Assumptions, dependencies and constraints}
 In this section are listed all assumption made for the domain in which the system operates. These are conditions that the system take for granted because they are external to it but influence its behaviour.
 
 \subsection{Domain assumptions}
 \begin{enumerate}[label=\textbf{DA.\arabic*}]
-        \item Users must have internet connection to interacts with the CKB platform. 
-        \item Students must have a GitHub account to be able to deliver a solution.
-        \item Students must fork the GitHub repository created by the CKB platform and set up an automated workflow through GitHub Actions.
-        \item Students must have a development environment with the necessary software tools and libraries to complete code kata battles.
-        \item Educators must be qualified and experienced in software development and related fields.
-        \item The uploaded code by the educators must be correct and complete.
+        \item \lbl{da: internet} {Users must have internet connection to interacts with the CKB platform.}
+        \item \lbl{da: GitHubAccount} {Students must have a GitHub account to be able to deliver a solution.}
+        \item \lbl{da: GitHubFork} {Students must fork the GitHub repository created by the CKB platform and set up an automated workflow through GitHub Actions.}
+        \item \lbl{da: devEnv} {Students must have a development environment with the necessary software tools and libraries to complete code kata battles.}
+        \item \lbl{da: eduQual} {Educators must be qualified and experienced in software development and related fields.}
+        \item \lbl{da: correctCode} {The uploaded code by the educators must be correct and complete.}
 \end{enumerate}
+
+\subsection{Constraints}
+In this section are presented general considerations about limitations on the systems.
+
+\subsubsection{Regulatory policies}
+All users information will be processed in according with the GDPR, and e-mail addresses won't be used for commercial purposes.
+
+\subsubsection{Interfaces to other applications}
+The CKB platform uses the GitHub API [... to be defined]

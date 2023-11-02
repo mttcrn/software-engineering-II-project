@@ -11,14 +11,48 @@ In this section, it is given a complete description of the functional requiremen
 
     \subsection{Requirements}
         \begin{enumerate}[series=requirements, label=\textbf{R.\arabic*}]
-            \item Users must provide a personal e-mail that they periodically check.
-            \item The system ensures that every user is identified by a unique username.
-            \item The system must send a notification (via e-mail) within 10 seconds.
+            \item \lbl{req: reg} {The system shall allow users to register on the platform with their personal information.}
+            \item \lbl{req: login} {The system shall allow users to log into the platform with valid credentials.}
+            \item \lbl{req: createT} {The system shall allow the educators to create and manage tournaments.}
+            \item \lbl{req: createB} {The system shall allow the educators to create code kata battles within a tournament.}
+            \item \lbl{req: listT} {The system shall allow all users to see the list of ongoing tournaments.}
+            \item \lbl{req: enrollT} {The system shall allow students to subscribe in tournaments.}
+            \item \lbl{req: enrollB} {The system shall allow students to enroll in a battle within a tournament.}
+            \item \lbl{req: formTeam} {The system shall allow students to form team for battles, by inviting other students.}
+            \item \lbl{req: evalA} {The system shall automatically evaluate submissions.}
+            \item \lbl{req: ranks} {The system shall allow users to be able to monitor ranking in real-time during battles and tournaments.}
+            \item \lbl{req: evalM} {The system shall allow educators to manually evaluate students (if needed) right after a battle closes, during the consolidation stage.}
+            \item \lbl{req: createBad} {The system shall allow educators to create badges.}
+            \item \lbl{req: profile} {The system shall allow users to see other students' profile.}
+            \item \lbl{req: notif} {The system shall send a notification (via e-mail) within 10 seconds.}
         \end{enumerate}
 
-    \subsection{Goal mapping on requirements}
+    \subsection{Use cases}
 
+    \subsection{Goal mapping on requirements and domain assumption}
+        \begin{center}
+            \begin{tabular}{|p{5cm}|p{5cm}|}
+                \hline
+                \multicolumn{2}{|p{10cm}|}{\print{goal: createT}} \\
+                \hline
+    		\print{req: createT} & \print{da: internet} \\
+                \print{req: notif} & \\
+                \hline
+    	\end{tabular}
+        \end{center}
+
+        \begin{center}
+             \begin{tabular}{ |p{5cm}|p{5cm}| }
+                \hline
+                \multicolumn{2}{|p{10cm}|}{\print{goal: createB}} \\
+                \hline
+    		\print{req: createB} & \print{da: internet} \\
+                \print{req: notif} & \print{da: correctCode} \\
+                \hline
+    	\end{tabular}
+        \end{center}
     \subsection{Traceability matrix}
+    
 
 \section{Performance Requirements}
 
@@ -28,14 +62,16 @@ In this section, it is given a complete description of the functional requiremen
 
 \section{Software System Attributes}
 \subsection{Reliability}
+The CKB platform should be highly reliable in order to guarantee the continuity of the service. 
 \subsection{Availability}
+The CKB platform should be available to users 24/7, without frequent interruptions. For this reasons maintenance and updates must be scheduled in advance so that they do not interfere with any ongoing battle.
 \subsection{Security}
+As the system store some personal information about the users, so [..]
 \subsection{Maintainability}
 \subsection{Portability}
 \subsection{Usability}
+The user interfaces of the platform should be easy to use and intuitive.
 
 \section{Other Requirements}
 \subsection{Privacy Requirements}
 \subsection{Installation requirements}
-
-
