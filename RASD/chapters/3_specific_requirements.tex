@@ -5,6 +5,7 @@
 \subsection{Hardware Interfaces}
 \subsection{Software Interfaces}
 \subsection{Communication Interfaces}
+\clearpage
 
 \section{Functional Requirements}
 In this section, it is given a complete description of the functional requirements of the system.
@@ -12,8 +13,9 @@ In this section, it is given a complete description of the functional requiremen
     \subsection{Requirements}
         \begin{enumerate}[series=requirements, label=\textbf{R.\arabic*}]
             \item \lbl{req: reg} {The system shall allow users to register on the platform with their personal information.}
-            \item \lbl{req: login} {The system shall allow users to log into the platform with valid credentials.}
-            \item \lbl{req: createT} {The system shall allow the educators to create and manage tournaments.}
+            \item \lbl{req: login} {The system shall allow registerd users to log in the platform with valid credentials.}
+            \item \lbl{req: createT} {The system shall allow the educators to create tournaments.}
+            \item \lbl{req: manageT} {The system shall allow the educators to manage their tournaments, in particular invites other collaborators and ends the tournament.}
             \item \lbl{req: createB} {The system shall allow the educators to create code kata battles within a tournament.}
             \item \lbl{req: listT} {The system shall allow all users to see the list of ongoing tournaments.}
             \item \lbl{req: enrollT} {The system shall allow students to subscribe in tournaments.}
@@ -23,37 +25,189 @@ In this section, it is given a complete description of the functional requiremen
             \item \lbl{req: ranks} {The system shall allow users to be able to monitor ranking in real-time during battles and tournaments.}
             \item \lbl{req: evalM} {The system shall allow educators to manually evaluate students (if needed) right after a battle closes, during the consolidation stage.}
             \item \lbl{req: createBad} {The system shall allow educators to create badges.}
+            \item \lbl{req: defineRV} {The system shall allow educators to define rules and variables.}
             \item \lbl{req: profile} {The system shall allow users to see other students' profile.}
-            \item \lbl{req: notif} {The system shall send a notification (via e-mail) within 10 seconds.}
+            \item \lbl{req: notifT} {The system shall notify the students about new tournaments within 10 seconds.}
+            \item \lbl{req: notifB} {The system shall notify the students about upcoming battles in tournaments in which they are subscribed within 10 seconds.}
+             \item \lbl{req: notifInvite} {The system shall notify the students when they receive an invite to partecipate in a team within 10 seconds.}
+             \item \lbl{req: notifRankB} {The system shall notify the students when the final battle rank became available within 10 seconds.}
+             \item \lbl{req: notifRankT} {The system shall notify the students when the final tournament rank became available within 10 seconds.}
         \end{enumerate}
 
     \subsection{Use cases}
 
-    \subsection{Goal mapping on requirements and domain assumption}
+    \subsection{Goal mapping on requirements and domain assumption}      
         \begin{center}
-            \begin{tabular}{|p{5cm}|p{5cm}|}
+            \begin{tabular}{ |m{15cm}| }
+                \hline \\
+                \textbf{\print{goal: createT}} \\
+                \hline \\
+                \print{req: reg}
+                \print{req: login}
+                \print{req: createT} 
+                \print{req: manageT}
+                \print{req: notifT} \\ 
+                \hline \\
+                \print{da: internet} 
+                \print{da: eduQual} \\
                 \hline
-                \multicolumn{2}{|p{10cm}|}{\print{goal: createT}} \\
-                \hline
-    		\print{req: createT} & \print{da: internet} \\
-                \print{req: notif} & \\
-                \hline
-    	\end{tabular}
+            \end{tabular} 
         \end{center}
-
+        \begin{center}   
+             \begin{tabular}{|m{15cm}|}
+                \hline \\
+                \textbf{\print{goal: createB}} \\
+                \hline \\
+                \print{req: reg}
+                \print{req: login}
+                \print{req: createB} 
+                \print{req: notifB}\\
+                \hline \\
+                \print{da: internet} 
+                \print{da: correctCode} 
+                \print{da: eduQual} \\
+                \hline
+            \end{tabular} 
+        \end{center} 
         \begin{center}
-             \begin{tabular}{ |p{5cm}|p{5cm}| }
+            \begin{tabular}{|m{15cm}|}
+                \hline \\
+                \textbf{\print{goal: enrollT}} \\
+                \hline \\
+                \print{req: reg}
+                \print{req: login}
+                \print{req: listT}
+                \print{req: enrollT} 
+                \print{req: notifT} \\
+                \hline \\
+                \print{da: internet}\\
                 \hline
-                \multicolumn{2}{|p{10cm}|}{\print{goal: createB}} \\
-                \hline
-    		\print{req: createB} & \print{da: internet} \\
-                \print{req: notif} & \print{da: correctCode} \\
-                \hline
-    	\end{tabular}
+            \end{tabular} 
         \end{center}
+        \begin{center}
+            \begin{tabular}{|m{15cm}|}
+                \hline \\
+                \textbf{\print{goal: enrollB}} \\
+                \hline \\
+                \print{req: reg}
+                \print{req: login}
+                \print{req: enrollB} 
+                \print{req: notifB} \\
+                \hline \\
+                \print{da: internet} 
+                \print{da: GitHubAccount}
+                \print{da: devEnv}\\
+                \hline
+            \end{tabular} 
+        \end{center}
+        \begin{center}
+            \begin{tabular}{|m{15cm}|}
+                \hline \\
+                \textbf{\print{goal: formTeam}} \\
+                \hline \\
+                \print{req: reg}
+                \print{req: login}
+                \print{req: formTeam} 
+                \print{req: notifInvite} \\
+                \hline \\
+                \print{da: GitHubAccount}
+                \print{da: devEnv}
+                \print{da: GitHubFork}
+                \print{da: internet} \\
+                \hline
+            \end{tabular} 
+        \end{center}
+        \begin{center}
+            \begin{tabular}{|m{15cm}|}
+                \hline \\
+                \textbf{\print{goal: scoreB}} \\
+                \hline \\
+                \print{req: reg}
+                \print{req: login}
+                \print{req: evalA} 
+                \print{req: evalM} 
+                \print{req: ranks} 
+                \print{req: notifRankB} \\
+                \hline \\
+                \print{da: internet} \\
+                \hline
+            \end{tabular} 
+        \end{center}
+        \begin{center}
+            \begin{tabular}{|m{15cm}|}
+                \hline \\
+                \textbf{\print{goal: listT}} \\
+                \hline \\
+                \print{req: reg}
+                \print{req: login}
+                \print{req: listT} 
+                \print{req: notifT}\\
+                \hline \\
+                \print{da: internet} \\
+                \hline
+            \end{tabular} 
+        \end{center}
+        \begin{center}
+            \begin{tabular}{|m{15cm}|}
+                \hline \\
+                \textbf{\print{goal: rankT}} \\
+                \hline \\
+                \print{req: reg}
+                \print{req: login}
+                \print{req: ranks} 
+                \print{req: notifRankT} \\
+                \hline \\
+                \print{da: internet} \\
+                \hline
+            \end{tabular} 
+        \end{center}
+        \begin{center}
+            \begin{tabular}{|m{15cm}|}
+                \hline \\
+                \textbf{\print{goal: createBad}} \\
+                \hline \\
+                \print{req: reg}
+                \print{req: login}
+                \print{req: createBad}
+                \print{req: defineRV}\\
+                \hline \\
+                \print{da: internet} 
+                \print{da: eduQual}\\
+                \hline
+            \end{tabular} 
+        \end{center}
+        \begin{center}
+            \begin{tabular}{|m{15cm}|}
+                \hline \\
+                \textbf{\print{goal: profile}} \\
+                \hline \\
+                \print{req: reg}
+                \print{req: login}
+                \print{req: profile} \\
+                \hline \\
+                \print{da: internet} \\
+                \hline
+            \end{tabular} 
+        \end{center}
+        
     \subsection{Traceability matrix}
+    %preimpostata, va riempita quando faremo gli usecases
+    \begin{table}[h]
+	    \centering
+            \renewcommand{\arraystretch}{1.5}
+            \begin{tabular}{|m{3.4cm}|m{3.4cm}|m{3.4cm}|m{3.4cm}|}
+                \hline
+                \textbf{Use Case ID} & \textbf{Goal ID} & \textbf{Req ID} & \textbf{Scenarios} \\
+                \hline
+                usecase 1 & \ref{goal: createT} & \ref{req: createT} & sce1  \\
+                \null & \null  & \ref{req: manageT} & scen2 \\
+                \hline
+                cc & cc & cc & cc  \\
+                \hline 
+            \end{tabular}
+    \end{table}
     
-
+\clearpage
 \section{Performance Requirements}
 
 \section{Design Constraints}
@@ -64,9 +218,9 @@ In this section, it is given a complete description of the functional requiremen
 \subsection{Reliability}
 The CKB platform should be highly reliable in order to guarantee the continuity of the service. 
 \subsection{Availability}
-The CKB platform should be available to users 24/7, without frequent interruptions. For this reasons maintenance and updates must be scheduled in advance so that they do not interfere with any ongoing battle.
+The CKB platform should be available to users 24/7, without frequent interruptions. For this reasons maintenance and updates must be scheduled in advance so that they do not interfere with ongoing battles.
 \subsection{Security}
-As the system store some personal information about the users, so [..]
+As the system store some personal information about the users, so security is an important issue.
 \subsection{Maintainability}
 \subsection{Portability}
 \subsection{Usability}
