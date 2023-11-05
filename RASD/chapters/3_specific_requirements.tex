@@ -2,9 +2,15 @@
 
 \section{External interface Requirements}
 \subsection{User Interfaces}
+The images below will present an idea of the user interfaces of the major function of the system. Since educators and students uses the platform differently, they will have access to two different personalized dashboard. 
+\subsubsection{Used by the students.}
+\subsubsection{Used by the educators.}
 \subsection{Hardware Interfaces}
+The only hardware interface required is the personal device of the user (computer, tablet or smartphone) that will access the CKB platform through the web browser.
 \subsection{Software Interfaces}
+The CKB systems uses the GitHub API in order to automatically detects a new commit to the main branch of each forked repository. This will trigger the automated workflow that will evaluate the current submission.
 \subsection{Communication Interfaces}
+The only communication interface used is internet, via HTTP.
 \clearpage
 
 \section{Functional Requirements}
@@ -13,7 +19,7 @@ In this section, it is given a complete description of the functional requiremen
     \subsection{Requirements}
         \begin{enumerate}[series=requirements, label=\textbf{R.\arabic*}]
             \item \lbl{req: reg} {The system shall allow users to register on the platform with their personal information.}
-            \item \lbl{req: login} {The system shall allow registerd users to log in the platform with valid credentials.}
+            \item \lbl{req: login} {The system shall allow registered users to log in the platform with valid credentials.}
             \item \lbl{req: createT} {The system shall allow the educators to create tournaments.}
             \item \lbl{req: manageT} {The system shall allow the educators to manage their tournaments, in particular invites other collaborators and ends the tournament.}
             \item \lbl{req: createB} {The system shall allow the educators to create code kata battles within a tournament.}
@@ -30,11 +36,10 @@ In this section, it is given a complete description of the functional requiremen
             \item \lbl{req: notifT} {The system shall notify the students about new tournaments within 10 seconds.}
             \item \lbl{req: notifB} {The system shall notify the students about upcoming battles in tournaments in which they are subscribed within 10 seconds.}
              \item \lbl{req: notifInvite} {The system shall notify the students when they receive an invite to partecipate in a team within 10 seconds.}
+             \item \lbl{req: notifGitHub} {The system shall notify the students when the GitHub repository of a battle is available.}
              \item \lbl{req: notifRankB} {The system shall notify the students when the final battle rank became available within 10 seconds.}
              \item \lbl{req: notifRankT} {The system shall notify the students when the final tournament rank became available within 10 seconds.}
         \end{enumerate}
-
-    \subsection{Use cases}
 
     \subsection{Goal mapping on requirements and domain assumption}      
         \begin{center}
@@ -92,7 +97,8 @@ In this section, it is given a complete description of the functional requiremen
                 \print{req: reg}
                 \print{req: login}
                 \print{req: enrollB} 
-                \print{req: notifB} \\
+                \print{req: notifB} 
+                \print{req: notifGitHub} \\
                 \hline \\
                 \print{da: internet} 
                 \print{da: GitHubAccount}
@@ -129,7 +135,8 @@ In this section, it is given a complete description of the functional requiremen
                 \print{req: ranks} 
                 \print{req: notifRankB} \\
                 \hline \\
-                \print{da: internet} \\
+                \print{da: internet} 
+                \print{da: autWorkFlow}\\
                 \hline
             \end{tabular} 
         \end{center}
@@ -189,7 +196,9 @@ In this section, it is given a complete description of the functional requiremen
                 \hline
             \end{tabular} 
         \end{center}
-        
+
+    \subsection{Use cases}
+
     \subsection{Traceability matrix}
     %preimpostata, va riempita quando faremo gli usecases
     \begin{table}[h]
@@ -209,23 +218,35 @@ In this section, it is given a complete description of the functional requiremen
     
 \clearpage
 \section{Performance Requirements}
+In this section are listed some performance requirements for the CKB platform that are essential to the efficiency of the entire system.
+The CKB platform should be able to guarantee the connection of 100.000 users simultaneously. \newline 
+In less than 2 seconds, it should be able to respond to user interactions, such as page loading. \newline
+In less than 5 seconds, it should be able to send a response to a query and run its algorithms on the metadata. This is crucial for having real-time evaluation of the students' submissions.
 
 \section{Design Constraints}
 \subsection{Standards Compliance}
+\subsection{Hardware Limitations}
 \subsection{Other Constraints}
 
 \section{Software System Attributes}
 \subsection{Reliability}
-The CKB platform should be highly reliable in order to guarantee the continuity of the service. 
-\subsection{Availability}
-The CKB platform should be available to users 24/7, without frequent interruptions. For this reasons maintenance and updates must be scheduled in advance so that they do not interfere with ongoing battles.
+The CKB platform should be highly reliable in order to guarantee the continuity of the service, every user should be able to access the platform anytime. The system should implements robust errors handling and fault tolerance mechanism to prevent error propagation and data loss. \subsection{Availability}
+The CKB platform should be available to users 24/7, without frequent interruptions. 
+Since the system is not emergency-related, it should be up 99\% of the time.
+This means that the average downtime is around at 3.65 days per year. \newline
+In order to achieve this level of availability the system should implement a disaster recovery plan, monitoring and alerting tools, and the ability to react fast to resolve any system issues.
 \subsection{Security}
-As the system store some personal information about the users, so security is an important issue.
+As the system store some personal information about the users, security is an important issue. This stored data must be encrypted, and passwords must also be hashed. \newline
+Every time a password need to be recovered a new one must be created, by sending a verification e-mail that contain a time-limited that confirm the user identity and gives them access to reset their password.
 \subsection{Maintainability}
+The CKB system should be divided in different modules implementing the various functionalities. In this way ordinary maintenance and/or future fixes or improvements will be easier to be performed. \newline
+Maintenance and updates must be scheduled in advance so that they do not interfere with ongoing battles. 
 \subsection{Portability}
+The CKB platform should be accessible from any web browser.
 \subsection{Usability}
 The user interfaces of the platform should be easy to use and intuitive.
 
 \section{Other Requirements}
 \subsection{Privacy Requirements}
-\subsection{Installation requirements}
+At the registration every user is asked to fill the following mandatory fields:
+name, surname and e-mail. 

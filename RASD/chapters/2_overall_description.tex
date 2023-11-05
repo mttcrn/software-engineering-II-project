@@ -8,7 +8,7 @@
 \subsection{Scenarios}
 In this section we will analyze all possible scenarios that can occur in using the CKB platform.
 
-\subsubsection{Scenario 1: User registration (both students and educators)}
+\subsubsection{Scenario 1: Users registration}
 Mario is a professor and wants to challenge his students, so he choose the CKB platform. He creates a personal account by inserting some personal information and then get a confirmation e-mail about the creation of a new account. He now can be able to create tournaments and battle. \newline
 Peach is a computer science student and wants to improve her software development skills. She learns about the CKB platform from her professor, and decide to create an account to be able to participate to battles. The platform request some personal information and then she get a confirmation e-mail about the creation of his new account. She now have a personal profile where every other user can see her progress, in terms of badges earned, battles won, and tournament rankings. \newline
 In both cases the platform request some personal information such as name, surname, username, password, e-mail and the role, that can be student or educator. The account is created after the user clicks on the link sent in the confirmation e-mail. All future notifications will be sent through that e-mail. \newline
@@ -34,8 +34,9 @@ Peach's team cannot compete in the battle, therefore their score will be automat
 \subsubsection{Scenario 4: Real-time battle progress}
 Peach has formed a valid team for a battle within a tournament. The CKB platform has automatically created a GitHub repository with all the essential elements for the resolution of the battle, and send a link to all enrolled students.
 Peach and her team have to fork this repository and set up an automated workflow 
-through GitHub Actions. At each pushed commit the platform automatically update the total score of the team. Teams are also able to see the current rank evolving during the battle, so that they can improve their solution to get a better rank.\newline
-\textbf{Students push the solution after the deadline:} Every submission after the deadline is ignored, therefore the team will get a score of 0.
+through GitHub Actions. At each pushed commit the platform automatically update the total score of the team. The team is also able to see the current rank evolving during the battle, so they can improve their solution to get a better rank.\newline
+\textbf{Students push the solution in a different language:} Every submission that does not use the language specified in the project description will not be evaluated, therefore the team will get a score of 0.  \newline
+\textbf{Students push the solution after the deadline:} Every submission after the deadline is ignored, therefore the team will get a score of 0. 
 
 \subsubsection{Scenario 5: Manual evaluation}
 After the final submission deadline of a battle expires, a consolidation phase open. During this phase Luigi, that is the creator of the battle, can optionally assign a personal score to each student that will be added to the total score of the entire team.
@@ -46,6 +47,9 @@ As soon as Luigi has finished to evaluate all students, he will end the consolid
 Mario, that is a registered educator, wants to create a new badge that is earned by the student who wrote the most lines of code. From his personal dashboard he select the option "create new badge", then he has to specify the name, a description and one or more rules that regulates if a student is eligible to get that badge. In this case the name will be "Top Writer" and it will be awarded to the student who wrote the most lines of code within a battle. \newline
 Peach, that is a student, aspires to earn the "Top Writer" badge, and so she heavily contributed on the last battle. At the end of the battle the CKB platform automatically checks if any student is eligible for a badge, and Peach is assigned the "Top Writer", which will appear on her CKB profile.
 
+%\subsubsection{Scenario 7: Password recovery}
+%da vedere, però può aver senso
+
 \clearpage
 
 \section{Product functions}\label{desc:prodFunc}
@@ -55,19 +59,22 @@ These function will be available for all user.\newline All users can create a ne
 A login can occur every time by the use of username (or email) and password.
 
 \subsection{Create and manage a tournament}
-This function will be available only for educators. \newline Each educator can create a new tournament and invite other colleagues to create battles within that tournament. At the creation the educator must specify the subscription deadline.
+This function will be available only for educators. \newline
+Each educator can create a new tournament and invite other colleagues to create battles within that tournament. At the creation the educator must specify the subscription deadline. +
 A tournament can then be closed by its creator, and as soon as the final tournament rank is available the CKB platform notify all students subscribed.
 
 \subsection{Create a battle within a tournament}
-This function will be available only for educators. \newline An educator can create a new battle in a tournament only if he/she created it or he/she have been invited to collaborate by another colleague.
+This function will be available only for educators. \newline 
+An educator can create a new battle in a tournament only if he/she created it or he/she have been invited to collaborate by another colleague.
 The system allow the educator to specify: 
 \begin{itemize}
-    \item code kata, that consist in the description and software project including test cases and build automated scripts,
-    \item minimum and maximum number of students per group, 
+    \item code kata, that consist in the description and software project including test cases and build automated scripts.
+    \item minimum and maximum number of students per group.
     \item registration deadline.
     \item final submission deadline.
 \end{itemize}
-When the registration deadline expires, the CKB platform automatically creates a GitHub repository, with the use of a GitHub API, that contain the code kata, and sends the link to all the students enrolled in the battle.
+The educator has to specify the languages in which the submission can be made.
+When the registration deadline expires, the CKB platform creates a GitHub repository that contain the code kata, and sends the link to all the students enrolled in the battle.
 
 \subsection{Subscribe to a tournament}
 This function will be available only for students. \newline When a new tournament is created all registered students are notified and can subscribe within a given deadline.
@@ -96,8 +103,8 @@ At the end of each battle the personal tournament score of each student is autom
 Every user can view a profile of a student by searching for his/her username. In each profile are shown badges earned, battles won, and tournament rankings. 
 
 \subsection{Create and manage gamification badges}
-This function will be available only for educators. \newline A badge can be created by specifying a title and at least one rule that must be satisfied to achieve it. Each badge is then automatically assigned to one or more students by checking the validity of the rules.
-Educators can also create new variables that represent relevant information for scoring. A variable is identified by a unique name and a measurement unit, that can be selected by a list of predefined (e.g. integer, float, date, ..).
+This function will be available only for educators. 
+\newline A badge can be created by specifying a title and at least one rule that must be satisfied to achieve it. Each badge is then automatically assigned to one or more students by checking the validity of the rules. Educators can also create new variables that represent relevant information for scoring. A variable is identified by a unique name and a measurement unit, that can be selected by a list of predefined (e.g. integer, float, date, ..).
 
 \section{User characteristics}
 Each user must have a profile to be able to use the CKB platform.
@@ -117,9 +124,10 @@ In this section are listed all assumption made for the domain in which the syste
         \item \lbl{da: internet} {Users must have internet connection to interacts with the CKB platform.}
         \item \lbl{da: GitHubAccount} {Students must have a GitHub account to be able to deliver a solution.}
         \item \lbl{da: GitHubFork} {Students must fork the GitHub repository created by the CKB platform and set up an automated workflow through GitHub Actions.}
+        \item \lbl{da: autWorkFlow} {The automatic workflow correctly trigger the CKB platform in order to evaluate the new commit.}
         \item \lbl{da: devEnv} {Students must have a development environment with the necessary software tools and libraries to complete code kata battles.}
         \item \lbl{da: eduQual} {Educators must be qualified and experienced in software development and related fields.}
-        \item \lbl{da: correctCode} {The uploaded code by the educators must be correct and complete.}
+        \item \lbl{da: correctCode} {The uploaded "code kata" by the educators must be correct and complete.}
 \end{enumerate}
 
 \subsection{Constraints}
