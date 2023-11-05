@@ -3,7 +3,7 @@ In this project we have to define the RASD and DD for CodeKataBattle.
 Platform similar to CodeKataBattle: [Code Wars](https://www.codewars.com/)  
 ## CREDITS  
 [Eliahu Itamar Cohen](https://github.com/EliahuC)  
-[Marco Geravtini](https://github.com/Shift007)  
+[Marco Gervatini](https://github.com/Shift007)  
 [Caterina Motti](https://github.com/mttcrn)  
 
 ## Requirements
