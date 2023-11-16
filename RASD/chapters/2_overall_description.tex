@@ -2,6 +2,27 @@
 
 \section{Product perspective}
 \subsection{Class diagram}
+In figure \ref{fig:class_diagram} is presented the high-level overview of the CKB system. \newline
+The main elements are:
+\begin{itemize}
+    \item User: that can be either student or educator. It is identified by a unique username.
+    \item Student: represent the personal profile of a student. It contains the earned badges, the number of battle won, and all tournament rankings.
+    \item Team: identifies a group of students that can join a battle. Students must form a team in order to participate in a battle, even if it is formed by one.
+    \item Tournament: identifies a tournament. It contain all useful information as well as all needed method(s) that allow the educators to create it and the students to enroll into it. It also contains the final rank of all participants.
+    \item Battle: identifies a battle. It contain all useful information as well as all needed method that allow the educators to create it and the team of students to join it. It also contains the rank of all teams.
+    \item Evaluator: it contains all files and methods that are necessary for both the automatic and manual evaluation.
+    \item Badge: represent a badge with a title, description and a set of rules that regulates how a student can earn the badge. All rules must be checked in order to give the badge to the student.
+    \item Rule: represent a rule. It contains the method(s) that check whether a student can receive the badge.
+\end{itemize}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.5]{images/class_diagram.png}
+    \caption{Domain class diagram}
+    \label{fig:class_diagram}
+\end{figure}
+\clearpage
+
 \subsection{State diagrams}
 \clearpage
 
@@ -47,9 +68,6 @@ As soon as Luigi has finished to evaluate all students, he will end the consolid
 Mario, that is a registered educator, wants to create a new badge that is earned by the student who wrote the most lines of code. From his personal dashboard he select the option "create new badge", then he has to specify the name, a description and one or more rules that regulates if a student is eligible to get that badge. In this case the name will be "Top Writer" and it will be awarded to the student who wrote the most lines of code within a battle. \newline
 Peach, that is a student, aspires to earn the "Top Writer" badge, and so she heavily contributed on the last battle. At the end of the battle the CKB platform automatically checks if any student is eligible for a badge, and Peach is assigned the "Top Writer", which will appear on her CKB profile.
 
-%\subsubsection{Scenario 7: Password recovery}
-%da vedere, però può aver senso
-
 \clearpage
 
 \section{Product functions}\label{desc:prodFunc}
@@ -60,7 +78,7 @@ A login can occur every time by the use of username (or email) and password.
 
 \subsection{Create and manage a tournament}
 This function will be available only for educators. \newline
-Each educator can create a new tournament and invite other colleagues to create battles within that tournament. At the creation the educator must specify the subscription deadline. +
+Each educator can create a new tournament and invite other colleagues to create battles within that tournament. At the creation the educator must specify the subscription deadline. 
 A tournament can then be closed by its creator, and as soon as the final tournament rank is available the CKB platform notify all students subscribed.
 
 \subsection{Create a battle within a tournament}
@@ -80,7 +98,7 @@ When the registration deadline expires, the CKB platform creates a GitHub reposi
 This function will be available only for students. \newline When a new tournament is created all registered students are notified and can subscribe within a given deadline.
 
 \subsection{Join a battle or a team}
-This function will be available only for students. \newline When there is an upcoming battle in a tournament all subscribed students are notified. Each student can join a battle on his/her own or with a team. Teams are formed by invite.
+This function will be available only for students. \newline When there is an upcoming battle in a tournament all subscribed students are notified. Each student can join a battle only with a team, even made up of only one student if it is allowed. Teams are formed by invite.
 
 \subsection{Automatic scores updates}
 When the students push a new commit into the main branch of the GitHub repository, the CKB platform automatically analyze it and runs the tests to calculate and update the battle score of the team.\newline
