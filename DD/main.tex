@@ -1,0 +1,37 @@
+\documentclass[a4paper, 11pt, oneside, openright, english]{article}
+
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage{graphicx}
+\graphicspath{{./figures/}{./images/}}
+
+\usepackage{geometry}
+\newgeometry{left=3cm,right=3cm,bottom=3.5cm,top=3.5cm}
+
+\usepackage{enumitem}
+\newcommand{\printitem}[1] {
+	\ref{#1} \useitemtext{#1}\break\par
+}
+
+\begin{document}
+	\include{structure/title}
+
+	\pagenumbering{Roman}
+
+	\include{structure/revision_history}
+
+	\tableofcontents
+
+	\pagenumbering{arabic}
+
+	\include{chapters/1_introduction}
+	\include{chapters/2_architectural_design}
+	\include{chapters/3_user_interface_design}
+	\include{chapters/4_requirements_traceability}
+	\include{chapters/5_implementation_integration_test}
+        \include{chapters/6_effort}
+    
+    \include{chapters/7_references}
+\end{document}
