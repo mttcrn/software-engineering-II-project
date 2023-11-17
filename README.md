@@ -9,4 +9,23 @@ Platform similar to CodeKataBattle: [Code Wars](https://www.codewars.com/)
 ## Requirements
 [Project Requirements](https://github.com/mttcrn/Cohen-Gervatini-Motti/blob/main/Assignment%20RDD%20AY%202023-2024.pdf)  
 
+## Deadlines
+# entro 22 novemembre
+Chapter 2
+2.1.2 state diagram
+
+# entro 26 novemembre
+Chapter 3
+3.1.1 User interfaces (without much detail)
+3.2.3 Usecases
+3.2.3 Sequence diagrams
+3.2.4 Traceability matrix -gervatini
+3.4 design constraints
+
+# entro 1 dicembre 
+Chapter 4
+tutto alloy
+
+# entro 8 dicembre 
+revisione completa documento rasd 
 
