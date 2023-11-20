@@ -8,8 +8,8 @@ The main elements are:
     \item User: that can be either student or educator. It is identified by a unique username.
     \item Student: represent the personal profile of a student. It contains the earned badges, the number of battle won, and all tournament rankings.
     \item Team: identifies a group of students that can join a battle. Students must form a team in order to participate in a battle, even if it is formed by one.
-    \item Tournament: identifies a tournament. It contain all useful information as well as all needed method(s) that allow the educators to create it and the students to enroll into it. It also contains the final rank of all participants.
-    \item Battle: identifies a battle. It contain all useful information as well as all needed method that allow the educators to create it and the team of students to join it. It also contains the rank of all teams.
+    \item Tournament: identifies a tournament. It contain all useful information as well as all needed method(s) that allow the educators to create it and the students to enroll into it. It also contains the final ranking of all participants.
+    \item Battle: identifies a battle. It contain all useful information as well as all needed method that allow the educators to create it and the team of students to join it. It also contains the ranking of all teams.
     \item Evaluator: it contains all files and methods that are necessary for both the automatic and manual evaluation.
     \item Badge: represent a badge with a title, description and a set of rules that regulates how a student can earn the badge. All rules must be checked in order to give the badge to the student.
     \item Rule: represent a rule. It contains the method(s) that check whether a student can receive the badge.
@@ -24,6 +24,31 @@ The main elements are:
 \clearpage
 
 \subsection{State diagrams}
+The following state diagrams describe the behaviour of the system focusing on the evolution over time of some particular aspects. 
+
+\subsubsection*{Tournament state diagram}
+The state diagram in figure \ref{fig:tournament_state} represent the evolution of a tournament, from its creation to its closure. \newline
+As soon as an educator creates a new tournament with all necessary information, the enrollment stage opens and students can spontaneously register until the deadline expires. \newline
+While the tournament is ongoing educators, who have the permits, can create new battles (further explanation below). It is possible that a tournament has no active battles, but it is still ongoing, for this reason we distinguished the two states clearly. \newline
+Only when all the battles are finished the creator can close the tournament, and the final ranking will then be available.
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.5]{images/tournament_state.png}
+    \caption{Tournament state diagram}
+    \label{fig:tournament_state}
+\end{figure}
+
+\subsubsection*{Battle state diagrams}
+The state diagram in figure \ref{fig:battle_state} represent the evolution of a battle, from its creation to its end. \newline
+As soon as an educator create a new battle with all necessary information, the enrollment stage opens. Students, who are registered to the tournament in which this battle belongs, can enroll with a team (further explanation below). \newline
+When the registration deadline expires, the enrollment stage closes, the GitHub repository is automatically created and the battle is ongoing. As soon as a new push is available in a repository of a team the automatic evaluation is performed, and the ranking is updated. \newline
+When the final submission deadline expires the battle ends and a consolidation stage opens, during which the educator can perform the manual evaluation (if needed). When the educator finishes he/she can close the consolidation stage and the ranking will be available.
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.5]{images/battle_state.png}
+    \caption{Battle state diagram}
+    \label{fig:battle_state}
+\end{figure}
 \clearpage
 
 \subsection{Scenarios}
@@ -41,7 +66,7 @@ Mario invites Luigi to his tournament by adding his username to the list of coll
 Luigi, that is also a registered educator, wants to create a new battle in Mario's tournament. He open the CKB platform, log-in, and from his personal dashboard he select "Super Smash" from the list of his tournaments.
 He then select the option "create new battle" and follows all the steps that allows him to upload the code kata, set a registration deadline, minimum and maximum number of students per group and a final submission deadline.
 The tournament "Super Smash" with the first battle are now open, in the list of all ongoing tournaments. \newline
-Mario can close the tournament whenever he wants, all ongoing battles will finish within their final submission deadline. Then the CKB platform will publish the final tournament rank when is available and send a notification to all enrolled students.
+When all ongoing battles within the tournament have finished Mario can close it. Then the CKB platform will publish the final tournament ranking when is available and send a notification to all enrolled students.
 
 \subsubsection{Scenario 3: Students team formation}
 Peach, that is a registered student, wants to join a tournament. She open the CKB platform, log-in, and from her personal dashboard she is able to see the list of all ongoing tournaments. She selects a tournament and, if the subscription phase is still open, she enrolls.
@@ -55,7 +80,7 @@ Peach's team cannot compete in the battle, therefore their score will be automat
 \subsubsection{Scenario 4: Real-time battle progress}
 Peach has formed a valid team for a battle within a tournament. The CKB platform has automatically created a GitHub repository with all the essential elements for the resolution of the battle, and send a link to all enrolled students.
 Peach and her team have to fork this repository and set up an automated workflow 
-through GitHub Actions. At each pushed commit the platform automatically update the total score of the team. The team is also able to see the current rank evolving during the battle, so they can improve their solution to get a better rank.\newline
+through GitHub Actions. At each pushed commit the platform automatically update the total score of the team. The team is also able to see the current ranking evolving during the battle, so they can improve their solution to get a better rank.\newline
 \textbf{Students push the solution in a different language:} Every submission that does not use the language specified in the project description will not be evaluated, therefore the team will get a score of 0.  \newline
 \textbf{Students push the solution after the deadline:} Every submission after the deadline is ignored, therefore the team will get a score of 0. 
 
@@ -79,7 +104,7 @@ A login can occur every time by the use of username (or email) and password.
 \subsection{Create and manage a tournament}
 This function will be available only for educators. \newline
 Each educator can create a new tournament and invite other colleagues to create battles within that tournament. At the creation the educator must specify the subscription deadline. 
-A tournament can then be closed by its creator, and as soon as the final tournament rank is available the CKB platform notify all students subscribed.
+A tournament can then be closed by its creator, and as soon as the final tournament ranking is available the CKB platform notify all students subscribed.
 
 \subsection{Create a battle within a tournament}
 This function will be available only for educators. \newline 
@@ -111,10 +136,10 @@ The score of each battle is automatically evaluated in the following ways:
 
 \subsection{Manually scores updates}
 When a battle ends, a consolidation stage open. The creator of the battle is able to optionally perform a manual evaluation for each student enrolled.
-Once the educator has evaluated all students he can end the consolidation, and when the final battle rank is available all enrolled students will be notified.
+Once the educator has evaluated all students he can end the consolidation, and when the final battle ranking is available all enrolled students will be notified.
 
 \subsection{View all rankings}
-Every user can see the list of ongoing tournaments and the corresponding rank (that compares all subscribed students' performance) in the CKB platform.
+Every user can see the list of ongoing tournaments and the corresponding ranking (that compares all subscribed students' performance) in the CKB platform.
 At the end of each battle the personal tournament score of each student is automatically updated ad the sum of all battle scores received. 
 
 \subsection{View a student profile}
