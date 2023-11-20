@@ -204,7 +204,7 @@ In this section, it is given a complete description of the functional requiremen
     \clearpage
     
     \subsection{Use cases}
-    \begin{enumerate}[series=usecases, label=\textbf{UC.\arabic*}]
+    \begin{enumerate}[label=\textbf{UC.\arabic*}]
         \item \lbl{uc: reg} \textbf{User registration}
         \begin{table}[H]
     	    \centering
@@ -312,11 +312,17 @@ In this section, it is given a complete description of the functional requiremen
                     \hline 
                 \end{tabular}
         \end{table}
+        \item \lbl{uc: inviteE} \textbf{Invite an educator}
+        \item \lbl{uc: closeT} \textbf{Close a tournament}
+        \item \lbl{uc: rankT} \textbf{See all tournament ranking}
         \item \lbl{uc: enrollT} \textbf{Subscribe in a tournament}
         \item \lbl{uc: enrollB} \textbf{Enroll in a battle}
         \item \lbl{uc: formTeam} \textbf{Form a team}
+        \item \lbl{uc: inviteS} \textbf{Invite a student}
         \item \lbl{uc: evalM} \textbf{Perform manual evaluation}
+        \item \lbl{uc: evalA} \textbf{Perform automatic evaluation}
         \item \lbl{uc: createBadge} \textbf{Create a badge}
+        \item \lbl{uc: profile} \textbf{See student profile}
     \end{enumerate}
     
 
@@ -329,7 +335,7 @@ In this section, it is given a complete description of the functional requiremen
                 \hline
                 \textbf{Use Case ID} & \textbf{Goal ID} & \textbf{Req ID} & \textbf{Scenarios} \\
                 \hline
-                usecase 1 & \ref{goal: createT} & \ref{req: createT} & sce1  \\
+                \ref{uc: createT} & \ref{goal: createT} & \ref{req: createT} & sce1  \\
                 \null & \null  & \ref{req: manageT} & scen2 \\
                 \hline
                 cc & cc & cc & cc  \\
