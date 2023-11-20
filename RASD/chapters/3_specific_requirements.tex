@@ -48,7 +48,7 @@ In this section, it is given a complete description of the functional requiremen
 
     \subsection{Goal mapping on requirements and domain assumption}      
         \begin{center}
-            \begin{tabular}{ |m{15cm}| }
+            \begin{tabular}{ |m{13.5cm}| }
                 \hline \\
                 \textbf{\print{goal: createT}} \\
                 \hline \\
@@ -64,7 +64,7 @@ In this section, it is given a complete description of the functional requiremen
             \end{tabular} 
         \end{center}
         \begin{center}   
-             \begin{tabular}{|m{15cm}|}
+             \begin{tabular}{|m{13.5cm}|}
                 \hline \\
                 \textbf{\print{goal: createB}} \\
                 \hline \\
@@ -80,7 +80,7 @@ In this section, it is given a complete description of the functional requiremen
             \end{tabular} 
         \end{center} 
         \begin{center}
-            \begin{tabular}{|m{15cm}|}
+            \begin{tabular}{|m{13.5cm}|}
                 \hline \\
                 \textbf{\print{goal: enrollT}} \\
                 \hline \\
@@ -95,7 +95,7 @@ In this section, it is given a complete description of the functional requiremen
             \end{tabular} 
         \end{center}
         \begin{center}
-            \begin{tabular}{|m{15cm}|}
+            \begin{tabular}{|m{13.5cm}|}
                 \hline \\
                 \textbf{\print{goal: enrollB}} \\
                 \hline \\
@@ -112,7 +112,7 @@ In this section, it is given a complete description of the functional requiremen
             \end{tabular} 
         \end{center}
         \begin{center}
-            \begin{tabular}{|m{15cm}|}
+            \begin{tabular}{|m{13.5cm}|}
                 \hline \\
                 \textbf{\print{goal: formTeam}} \\
                 \hline \\
@@ -129,7 +129,7 @@ In this section, it is given a complete description of the functional requiremen
             \end{tabular} 
         \end{center}
         \begin{center}
-            \begin{tabular}{|m{15cm}|}
+            \begin{tabular}{|m{13.5cm}|}
                 \hline \\
                 \textbf{\print{goal: scoreB}} \\
                 \hline \\
@@ -146,7 +146,7 @@ In this section, it is given a complete description of the functional requiremen
             \end{tabular} 
         \end{center}
         \begin{center}
-            \begin{tabular}{|m{15cm}|}
+            \begin{tabular}{|m{13.5cm}|}
                 \hline \\
                 \textbf{\print{goal: listT}} \\
                 \hline \\
@@ -160,7 +160,7 @@ In this section, it is given a complete description of the functional requiremen
             \end{tabular} 
         \end{center}
         \begin{center}
-            \begin{tabular}{|m{15cm}|}
+            \begin{tabular}{|m{13.5cm}|}
                 \hline \\
                 \textbf{\print{goal: rankT}} \\
                 \hline \\
@@ -174,7 +174,7 @@ In this section, it is given a complete description of the functional requiremen
             \end{tabular} 
         \end{center}
         \begin{center}
-            \begin{tabular}{|m{15cm}|}
+            \begin{tabular}{|m{13.5cm}|}
                 \hline \\
                 \textbf{\print{goal: createBad}} \\
                 \hline \\
@@ -189,7 +189,7 @@ In this section, it is given a complete description of the functional requiremen
             \end{tabular} 
         \end{center}
         \begin{center}
-            \begin{tabular}{|m{15cm}|}
+            \begin{tabular}{|m{13.5cm}|}
                 \hline \\
                 \textbf{\print{goal: profile}} \\
                 \hline \\
@@ -201,36 +201,131 @@ In this section, it is given a complete description of the functional requiremen
                 \hline
             \end{tabular} 
         \end{center}
-
+    \clearpage
+    
     \subsection{Use cases}
-    \subsubsection*{Use case 1}
-    %preimpostata, va riempita quando faremo gli usecases
-    \begin{table}[h]
-	    \centering
-            \renewcommand{\arraystretch}{1.5}
-            \begin{tabular}{|m{3cm}|m{11.5cm}|}
-                \hline
-                \textbf{Name} & cc \\
-                \hline
-                \textbf{Actors} & cc \\
-                \hline
-                \textbf{Entry condition}  & cc \\
-                \hline
-                \textbf{Event flow}  & cc \\ 
-                \hline
-                \textbf{Exit conditions}  & cc \\
-                \hline
-                \textbf{Exception}  & cc \\
-                \hline 
-            \end{tabular}
-    \end{table}
+    \begin{enumerate}[series=usecases, label=\textbf{UC.\arabic*}]
+        \item \lbl{uc: reg} \textbf{User registration}
+        \begin{table}[H]
+    	    \centering
+                \renewcommand{\arraystretch}{1.5}
+                \begin{tabular}{|m{3.2cm}|m{9.8cm}|}
+                    \hline
+                    \textbf{Name} & User registration \\
+                    \hline
+                    \textbf{Actors} & Educators, Students. \\
+                    \hline
+                    \textbf{Entry conditions}  & An user enters the CKB platform for the first time and clicks on the "sign up" button. \\
+                    \hline
+                    \textbf{Event flow}  & 
+                    \begin{enumerate}[label=\arabic*.]
+                        \item User visualize the register page.
+                        \item User inserts the requested personal information.
+                        \item The system checks if all information are inserted.
+                        \item The system checks if the username is available.
+                        \item The system creates the personal profile of the user.
+                    \end{enumerate}\\
+                    \hline
+                    \textbf{Exit conditions}  & The user is registered in the system. \\
+                    \hline
+                    \textbf{Exceptions}  & 
+                    \begin{itemize}
+                        \item If some information are missing the system will throw an error message and the user will be requested to insert the missing ones.
+                        \item If the chosen username is not available the system will throw an error message and the user will be requested to choose another one.
+                    \end{itemize} \\
+                    \hline 
+                \end{tabular}
+        \end{table}
+        \item \lbl{uc: login} \textbf{User login}
+        \begin{table}[H]
+    	    \centering
+                \renewcommand{\arraystretch}{1.5}
+                \begin{tabular}{|m{3.2cm}|m{9.8cm}|}
+                    \hline
+                    \textbf{Name} & User login \\
+                    \hline
+                    \textbf{Actors} &  Educators, students. \\
+                    \hline
+                    \textbf{Entry conditions}  & The user opens the CKB platform and has clicks on "log in" button. \\
+                    \hline
+                    \textbf{Event flow}  & 
+                    \begin{enumerate}[label=\arabic*.]
+                        \item User visualize the log in page.
+                        \item User inserts username and password in the form.
+                        \item User clicks on "log in" button.
+                        \item The system checks the credentials.
+                        \item The system show the personal dashboard.
+                    \end{enumerate}\\
+                    \hline
+                    \textbf{Exit conditions}  & The user has entered the CKB platform successfully. \\
+                    \hline
+                    \textbf{Exceptions}  & If username and/or password are not correct the system will throw an error message and return to the entry condition. \\
+                    \hline 
+                \end{tabular}
+        \end{table}
+        \item \lbl{uc: createT} \textbf{Create a tournament}
+        \begin{table}[H]
+    	    \centering
+                \renewcommand{\arraystretch}{1.5}
+                \begin{tabular}{|m{3.2cm}|m{9.8cm}|}
+                    \hline
+                    \textbf{Name} & Create a tournament \\
+                    \hline
+                    \textbf{Actors} & Educators \\
+                    \hline
+                    \textbf{Entry conditions}  & An educator, who is logged in the platform, clicks on the button "create tournament". \\
+                    \hline
+                    \textbf{Event flow}  &  
+                    \begin{enumerate}[label=\arabic*.]
+                        \item Educator inserts all needed information in the form.
+                        \item The system checks that the correctness of all information.
+                        \item Educator invites other colleagues (if needed).
+                    \end{enumerate}\\
+                    \hline
+                    \textbf{Exit conditions}  & The tournament has been successfully created and can be visualize in the list of all ongoing tournaments. \\
+                    \hline
+                    \textbf{Exceptions}  & 
+                    \begin{itemize}
+                        \item If there are some missing information, the system will throw an error message. The system return to the entry condition.
+                        \item  If an information is incorrect the system will throw an error message and the educator will be requested to modify it.
+                    \end{itemize}\\
+                    \hline 
+                \end{tabular}
+        \end{table}
+        \item \lbl{uc: createB} \textbf{Create battle}
+        \begin{table}[H]
+    	    \centering
+                \renewcommand{\arraystretch}{1.5}
+                \begin{tabular}{|m{3.2cm}|m{9.8cm}|}
+                    \hline
+                    \textbf{Name} & cc \\
+                    \hline
+                    \textbf{Actors} & cc \\
+                    \hline
+                    \textbf{Entry conditions}  & cc \\
+                    \hline
+                    \textbf{Event flow}  & cc \\ 
+                    \hline
+                    \textbf{Exit conditions}  & cc \\
+                    \hline
+                    \textbf{Exceptions}  & cc \\
+                    \hline 
+                \end{tabular}
+        \end{table}
+        \item \lbl{uc: enrollT} \textbf{Subscribe in a tournament}
+        \item \lbl{uc: enrollB} \textbf{Enroll in a battle}
+        \item \lbl{uc: formTeam} \textbf{Form a team}
+        \item \lbl{uc: evalM} \textbf{Perform manual evaluation}
+        \item \lbl{uc: createBadge} \textbf{Create a badge}
+    \end{enumerate}
+    
 
     \subsection{Traceability matrix}
     %preimpostata, va riempita quando faremo gli usecases
     \begin{table}[h]
 	    \centering
             \renewcommand{\arraystretch}{1.5}
-            \begin{tabular}{|m{3.4cm}|m{3.4cm}|m{3.4cm}|m{3.4cm}|}
+            \begin{tabular}{|m{3cm}|m{3cm}|m{3cm}|m{3cm}|}
                 \hline
                 \textbf{Use Case ID} & \textbf{Goal ID} & \textbf{Req ID} & \textbf{Scenarios} \\
                 \hline
