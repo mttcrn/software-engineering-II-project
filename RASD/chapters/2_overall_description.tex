@@ -49,6 +49,20 @@ When the final submission deadline expires the battle ends and a consolidation s
     \caption{Battle state diagram}
     \label{fig:battle_state}
 \end{figure}
+
+\subsubsection*{Team state diagrams}
+The state diagram in figure \ref{fig:team_state} represent the evolution of a team, from its creation to its end. \newline
+When a student who is enrolled in a tournament wants to participate in a battle he/she must create a team. The creator can send infinite invitations, and the firsts to accept will be added to the team. As soon as the team reach the maximum value of students, it is complete and all other invitations sent before will not be useful. \newline
+As soon as the battle registration deadline expires the team formation closes. If the team has reached the minimum required value it is complete and can participate to the battle. Otherwise it will be eliminated. \newline 
+If all invitations are declined the creator have the possibility to eliminate the team. 
+If the creator create the team by error, he can eliminate it. This is necessary because a creator is not allowed to join another team by accepting an invite.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.5]{images/team_state.png}
+    \caption{Team state diagram}
+    \label{fig:team_state}
+\end{figure}
 \clearpage
 
 \subsection{Scenarios}
@@ -122,8 +136,14 @@ When the registration deadline expires, the CKB platform creates a GitHub reposi
 \subsection{Subscribe to a tournament}
 This function will be available only for students. \newline When a new tournament is created all registered students are notified and can subscribe within a given deadline.
 
-\subsection{Join a battle or a team}
-This function will be available only for students. \newline When there is an upcoming battle in a tournament all subscribed students are notified. Each student can join a battle only with a team, even made up of only one student if it is allowed. Teams are formed by invite.
+\subsection{Join a battle}
+This function will be available only for students. \newline When there is an upcoming battle in a tournament all subscribed students are notified. Each student can join a battle only with a team, even made up of only one student if it is allowed. 
+
+\subsection{Create a team}
+This function will be available only for students. \newline
+Teams are formed by invite. The creator is able to send infinite invitations, and the firsts to accept will be added to the team.  \newline
+The invite will be received by e-mail, and the recipient must click on the right link if he/she wants to accept or decline. The student has 24h to respond to an invite, otherwise it will be automatically declined. \newline
+The creator is not allowed to accept other invitations. If all invitations are declined the creator can eliminate the team.
 
 \subsection{Automatic scores updates}
 When the students push a new commit into the main branch of the GitHub repository, the CKB platform automatically analyze it and runs the tests to calculate and update the battle score of the team.\newline
@@ -149,6 +169,8 @@ Every user can view a profile of a student by searching for his/her username. In
 This function will be available only for educators. 
 \newline A badge can be created by specifying a title and at least one rule that must be satisfied to achieve it. Each badge is then automatically assigned to one or more students by checking the validity of the rules. Educators can also create new variables that represent relevant information for scoring. A variable is identified by a unique name and a measurement unit, that can be selected by a list of predefined (e.g. integer, float, date, ..).
 
+\clearpage
+
 \section{User characteristics}
 Each user must have a profile to be able to use the CKB platform.
 There are two different type of users:
@@ -160,9 +182,9 @@ There are two different type of users:
 \end{itemize}
 
 \section{Assumptions, dependencies and constraints}
-In this section are listed all assumption made for the domain in which the system operates. These are conditions that the system take for granted because they are external to it but influence its behaviour.
 
 \subsection{Domain assumptions}
+In this section are listed all assumption made for the domain in which the system operates. These are conditions that the system take for granted because they are external to it but influence its behaviour.
 \begin{enumerate}[label=\textbf{DA.\arabic*}]
         \item \lbl{da: internet} {Users must have internet connection to interacts with the CKB platform.}
         \item \lbl{da: GitHubAccount} {Students must have a GitHub account to be able to deliver a solution.}
@@ -176,8 +198,5 @@ In this section are listed all assumption made for the domain in which the syste
 \subsection{Constraints}
 In this section are presented general considerations about limitations on the systems.
 
-\subsubsection{Regulatory policies}
+\subsubsection*{Regulatory policies}
 All users information will be processed in according with the GDPR, and e-mail addresses won't be used for commercial purposes.
-
-\subsubsection{Interfaces to other applications}
-The CKB platform uses the GitHub API [... to be defined]
