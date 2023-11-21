@@ -693,12 +693,53 @@ In this section, it is given a complete description of the functional requiremen
                 \null & \ref{goal: rankT}  & \ref{req: ranks}&\null \\
                 \null & \null  & \ref{req: notifRankT}&\null \\
                 \hline
-                cc & cc & cc & cc  \\
-                \hline 
+                \ref{uc: enrollT} & \ref{goal: enrollT} & \ref{req: listT} & sce2  \\
+                \null & \null  & \ref{req: enrollT}&\null \\
+                \null & \null  & \ref{req: notifT}&\null \\
+                \hline
+                \ref{uc: enrollB} & \ref{goal: enrollB} & \ref{req: enrollB} & sce3 \\
+                \null & \null  & \ref{req: formTeam}& \null \\ 
+                \null & \null  & \ref{req: notifB}&\null \\
+                \null & \null  & \ref{req: notifGitHub}&\null \\
+                \hline
+                \ref{uc: inviteS} & \ref{goal: formTeam} & \ref{req: formTeam} & sce3 \\
+                \null & \null  & \ref{req: notifInvite}& \null \\ 
+                \hline
+                \ref{uc: leaveT} & \ref{goal: formTeam} & \ref{req: formTeam} & sce3 \\
+                \null & \null  & \ref{req: notifInvite}& \null \\ 
+                \hline
+                \ref{uc: rankB} & \ref{goal: scoreB} & \ref{req: evalA} & sce4 \\
+                \null & \null  & \ref{req: ranks}& \null \\ 
+                \null & \null  & \ref{req: evalM}&\null \\
+                \null & \null  & \ref{req: notifRankB}&\null \\
+                \hline
+                \ref{uc: evalM} & \ref{goal: scoreB} & \ref{req: evalM} & sce5 \\
+                \null & \null  & \ref{req: notifRankB}&\null \\
+                \hline
+                \ref{uc: evalA} & \ref{goal: scoreB} & \ref{req: evalA} & sce4 \\
+                \null & \null  & \ref{req: ranks}&\null \\
+                \null & \null  & \ref{req: notifRankB}&\null \\
+                \hline
+                
+                
             \end{tabular}
     \end{table}
     
 \clearpage
+\begin{table}[h]
+        \centering
+        \renewcommand{\arraystretch}{1.5}
+        \begin{tabular}{|m{3cm}|m{3cm}|m{3cm}|m{3cm}|}
+            \hline
+            \textbf{Use Case ID} & \textbf{Goal ID} & \textbf{Req ID} & \textbf{Scenarios} \\
+            \hline
+            \ref{uc: createBadge} & \ref{goal: createBad} & \ref{req: createBad} & sce6 \\
+            \null & \null  & \ref{req: defineRV}&\null \\
+            \hline
+            \ref{uc: profile} & \ref{goal: profile} & \ref{req: profile} & sce7 \\
+            \hline
+        \end{tabular}
+\end{table}
 \section{Performance Requirements}
 In this section are listed some performance requirements for the CKB platform that are essential to the efficiency of the entire system.
 The CKB platform should be able to guarantee the connection of 100.000 users simultaneously. \newline 
