@@ -1,0 +1,396 @@
+\chapter{Specific Requirements}
+
+\section{External interface Requirements}
+\subsection{User Interfaces}
+The images below will present an idea of the user interfaces of the major function of the system. Since educators and students uses the platform differently, they will have access to two different personalized dashboard. 
+\subsubsection{Used by the students.}
+\subsubsection{Used by the educators.}
+\subsection{Hardware Interfaces}
+The only hardware interface required is the personal device of the user (computer, tablet or smartphone) that will access the CKB platform through the web browser.
+\subsection{Software Interfaces}
+The CKB systems uses the GitHub API in order to automatically detects a new commit to the main branch of each forked repository. This will trigger the automated workflow that will evaluate the current submission.
+\subsection{Communication Interfaces}
+The only communication interface used is internet, via HTTP.
+\clearpage
+
+\section{Functional Requirements}
+In this section, it is given a complete description of the functional requirements of the system.
+
+    \subsection{Requirements}
+        \begin{enumerate}[series=requirements, label=\textbf{R.\arabic*}]
+            \subsubsection*{Users}
+            \item \lbl{req: reg} {The system shall allow users to register on the platform with their personal information.}
+            \item \lbl{req: login} {The system shall allow registered users to log in the platform with valid credentials.}
+            \item \lbl{req: listT} {The system shall allow all users to see the list of ongoing tournaments.}
+            \item \lbl{req: evalA} {The system shall automatically evaluate submissions.}
+            \item \lbl{req: ranks} {The system shall allow users to be able to monitor ranking in real-time during battles and tournaments.}
+            \item \lbl{req: profile} {The system shall allow users to see other students' profile.}
+            
+            \subsubsection*{Educators}
+            \item \lbl{req: createT} {The system shall allow the educators to create tournaments.}
+            \item \lbl{req: manageT} {The system shall allow the educators to manage their tournaments, in particular invites other collaborators and ends the tournament.}
+            \item \lbl{req: createB} {The system shall allow the educators to create code kata battles within a tournament.}
+             \item \lbl{req: evalM} {The system shall allow educators to manually evaluate students (if needed) right after a battle closes, during the consolidation stage.}
+            \item \lbl{req: createBad} {The system shall allow educators to create badges.}
+            \item \lbl{req: defineRV} {The system shall allow educators to define rules and variables.}
+
+            \subsubsection*{Students}
+            \item \lbl{req: enrollT} {The system shall allow students to subscribe in tournaments.}
+            \item \lbl{req: enrollB} {The system shall allow students to enroll in a battle within a tournament.}
+            \item \lbl{req: formTeam} {The system shall allow students to form team for battles, by inviting other students.}        
+            \item \lbl{req: notifT} {The system shall notify the students about new tournaments within 10 seconds.}
+            \item \lbl{req: notifB} {The system shall notify the students about upcoming battles in tournaments in which they are subscribed within 10 seconds.}
+             \item \lbl{req: notifInvite} {The system shall notify the students when they receive an invite to participate in a team within 10 seconds.}
+             \item \lbl{req: notifGitHub} {The system shall notify the students when the GitHub repository of a battle is available.}
+             \item \lbl{req: notifRankB} {The system shall notify the students when the final battle rank became available within 10 seconds.}
+             \item \lbl{req: notifRankT} {The system shall notify the students when the final tournament rank became available within 10 seconds.}
+        \end{enumerate}
+
+    \subsection{Goal mapping on requirements and domain assumption}      
+        \begin{center}
+            \begin{tabular}{ |m{13.5cm}| }
+                \hline \\
+                \textbf{\print{goal: createT}} \\
+                \hline \\
+                \print{req: reg}
+                \print{req: login}
+                \print{req: createT} 
+                \print{req: manageT}
+                \print{req: notifT} \\ 
+                \hline \\
+                \print{da: internet} 
+                \print{da: eduQual} \\
+                \hline
+            \end{tabular} 
+        \end{center}
+        \begin{center}   
+             \begin{tabular}{|m{13.5cm}|}
+                \hline \\
+                \textbf{\print{goal: createB}} \\
+                \hline \\
+                \print{req: reg}
+                \print{req: login}
+                \print{req: createB} 
+                \print{req: notifB}\\
+                \hline \\
+                \print{da: internet} 
+                \print{da: correctCode} 
+                \print{da: eduQual} \\
+                \hline
+            \end{tabular} 
+        \end{center} 
+        \begin{center}
+            \begin{tabular}{|m{13.5cm}|}
+                \hline \\
+                \textbf{\print{goal: enrollT}} \\
+                \hline \\
+                \print{req: reg}
+                \print{req: login}
+                \print{req: listT}
+                \print{req: enrollT} 
+                \print{req: notifT} \\
+                \hline \\
+                \print{da: internet}\\
+                \hline
+            \end{tabular} 
+        \end{center}
+        \begin{center}
+            \begin{tabular}{|m{13.5cm}|}
+                \hline \\
+                \textbf{\print{goal: enrollB}} \\
+                \hline \\
+                \print{req: reg}
+                \print{req: login}
+                \print{req: enrollB} 
+                \print{req: notifB} 
+                \print{req: notifGitHub} \\
+                \hline \\
+                \print{da: internet} 
+                \print{da: GitHubAccount}
+                \print{da: devEnv}\\
+                \hline
+            \end{tabular} 
+        \end{center}
+        \begin{center}
+            \begin{tabular}{|m{13.5cm}|}
+                \hline \\
+                \textbf{\print{goal: formTeam}} \\
+                \hline \\
+                \print{req: reg}
+                \print{req: login}
+                \print{req: formTeam} 
+                \print{req: notifInvite} \\
+                \hline \\
+                \print{da: GitHubAccount}
+                \print{da: devEnv}
+                \print{da: GitHubFork}
+                \print{da: internet} \\
+                \hline
+            \end{tabular} 
+        \end{center}
+        \begin{center}
+            \begin{tabular}{|m{13.5cm}|}
+                \hline \\
+                \textbf{\print{goal: scoreB}} \\
+                \hline \\
+                \print{req: reg}
+                \print{req: login}
+                \print{req: evalA} 
+                \print{req: evalM} 
+                \print{req: ranks} 
+                \print{req: notifRankB} \\
+                \hline \\
+                \print{da: internet} 
+                \print{da: autWorkFlow}\\
+                \hline
+            \end{tabular} 
+        \end{center}
+        \begin{center}
+            \begin{tabular}{|m{13.5cm}|}
+                \hline \\
+                \textbf{\print{goal: listT}} \\
+                \hline \\
+                \print{req: reg}
+                \print{req: login}
+                \print{req: listT} 
+                \print{req: notifT}\\
+                \hline \\
+                \print{da: internet} \\
+                \hline
+            \end{tabular} 
+        \end{center}
+        \begin{center}
+            \begin{tabular}{|m{13.5cm}|}
+                \hline \\
+                \textbf{\print{goal: rankT}} \\
+                \hline \\
+                \print{req: reg}
+                \print{req: login}
+                \print{req: ranks} 
+                \print{req: notifRankT} \\
+                \hline \\
+                \print{da: internet} \\
+                \hline
+            \end{tabular} 
+        \end{center}
+        \begin{center}
+            \begin{tabular}{|m{13.5cm}|}
+                \hline \\
+                \textbf{\print{goal: createBad}} \\
+                \hline \\
+                \print{req: reg}
+                \print{req: login}
+                \print{req: createBad}
+                \print{req: defineRV}\\
+                \hline \\
+                \print{da: internet} 
+                \print{da: eduQual}\\
+                \hline
+            \end{tabular} 
+        \end{center}
+        \begin{center}
+            \begin{tabular}{|m{13.5cm}|}
+                \hline \\
+                \textbf{\print{goal: profile}} \\
+                \hline \\
+                \print{req: reg}
+                \print{req: login}
+                \print{req: profile} \\
+                \hline \\
+                \print{da: internet} \\
+                \hline
+            \end{tabular} 
+        \end{center}
+    \clearpage
+    
+    \subsection{Use cases}
+    \begin{enumerate}[label=\textbf{UC.\arabic*}]
+        \item \lbl{uc: reg} \textbf{User registration}
+        \begin{table}[H]
+    	    \centering
+                \renewcommand{\arraystretch}{1.5}
+                \begin{tabular}{|m{3.2cm}|m{9.8cm}|}
+                    \hline
+                    \textbf{Name} & User registration \\
+                    \hline
+                    \textbf{Actors} & Educators, Students. \\
+                    \hline
+                    \textbf{Entry conditions}  & An user enters the CKB platform for the first time and clicks on the "sign up" button. \\
+                    \hline
+                    \textbf{Event flow}  & 
+                    \begin{enumerate}[label=\arabic*.]
+                        \item User visualize the register page.
+                        \item User inserts the requested personal information.
+                        \item The system checks if all information are inserted.
+                        \item The system checks if the username is available.
+                        \item The system creates the personal profile of the user.
+                    \end{enumerate}\\
+                    \hline
+                    \textbf{Exit conditions}  & The user is registered in the system. \\
+                    \hline
+                    \textbf{Exceptions}  & 
+                    \begin{itemize}
+                        \item If some information are missing the system will throw an error message and the user will be requested to insert the missing ones.
+                        \item If the chosen username is not available the system will throw an error message and the user will be requested to choose another one.
+                    \end{itemize} \\
+                    \hline 
+                \end{tabular}
+        \end{table}
+        \item \lbl{uc: login} \textbf{User login}
+        \begin{table}[H]
+    	    \centering
+                \renewcommand{\arraystretch}{1.5}
+                \begin{tabular}{|m{3.2cm}|m{9.8cm}|}
+                    \hline
+                    \textbf{Name} & User login \\
+                    \hline
+                    \textbf{Actors} &  Educators, students. \\
+                    \hline
+                    \textbf{Entry conditions}  & The user opens the CKB platform and has clicks on "log in" button. \\
+                    \hline
+                    \textbf{Event flow}  & 
+                    \begin{enumerate}[label=\arabic*.]
+                        \item User visualize the log in page.
+                        \item User inserts username and password in the form.
+                        \item User clicks on "log in" button.
+                        \item The system checks the credentials.
+                        \item The system show the personal dashboard.
+                    \end{enumerate}\\
+                    \hline
+                    \textbf{Exit conditions}  & The user has entered the CKB platform successfully. \\
+                    \hline
+                    \textbf{Exceptions}  & If username and/or password are not correct the system will throw an error message and return to the entry condition. \\
+                    \hline 
+                \end{tabular}
+        \end{table}
+        \item \lbl{uc: createT} \textbf{Create a tournament}
+        \begin{table}[H]
+    	    \centering
+                \renewcommand{\arraystretch}{1.5}
+                \begin{tabular}{|m{3.2cm}|m{9.8cm}|}
+                    \hline
+                    \textbf{Name} & Create a tournament \\
+                    \hline
+                    \textbf{Actors} & Educators \\
+                    \hline
+                    \textbf{Entry conditions}  & An educator, who is logged in the platform, clicks on the button "create tournament". \\
+                    \hline
+                    \textbf{Event flow}  &  
+                    \begin{enumerate}[label=\arabic*.]
+                        \item Educator inserts all needed information in the form.
+                        \item The system checks that the correctness of all information.
+                        \item Educator invites other colleagues (if needed).
+                    \end{enumerate}\\
+                    \hline
+                    \textbf{Exit conditions}  & The tournament has been successfully created and can be visualize in the list of all ongoing tournaments. \\
+                    \hline
+                    \textbf{Exceptions}  & 
+                    \begin{itemize}
+                        \item If there are some missing information, the system will throw an error message. The system return to the entry condition.
+                        \item  If an information is incorrect the system will throw an error message and the educator will be requested to modify it.
+                    \end{itemize}\\
+                    \hline 
+                \end{tabular}
+        \end{table}
+        \item \lbl{uc: createB} \textbf{Create battle}
+        \begin{table}[H]
+    	    \centering
+                \renewcommand{\arraystretch}{1.5}
+                \begin{tabular}{|m{3.2cm}|m{9.8cm}|}
+                    \hline
+                    \textbf{Name} & cc \\
+                    \hline
+                    \textbf{Actors} & cc \\
+                    \hline
+                    \textbf{Entry conditions}  & cc \\
+                    \hline
+                    \textbf{Event flow}  & cc \\ 
+                    \hline
+                    \textbf{Exit conditions}  & cc \\
+                    \hline
+                    \textbf{Exceptions}  & cc \\
+                    \hline 
+                \end{tabular}
+        \end{table}
+        \item \lbl{uc: inviteE} \textbf{Invite an educator}
+        \item \lbl{uc: closeT} \textbf{Close a tournament}
+        \item \lbl{uc: rankT} \textbf{See all tournament ranking}
+        \item \lbl{uc: enrollT} \textbf{Subscribe in a tournament}
+        \item \lbl{uc: enrollB} \textbf{Enroll in a battle}
+        \item \lbl{uc: formTeam} \textbf{Form a team}
+        \item \lbl{uc: inviteS} \textbf{Invite a student}
+        \item \lbl{uc: evalM} \textbf{Perform manual evaluation}
+        \item \lbl{uc: evalA} \textbf{Perform automatic evaluation}
+        \item \lbl{uc: createBadge} \textbf{Create a badge}
+        \item \lbl{uc: profile} \textbf{See student profile}
+    \end{enumerate}
+    
+
+    \subsection{Traceability matrix}
+    %preimpostata, va riempita quando faremo gli usecases
+    \begin{table}[h]
+	    \centering
+            \renewcommand{\arraystretch}{1.5}
+            \begin{tabular}{|m{3cm}|m{3cm}|m{3cm}|m{3cm}|}
+                \hline
+                \textbf{Use Case ID} & \textbf{Goal ID} & \textbf{Req ID} & \textbf{Scenarios} \\
+                \hline
+                \ref{uc: reg} & ALL & \ref{req: reg} & sce1  \\
+                \hline
+                \ref{uc: login} & ALL & \ref{req: login} & sce1  \\
+                \hline
+                \ref{uc: createT} & \ref{goal: createT} & \ref{req: createT} & sce2  \\
+                \null & \null  & \ref{req: manageT}&\null \\
+                \null & \null  & \ref{req: notifT}&\null \\
+                \hline
+                \ref{uc: createB} & \ref{goal: createB} & \ref{req: createB} & sce2  \\
+                \null & \null  & \ref{req: notifB}&\null \\
+                \hline
+                \ref{uc: inviteE} & \ref{goal: createB} & \ref{req: manageT} & sce2  \\
+                \hline
+                \ref{uc: closeT} & NEW G.11 & TO DEFINE & sce2  \\
+                \hline
+                \ref{uc: rankT} & \ref{goal: listT} & \ref{req: listT} & sce4  \\
+                \null & \null  & \ref{req: notifT}&\null \\
+                \null & \ref{goal: rankT}  & \ref{req: ranks}&\null \\
+                \null & \null  & \ref{req: notifRankT}&\null \\
+                \hline
+                cc & cc & cc & cc  \\
+                \hline 
+            \end{tabular}
+    \end{table}
+    
+\clearpage
+\section{Performance Requirements}
+In this section are listed some performance requirements for the CKB platform that are essential to the efficiency of the entire system.
+The CKB platform should be able to guarantee the connection of 100.000 users simultaneously. \newline 
+In less than 2 seconds, it should be able to respond to user interactions, such as page loading. \newline
+In less than 5 seconds, it should be able to send a response to a query and run its algorithms on the metadata. This is crucial for having real-time evaluation of the students' submissions.
+
+\section{Design Constraints}
+\subsection{Standards Compliance}
+\subsection{Hardware Limitations}
+\subsection{Other Constraints}
+
+\section{Software System Attributes}
+\subsection{Reliability}
+The CKB platform should be highly reliable in order to guarantee the continuity of the service, every user should be able to access the platform anytime. The system should implements robust errors handling and fault tolerance mechanism to prevent error propagation and data loss. \subsection{Availability}
+The CKB platform should be available to users 24/7, without frequent interruptions. 
+Since the system is not emergency-related, it should be up 99\% of the time.
+This means that the average downtime is around at 3.65 days per year. \newline
+In order to achieve this level of availability the system should implement a disaster recovery plan, monitoring and alerting tools, and the ability to react fast to resolve any system issues.
+\subsection{Security}
+As the system store some personal information about the users, security is an important issue. This stored data must be encrypted, and passwords must also be hashed. \newline
+Every time a password need to be recovered a new one must be created, by sending a verification e-mail that contain a time-limited that confirm the user identity and gives them access to reset their password.
+\subsection{Maintainability}
+The CKB system should be divided in different modules implementing the various functionalities. In this way ordinary maintenance and/or future fixes or improvements will be easier to be performed. \newline
+Maintenance and updates must be scheduled in advance so that they do not interfere with ongoing battles. 
+\subsection{Portability}
+The CKB platform should be accessible from any web browser.
+\subsection{Usability}
+The user interfaces of the platform should be easy to use and intuitive.
+
+\section{Other Requirements}
+\subsection{Privacy Requirements}
+At the registration every user is asked to fill the following mandatory fields:
+name, surname and e-mail. 
