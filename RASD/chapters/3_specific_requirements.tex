@@ -2,8 +2,8 @@
 
 \section{External interface Requirements}
 \subsection{User Interfaces}
-The images below will present an idea of the user interfaces of the major function of the system. Since educators and students uses the platform differently, they will have access to two different personalized dashboard.
-      \begin{figure}[H]
+The images below will present an idea of the user interfaces of the major function of the system. Since educators and students uses the platform differently, they will have access to two different personalized dashboard. 
+\begin{figure}[H]
         \centering
         \includegraphics[scale=0.50]{images/interfaces_3.png}
         \caption{Ranking Page}
@@ -17,7 +17,7 @@ The images below will present an idea of the user interfaces of the major functi
         \label{fig:home_pages}
     \end{figure}
     \clearpage
-  
+
         \begin{figure}[H]
         \centering
         \includegraphics[scale=0.55]{images/interfaces_1 (1).png}
@@ -27,6 +27,8 @@ The images below will present an idea of the user interfaces of the major functi
     \clearpage
 The main differences are in the homepages.(Figure \ref{fig:home_pages})
 The grey buttons represent the main operations that the user can do ("Join Tournament, "Create Battle",...), the yellow buttons represent the actions that will be implemented as icons in the homepage.
+\subsubsection{Used by the students.}
+\subsubsection{Used by the educators.}
 \subsection{Hardware Interfaces}
 The only hardware interface required is the personal device of the user (computer, tablet or smartphone) that will access the CKB platform through the web browser.
 \subsection{Software Interfaces}
@@ -242,16 +244,17 @@ In this section, it is given a complete description of the functional requiremen
                 \renewcommand{\arraystretch}{1.5}
                 \begin{tabular}{|m{3.2cm}|m{9.8cm}|}
                     \hline
-                    \textbf{Name} & User registration \\
+                    \textbf{Name} & User registration. \\
                     \hline
                     \textbf{Actors} & Educators, Students. \\
                     \hline
-                    \textbf{Entry conditions}  & An user enters the CKB platform for the first time and clicks on the "sign up" button. \\
+                    \textbf{Entry conditions}  & An user enters the CKB platform for the first time. \\
                     \hline
                     \textbf{Event flow}  & 
                     \begin{enumerate}[label=\arabic*.]
-                        \item User visualize the register page.
-                        \item User inserts the requested personal information.
+                        \item The user visualize the register page.
+                        \item The user clicks on the "sign up" button.
+                        \item The user inserts the requested personal information.
                         \item The system checks if all information are inserted.
                         \item The system checks if the username is available.
                         \item The system creates the personal profile of the user.
@@ -273,7 +276,7 @@ In this section, it is given a complete description of the functional requiremen
                 \renewcommand{\arraystretch}{1.5}
                 \begin{tabular}{|m{3.2cm}|m{9.8cm}|}
                     \hline
-                    \textbf{Name} & User login \\
+                    \textbf{Name} & User login.\\
                     \hline
                     \textbf{Actors} &  Educators, students. \\
                     \hline
@@ -281,9 +284,9 @@ In this section, it is given a complete description of the functional requiremen
                     \hline
                     \textbf{Event flow}  & 
                     \begin{enumerate}[label=\arabic*.]
-                        \item User visualize the log in page.
-                        \item User inserts username and password in the form.
-                        \item User clicks on "log in" button.
+                        \item The user visualize the log in page.
+                        \item The user inserts username and password in the form.
+                        \item The user clicks on "log in" button.
                         \item The system checks the credentials.
                         \item The system show the personal dashboard.
                     \end{enumerate}\\
@@ -300,30 +303,190 @@ In this section, it is given a complete description of the functional requiremen
                 \renewcommand{\arraystretch}{1.5}
                 \begin{tabular}{|m{3.2cm}|m{9.8cm}|}
                     \hline
-                    \textbf{Name} & Create a tournament \\
+                    \textbf{Name} & Create a tournament. \\
                     \hline
-                    \textbf{Actors} & Educators \\
+                    \textbf{Actors} & Educators. \\
                     \hline
                     \textbf{Entry conditions}  & An educator, who is logged in the platform, clicks on the button "create tournament". \\
                     \hline
                     \textbf{Event flow}  &  
                     \begin{enumerate}[label=\arabic*.]
-                        \item Educator inserts all needed information in the form.
+                        \item The educator inserts all needed information in the form.
                         \item The system checks that the correctness of all information.
-                        \item Educator invites other colleagues (if needed).
                     \end{enumerate}\\
                     \hline
-                    \textbf{Exit conditions}  & The tournament has been successfully created and can be visualize in the list of all ongoing tournaments. \\
+                    \textbf{Exit conditions}  & The tournament has been successfully created and can be visualize in the list of all ongoing tournaments. All registered students will receive a notification that a new tournament is available.\\
                     \hline
                     \textbf{Exceptions}  & 
                     \begin{itemize}
                         \item If there are some missing information, the system will throw an error message. The system return to the entry condition.
-                        \item  If an information is incorrect the system will throw an error message and the educator will be requested to modify it.
+                        \item  If an information is incorrect the system will throw an error message and the educator will be requested to modify it. An incorrect information can be a deadline that is before the current date.
                     \end{itemize}\\
                     \hline 
                 \end{tabular}
         \end{table}
         \item \lbl{uc: createB} \textbf{Create battle}
+        \begin{table}[H]
+    	    \centering
+                \renewcommand{\arraystretch}{1.5}
+                \begin{tabular}{|m{3.2cm}|m{9.8cm}|}
+                    \hline
+                    \textbf{Name} & Create a battle. \\
+                    \hline
+                    \textbf{Actors} & Educators. \\
+                    \hline
+                    \textbf{Entry conditions}  &  An educator, who is logged in the platform, wants to create a battle.\\
+                    \hline
+                    \textbf{Event flow}  & 
+                    \begin{enumerate}[label=\arabic*.]
+                        \item The educator clicks on the button "create battle"
+                        \item The educator visualize a list of tournaments to which he/she has access.
+                        \item The educator select a tournament from the list.
+                        \item The educator inserts all needed information in the form.
+                        \item The system checks that the correctness of all information.
+                    \end{enumerate}\\
+                    \hline
+                    \textbf{Exit conditions}  & The battle has been successfully created and all students subscribed to the tournament in which it belongs have received a notification.  \\
+                    \hline
+                    \textbf{Exceptions}  & 
+                    \begin{itemize}
+                        \item If there are some missing information, the system will throw an error message. The system return to the entry condition.
+                        \item  If an information is incorrect the system will throw an error message and the educator will be requested to modify it. An incorrect information can be a deadline that is before the current date.
+                    \end{itemize}\\
+                    \hline 
+                \end{tabular}
+        \end{table}
+        \item \lbl{uc: inviteE} \textbf{Invite an educator}
+        \begin{table}[H]
+    	    \centering
+                \renewcommand{\arraystretch}{1.5}
+                \begin{tabular}{|m{3.2cm}|m{9.8cm}|}
+                    \hline
+                    \textbf{Name} & Invite an educator. \\
+                    \hline
+                    \textbf{Actors} & Educators. \\
+                    \hline
+                    \textbf{Entry conditions}  & An educator, who created a tournament, wants to invite some colleagues to participate. \\
+                    \hline
+                    \textbf{Event flow}  & 
+                    \begin{enumerate}[label=\arabic*.]
+                        \item The educator clicks on the button "Invite educator"
+                        \item The educator visualize a list of tournaments to which he/she has access.
+                        \item The educator select a tournament from the list.
+                        \item The educator search for the username of the colleague he/she wants to invite.
+                        \item The educator views the colleague's profile and selects it.
+                        \item The system sends an e-mail to the selected colleague.
+                    \end{enumerate}\\
+                    \hline
+                    \textbf{Exit conditions}  & The invite has been successfully sent. \\
+                    \hline
+                \end{tabular}
+        \end{table}
+        \item \lbl{uc: closeT} \textbf{Close a tournament}
+        \begin{table}[H]
+    	    \centering
+                \renewcommand{\arraystretch}{1.5}
+                \begin{tabular}{|m{3.2cm}|m{9.8cm}|}
+                    \hline
+                    \textbf{Name} & Close a tournament. \\
+                    \hline
+                    \textbf{Actors} & Educators. \\
+                    \hline
+                    \textbf{Entry conditions}  &  An educator, who created a tournament, wants close it. \\
+                    \hline
+                    \textbf{Event flow}  & 
+                    \begin{enumerate}[label=\arabic*.]
+                        \item The educator clicks on the button "my tournaments"
+                        \item The educator visualize a list of tournaments to which he/she has access.
+                        \item The educator select a tournament from the list.
+                        \item The educator clicks on the button "close tournament".
+                        \item The system checks whether all battles in that tournament are finished.
+                    \end{enumerate}\\
+                    \hline
+                    \textbf{Exit conditions}  & The tournament has been successfully closed. \\
+                    \hline
+                    \textbf{Exceptions}  & If not all battles of the tournament are over, the system will throw an error message and the educator will not be able to close the tournament. The system returns to the entry condition.\\
+                    \hline 
+                \end{tabular}
+        \end{table}
+        \item \lbl{uc: rankT} \textbf{Visualize all ongoing tournament with ranking}
+        \begin{table}[H]
+    	    \centering
+                \renewcommand{\arraystretch}{1.5}
+                \begin{tabular}{|m{3.2cm}|m{9.8cm}|}
+                    \hline
+                    \textbf{Name} & Visualize all ongoing tournament with ranking.  \\
+                    \hline
+                    \textbf{Actors} & Educators and students. \\
+                    \hline
+                    \textbf{Entry conditions}  & A user wants to see the list of all tournaments and/or their rankings. \\
+                    \hline
+                    \textbf{Event flow}  & 
+                    \begin{enumerate}[label=\arabic*.]
+                        \item The user clicks on the button "see all tournaments"
+                        \item The user visualize a list of tournaments.
+                        \item The user clicks on a tournament to visualize its ranking.
+                    \end{enumerate}\\
+                    \hline
+                    \textbf{Exit conditions}  & The user visualize a list of tournaments and/or a specific ranking. \\
+                    \hline
+                \end{tabular}
+        \end{table}
+        \item \lbl{uc: enrollT} \textbf{Subscribe to a tournament}
+        \begin{table}[H]
+    	    \centering
+                \renewcommand{\arraystretch}{1.5}
+                \begin{tabular}{|m{3.2cm}|m{9.8cm}|}
+                    \hline
+                    \textbf{Name} & Subscribe to a tournament.\\
+                    \hline
+                    \textbf{Actors} & Students. \\
+                    \hline
+                    \textbf{Entry conditions}  & A student, who is registered to the platform, receive a notification that a new tournament is available and wants to subscribe.\\
+                    \hline
+                    \textbf{Event flow}  & 
+                    \begin{enumerate}[label=\arabic*.]
+                        \item The user clicks on the button "join tournament"
+                        \item The user visualize the list of tournaments.
+                        \item The user select a tournament.
+                        \item The system check if the subscription deadline is not expired.
+                    \end{enumerate}\\ 
+                    \hline
+                    \textbf{Exit conditions}  & The student is successfully subscribed to the tournament. The system will send the student further notification about the upcoming battles. \\
+                    \hline
+                    \textbf{Exceptions}  & If the subscription deadline is expired, the system will throw an error message and the student will not be able to subscribe to the tournament. The system returns to the entry condition. \\
+                    \hline 
+                \end{tabular}
+        \end{table}
+        \item \lbl{uc: enrollB} \textbf{Enroll in a battle}
+        \begin{table}[H]
+    	    \centering
+                \renewcommand{\arraystretch}{1.5}
+                \begin{tabular}{|m{3.2cm}|m{9.8cm}|}
+                    \hline
+                    \textbf{Name} & Enroll in a battle. \\
+                    \hline
+                    \textbf{Actors} & Students. \\
+                    \hline
+                    \textbf{Entry conditions}  & A student, who is subscribed to a tournament, receive a notification that a new battle is available and wants to enroll.\\
+                    \hline
+                    \textbf{Event flow}  & 
+                    \begin{enumerate}[label=\arabic*.]
+                        \item The user clicks on the button "join battle".
+                        \item The user visualize the list of tournament.
+                        \item The user select a tournament.
+                         \item The user visualize the list of battles of the selected tournament.
+                        \item The user select a battle.
+                        \item The system check if the registration deadline is not expired.
+                    \end{enumerate}\\ 
+                    \hline
+                    \textbf{Exit conditions}  & The student is successfully enrolled to the battle. \\
+                    \hline
+                    \textbf{Exceptions}  & If the registration deadline is expired, the system will throw an error message and the student will not be able to subscribe to the battle. The system returns to the entry condition.  \\
+                    \hline 
+                \end{tabular}
+        \end{table}
+        \item \lbl{uc: formTeam} \textbf{Form a team}
         \begin{table}[H]
     	    \centering
                 \renewcommand{\arraystretch}{1.5}
@@ -343,12 +506,6 @@ In this section, it is given a complete description of the functional requiremen
                     \hline 
                 \end{tabular}
         \end{table}
-        \item \lbl{uc: inviteE} \textbf{Invite an educator}
-        \item \lbl{uc: closeT} \textbf{Close a tournament}
-        \item \lbl{uc: rankT} \textbf{See all ongoing tournament with ranking}
-        \item \lbl{uc: enrollT} \textbf{Subscribe in a tournament}
-        \item \lbl{uc: enrollB} \textbf{Enroll in a battle}
-        \item \lbl{uc: formTeam} \textbf{Form a team}
         \item \lbl{uc: inviteS} \textbf{Invite a student}
         \item \lbl{uc: rankB} \textbf{See battle ranking}
         \item \lbl{uc: evalM} \textbf{Perform manual evaluation}
