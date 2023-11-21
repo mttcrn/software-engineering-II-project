@@ -17,7 +17,7 @@ The only communication interface used is internet, via HTTP.
 In this section, it is given a complete description of the functional requirements of the system.
 
     \subsection{Requirements}
-        \begin{enumerate}[series=requirements, label=\textbf{R.\arabic*}]
+        \begin{enumerate}[label=\textbf{R.\arabic*}]
             \subsubsection*{Users}
             \item \lbl{req: reg} {The system shall allow users to register on the platform with their personal information.}
             \item \lbl{req: login} {The system shall allow registered users to log in the platform with valid credentials.}
@@ -50,7 +50,7 @@ In this section, it is given a complete description of the functional requiremen
         \begin{center}
             \begin{tabular}{ |m{13.5cm}| }
                 \hline \\
-                \textbf{\print{goal: createT}} \\
+                \textbf{\print{goal: manageT}} \\
                 \hline \\
                 \print{req: reg}
                 \print{req: login}
@@ -204,6 +204,15 @@ In this section, it is given a complete description of the functional requiremen
     \clearpage
     
     \subsection{Use cases}
+    In figure \ref{fig:use_cases_diagram} is represented a general overview of all use cases deduced from the scenarios in section \ref{desc:scenarios}. All cases include "User login" because all function provided by the platform are accessible to registered users. (except for use registration)
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.35]{images/use_cases_diagram.png}
+        \caption{Use cases diagram}
+        \label{fig:use_cases_diagram}
+    \end{figure}
+    \clearpage
+    
     \begin{enumerate}[label=\textbf{UC.\arabic*}]
         \item \lbl{uc: reg} \textbf{User registration}
         \begin{table}[H]
@@ -314,11 +323,12 @@ In this section, it is given a complete description of the functional requiremen
         \end{table}
         \item \lbl{uc: inviteE} \textbf{Invite an educator}
         \item \lbl{uc: closeT} \textbf{Close a tournament}
-        \item \lbl{uc: rankT} \textbf{See all tournament ranking}
+        \item \lbl{uc: rankT} \textbf{See all ongoing tournament with ranking}
         \item \lbl{uc: enrollT} \textbf{Subscribe in a tournament}
         \item \lbl{uc: enrollB} \textbf{Enroll in a battle}
         \item \lbl{uc: formTeam} \textbf{Form a team}
         \item \lbl{uc: inviteS} \textbf{Invite a student}
+        \item \lbl{uc: rankB} \textbf{See battle ranking}
         \item \lbl{uc: evalM} \textbf{Perform manual evaluation}
         \item \lbl{uc: evalA} \textbf{Perform automatic evaluation}
         \item \lbl{uc: createBadge} \textbf{Create a badge}
@@ -327,7 +337,6 @@ In this section, it is given a complete description of the functional requiremen
     
 
     \subsection{Traceability matrix}
-    %preimpostata, va riempita quando faremo gli usecases
     \begin{table}[h]
 	    \centering
             \renewcommand{\arraystretch}{1.5}
@@ -339,7 +348,7 @@ In this section, it is given a complete description of the functional requiremen
                 \hline
                 \ref{uc: login} & ALL & \ref{req: login} & sce1  \\
                 \hline
-                \ref{uc: createT} & \ref{goal: createT} & \ref{req: createT} & sce2  \\
+                \ref{uc: createT} & \ref{goal: manageT} & \ref{req: createT} & sce2  \\
                 \null & \null  & \ref{req: manageT}&\null \\
                 \null & \null  & \ref{req: notifT}&\null \\
                 \hline
@@ -348,7 +357,7 @@ In this section, it is given a complete description of the functional requiremen
                 \hline
                 \ref{uc: inviteE} & \ref{goal: createB} & \ref{req: manageT} & sce2  \\
                 \hline
-                \ref{uc: closeT} & NEW G.11 & TO DEFINE & sce2  \\
+                \ref{uc: closeT} & \ref{goal: manageT} & TO DEFINE & sce2  \\
                 \hline
                 \ref{uc: rankT} & \ref{goal: listT} & \ref{req: listT} & sce4  \\
                 \null & \null  & \ref{req: notifT}&\null \\
