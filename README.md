@@ -10,9 +10,6 @@ Platform similar to CodeKataBattle: [Code Wars](https://www.codewars.com/)
 [Project Requirements](https://github.com/mttcrn/Cohen-Gervatini-Motti/blob/main/Assignment%20RDD%20AY%202023-2024.pdf)  
 
 # Deadlines
-## entro 22 novemembre
-Chapter 2
-2.1.2 state diagram
 
 ## entro 26 novemembre
 Chapter 3
