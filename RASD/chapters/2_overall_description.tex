@@ -107,6 +107,9 @@ As soon as Luigi has finished to evaluate all students, he will end the consolid
 Mario, that is a registered educator, wants to create a new badge that is earned by the student who wrote the most lines of code. From his personal dashboard he select the option "create new badge", then he has to specify the name, a description and one or more rules that regulates if a student is eligible to get that badge. In this case the name will be "Top Writer" and it will be awarded to the student who wrote the most lines of code within a battle. \newline
 Peach, that is a student, aspires to earn the "Top Writer" badge, and so she heavily contributed on the last battle. At the end of the battle the CKB platform automatically checks if any student is eligible for a badge, and Peach is assigned the "Top Writer", which will appear on her CKB profile.
 
+\subsubsection{Scenario 7: Visualize student profile}
+Mario is logged and want to check the profile of Luigi, in order to do this, he write the username of Luigi in the search-bar, will be visualized the resuming information about Luigi, including all the badges that he had collected.
+
 \clearpage
 
 \section{Product functions}\label{desc:prodFunc}
@@ -187,12 +190,14 @@ There are two different type of users:
 In this section are listed all assumption made for the domain in which the system operates. These are conditions that the system take for granted because they are external to it but influence its behaviour.
 \begin{enumerate}[label=\textbf{DA.\arabic*}]
         \item \lbl{da: internet} {Users must have internet connection to interacts with the CKB platform.}
-        \item \lbl{da: GitHubAccount} {Students must have a GitHub account to be able to deliver a solution.}
-        \item \lbl{da: GitHubFork} {Students must fork the GitHub repository created by the CKB platform and set up an automated workflow through GitHub Actions.}
-        \item \lbl{da: autWorkFlow} {The automatic workflow correctly trigger the CKB platform in order to evaluate the new commit.}
-        \item \lbl{da: devEnv} {Students must have a development environment with the necessary software tools and libraries to complete code kata battles.}
         \item \lbl{da: eduQual} {Educators must be qualified and experienced in software development and related fields.}
         \item \lbl{da: correctCode} {The uploaded "code kata" by the educators must be correct and complete.}
+        \item \lbl{da: GitHubAccount} {Students must have a GitHub account to be able to deliver a solution.}
+        \item \lbl{da: GitHubFork} {Students must fork the GitHub repository created by the CKB platform and set up an automated workflow through GitHub Actions.}
+        \item \lbl{da: devEnv} {Students must have a development environment with the necessary software tools and libraries to complete code kata battles.}
+        \item \lbl{da: autWorkFlow} {The automatic workflow correctly trigger the CKB platform in order to evaluate the new commit.}
+        
+        
 \end{enumerate}
 
 \subsection{Constraints}
