@@ -2,9 +2,31 @@
 
 \section{External interface Requirements}
 \subsection{User Interfaces}
-The images below will present an idea of the user interfaces of the major function of the system. Since educators and students uses the platform differently, they will have access to two different personalized dashboard. 
-\subsubsection{Used by the students.}
-\subsubsection{Used by the educators.}
+The images below will present an idea of the user interfaces of the major function of the system. Since educators and students uses the platform differently, they will have access to two different personalized dashboard.
+      \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.50]{images/interfaces_3.png}
+        \caption{Ranking Page}
+        \label{fig:rank}
+    \end{figure}
+    \clearpage
+        \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.55]{images/interfaces_2.png}
+        \caption{Student and Educator Homepage}
+        \label{fig:home_pages}
+    \end{figure}
+    \clearpage
+  
+        \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.55]{images/interfaces_1 (1).png}
+        \caption{Sign Up and Log In Page}
+        \label{fig:interfaces_1}
+    \end{figure}
+    \clearpage
+The main differences are in the homepages.(Figure \ref{fig:home_pages})
+The grey buttons represent the main operations that the user can do ("Join Tournament, "Create Battle",...), the yellow buttons represent the actions that will be implemented as icons in the homepage.
 \subsection{Hardware Interfaces}
 The only hardware interface required is the personal device of the user (computer, tablet or smartphone) that will access the CKB platform through the web browser.
 \subsection{Software Interfaces}
@@ -378,8 +400,24 @@ In less than 5 seconds, it should be able to send a response to a query and run 
 
 \section{Design Constraints}
 \subsection{Standards Compliance}
+The code should follow the requirements contained in this document. Furthermore, its comments should
+be clear and focused.
+The system will store in the database 3 types of data:
+\begin{enumerate}
+    \item User main information for example email-Password as primary key, name , surname...
+    \item The final rankings of a tournament. The system saves in the database the ranking of a tournament once it's finished.
+    \item The final ranking of a battle.
+\end{enumerate}
+
+CKB system shall use stateless protocols and standard operations to allow components to
+be managed and updated without affecting the system as a whole.
+It’s crucial to design modules properly so that ease of use, security and performance will
+remain the core factors of the system.
 \subsection{Hardware Limitations}
+To use CKB the user needs to have a device that's at least can connect to internet and can share code on GitHub.
+The device might be connected to internet and to the GitHub account that the user put during the registration. 
 \subsection{Other Constraints}
+CKB system will send emails to the users and automatically pulls the GitHub main branch of the teams so it's important that the user allows the system to send emails and to join the GitHub project.
 
 \section{Software System Attributes}
 \subsection{Reliability}
