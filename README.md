@@ -12,17 +12,51 @@ Platform similar to CodeKataBattle: [Code Wars](https://www.codewars.com/)
 # Deadlines
 
 ## entro 26 novemembre
-Chapter 3
-3.1.1 User interfaces (without much detail)
-3.2.3 Usecases
+3.1.1 User interfaces - eliahu
+
+3.2.3 Usecases - cate
+
 3.2.3 Sequence diagrams
+
+1 - User registration
+
+2 - User login
+
+3 - Create a tournament
+
+4 - Create battle
+
+5 - Invite an educator
+
+6 - Close a tournament
+
+7 - Visualize all ongoing tournament with ranking
+
+8 - Subscribe to a tournament
+
+9 - Enroll in a battle
+
+10 - Invite a student
+
+11 - Leave a team
+
+12 - View battle ranking
+
+13 - Perform manual evaluation
+
+14 - Perform automatic evaluation
+
+15 - Create a badge
+
+16 - See a student profile
+
 3.2.4 Traceability matrix -gervatini
-3.4 design constraints
+
+3.4 Design constraints - eliahu
 
 ## entro 1 dicembre 
-Chapter 4
-tutto alloy
+Chapter 4 - alloy
 
-## entro 8 dicembre 
+## Nella prima settimana di Dicementre, mentre iniziamo il DD
 revisione completa documento rasd 
 
