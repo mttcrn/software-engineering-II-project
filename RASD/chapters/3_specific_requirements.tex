@@ -208,7 +208,8 @@ In this section, it is given a complete description of the functional requiremen
                 \print{req: defineRV}\\
                 \hline \\
                 \print{da: internet} 
-                \print{da: eduQual}\\
+                \print{da: eduQual}
+                \print{da: noDuplBadg}\\
                 \hline
             \end{tabular} 
         \end{center}
@@ -621,13 +622,16 @@ In this section, it is given a complete description of the functional requiremen
                     \hline
                     \textbf{Actors} & Educators. \\
                     \hline
-                    \textbf{Entry conditions}  & An educator wants to create a new badge. \\
+                    \textbf{Entry conditions}  & An educator wants to create a new badge within a tournament. \\
                     \hline
                     \textbf{Event flow}  & 
                     \begin{enumerate}[label=\arabic*.]
-                        \item The user clicks on the button "create badge".
-                        \item The user inserts all information requested.
-                        \item The system check the inserted information.
+                        \item The educator clicks on the button "my tournaments"
+                        \item The educator visualize a list of tournaments to which he/she has access.
+                        \item The educator select a tournament from the list.
+                        \item The educator clicks on the button "create badge".
+                        \item The educator inserts all information requested.
+                        \item The system check the correctness of the inserted information.
                     \end{enumerate}\\ 
                     \hline
                     \textbf{Exit conditions}  & The badge has been successfully created. \\
@@ -671,50 +675,50 @@ In this section, it is given a complete description of the functional requiremen
                 \hline
                 \textbf{Use Case ID} & \textbf{Goal ID} & \textbf{Req ID} & \textbf{Scenarios} \\
                 \hline
-                \ref{uc: reg} & ALL & \ref{req: reg} & sce1  \\
+                \ref{uc: reg} & ALL & \ref{req: reg} & \ref{sce: reg}  \\
                 \hline
-                \ref{uc: login} & ALL & \ref{req: login} & sce1  \\
+                \ref{uc: login} & ALL & \ref{req: login} & \ref{sce: reg}   \\
                 \hline
-                \ref{uc: createT} & \ref{goal: manageT} & \ref{req: createT} & sce2  \\
+                \ref{uc: createT} & \ref{goal: manageT} & \ref{req: createT} & \ref{sce: createTB}   \\
                 \null & \null  & \ref{req: manageT}&\null \\
                 \null & \null  & \ref{req: notifT}&\null \\
                 \hline
-                \ref{uc: createB} & \ref{goal: createB} & \ref{req: createB} & sce2  \\
+                \ref{uc: createB} & \ref{goal: createB} & \ref{req: createB} & \ref{sce: createTB}  \\
                 \null & \null  & \ref{req: notifB}&\null \\
                 \hline
-                \ref{uc: inviteE} & \ref{goal: createB} & \ref{req: manageT} & sce2  \\
+                \ref{uc: inviteE} & \ref{goal: createB} & \ref{req: manageT} & \ref{sce: createTB}  \\
                 \hline
-                \ref{uc: closeT} & \ref{goal: manageT} & TO DEFINE & sce2  \\
+                \ref{uc: closeT} & \ref{goal: manageT} & TO DEFINE & \ref{sce: createTB}  \\
                 \hline
-                \ref{uc: rankT} & \ref{goal: listT} & \ref{req: listT} & sce4  \\
+                \ref{uc: rankT} & \ref{goal: listT} & \ref{req: listT} & \ref{sce: rankB}  \\
                 \null & \null  & \ref{req: notifT}&\null \\
                 \null & \ref{goal: rankT}  & \ref{req: ranks}&\null \\
                 \null & \null  & \ref{req: notifRankT}&\null \\
                 \hline
-                \ref{uc: enrollT} & \ref{goal: enrollT} & \ref{req: listT} & sce2  \\
+                \ref{uc: enrollT} & \ref{goal: enrollT} & \ref{req: listT} & \ref{sce: createTB}  \\
                 \null & \null  & \ref{req: enrollT}&\null \\
                 \null & \null  & \ref{req: notifT}&\null \\
                 \hline
-                \ref{uc: enrollB} & \ref{goal: enrollB} & \ref{req: enrollB} & sce3 \\
+                \ref{uc: enrollB} & \ref{goal: enrollB} & \ref{req: enrollB} & \ref{sce: formTeam} \\
                 \null & \null  & \ref{req: formTeam}& \null \\ 
                 \null & \null  & \ref{req: notifB}&\null \\
                 \null & \null  & \ref{req: notifGitHub}&\null \\
                 \hline
-                \ref{uc: inviteS} & \ref{goal: formTeam} & \ref{req: formTeam} & sce3 \\
+                \ref{uc: inviteS} & \ref{goal: formTeam} & \ref{req: formTeam} & \ref{sce: formTeam} \\
                 \null & \null  & \ref{req: notifInvite}& \null \\ 
                 \hline
-                \ref{uc: leaveT} & \ref{goal: formTeam} & \ref{req: formTeam} & sce3 \\
+                \ref{uc: leaveT} & \ref{goal: formTeam} & \ref{req: formTeam} & \ref{sce: formTeam} \\
                 \null & \null  & \ref{req: notifInvite}& \null \\ 
                 \hline
-                \ref{uc: rankB} & \ref{goal: scoreB} & \ref{req: evalA} & sce4 \\
+                \ref{uc: rankB} & \ref{goal: scoreB} & \ref{req: evalA} & \ref{sce: evalA} \\
                 \null & \null  & \ref{req: ranks}& \null \\ 
                 \null & \null  & \ref{req: evalM}&\null \\
                 \null & \null  & \ref{req: notifRankB}&\null \\
                 \hline
-                \ref{uc: evalM} & \ref{goal: scoreB} & \ref{req: evalM} & sce5 \\
+                \ref{uc: evalM} & \ref{goal: scoreB} & \ref{req: evalM} & \ref{sce: evalM} \\
                 \null & \null  & \ref{req: notifRankB}&\null \\
                 \hline
-                \ref{uc: evalA} & \ref{goal: scoreB} & \ref{req: evalA} & sce4 \\
+                \ref{uc: evalA} & \ref{goal: scoreB} & \ref{req: evalA} & \ref{sce: evalA} \\
                 \null & \null  & \ref{req: ranks}&\null \\
                 \null & \null  & \ref{req: notifRankB}&\null \\
                 \hline

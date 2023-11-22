@@ -1,20 +1,20 @@
-<mxfile host="app.diagrams.net" modified="2023-11-20T15:27:41.134Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36" etag="JBS2mhL5sSl_Tb2jjgDJ" version="22.1.3" type="device">
+<mxfile host="app.diagrams.net" modified="2023-11-22T17:31:58.043Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36" etag="iYjQlNfUEdFuzBl_znzV" version="22.1.3" type="device">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
-    <mxGraphModel dx="1450" dy="574" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1567" dy="638" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
         <mxCell id="E8Huc1iyoqKieG4LwPIf-0" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;User&lt;/font&gt;" style="swimlane;whiteSpace=wrap;html=1;startSize=23;rounded=0;labelBackgroundColor=none;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="250" y="92" width="152" height="116" as="geometry" />
         </mxCell>
-        <mxCell id="E8Huc1iyoqKieG4LwPIf-5" value="&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;font-size: 14px; background-color: initial;&quot;&gt;- email: String&amp;nbsp;&lt;/span&gt;&lt;/div&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;- surname: String&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;- name: String&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;+username: String&lt;/span&gt;&lt;/div&gt;&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;rounded=0;labelBackgroundColor=none;" parent="E8Huc1iyoqKieG4LwPIf-0" vertex="1">
+        <mxCell id="E8Huc1iyoqKieG4LwPIf-5" value="&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;font-size: 14px; background-color: initial;&quot;&gt;- email: String&amp;nbsp;&lt;/span&gt;&lt;/div&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;- surname: String&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;- name: String&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;- username: String&lt;/span&gt;&lt;/div&gt;&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;rounded=0;labelBackgroundColor=none;" parent="E8Huc1iyoqKieG4LwPIf-0" vertex="1">
           <mxGeometry x="6" y="29" width="133" height="79" as="geometry" />
         </mxCell>
         <mxCell id="E8Huc1iyoqKieG4LwPIf-7" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;Student&lt;/font&gt;" style="swimlane;whiteSpace=wrap;html=1;rounded=0;labelBackgroundColor=none;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="32" y="376.25" width="253" height="99.75" as="geometry" />
         </mxCell>
-        <mxCell id="i6q1TH49dpJsPKsCkJf4-56" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;+ earnedBadges: set&amp;lt;Badge&amp;gt;&lt;br&gt;+ battlesWon: int&lt;br&gt;+ tournamentsScore: list&amp;lt;String, int&amp;gt;&lt;br&gt;&lt;/font&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;rounded=0;labelBackgroundColor=none;" parent="E8Huc1iyoqKieG4LwPIf-7" vertex="1">
-          <mxGeometry x="4" y="29.500000000000007" width="245" height="62" as="geometry" />
+        <mxCell id="i6q1TH49dpJsPKsCkJf4-56" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;-. earnedBadges: set&amp;lt;Badge&amp;gt;&lt;br&gt;- battlesWon: int&lt;br&gt;- tournamentsScore: list&amp;lt;String, int&amp;gt;&lt;br&gt;&lt;/font&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;rounded=0;labelBackgroundColor=none;" parent="E8Huc1iyoqKieG4LwPIf-7" vertex="1">
+          <mxGeometry x="4" y="29.500000000000007" width="241" height="62" as="geometry" />
         </mxCell>
         <mxCell id="E8Huc1iyoqKieG4LwPIf-13" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;Educator&lt;/font&gt;" style="swimlane;whiteSpace=wrap;html=1;rounded=0;labelBackgroundColor=none;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="448" y="382" width="177" height="44" as="geometry" />
@@ -28,12 +28,12 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="E8Huc1iyoqKieG4LwPIf-17" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;Tournament&lt;/font&gt;" style="swimlane;whiteSpace=wrap;html=1;rounded=0;labelBackgroundColor=none;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="217" y="557" width="221" height="164" as="geometry">
+          <mxGeometry x="217" y="557" width="221" height="176" as="geometry">
             <mxRectangle x="295" y="587" width="115" height="29" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="E8Huc1iyoqKieG4LwPIf-18" value="&lt;font style=&quot;&quot;&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;- id: int&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;- name: String&lt;br&gt;&lt;/span&gt;- &lt;font style=&quot;font-size: 14px;&quot;&gt;creator: Educator&lt;br&gt;&lt;/font&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;- collaborators: set&amp;lt;Educator&amp;gt;&lt;/font&gt;&lt;br&gt;&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;- subscriptionDeadline: Date&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;- isClosed: boolean&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;- finalRank: list&amp;lt;team&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;/font&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;rounded=0;labelBackgroundColor=none;" parent="E8Huc1iyoqKieG4LwPIf-17" vertex="1">
-          <mxGeometry x="6.5" y="28" width="206" height="130" as="geometry" />
+        <mxCell id="E8Huc1iyoqKieG4LwPIf-18" value="&lt;font style=&quot;&quot;&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;- id: int&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;- name: String&lt;br&gt;&lt;/span&gt;- &lt;font style=&quot;font-size: 14px;&quot;&gt;creator: Educator&lt;br&gt;&lt;/font&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;- collaborators: set&amp;lt;Educator&amp;gt;&lt;/font&gt;&lt;br&gt;&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;- subscriptionDeadline: Date&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;- badges: set&amp;lt;Badge&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;- isClosed: boolean&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;- finalRank: list&amp;lt;team&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;/font&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;rounded=0;labelBackgroundColor=none;" parent="E8Huc1iyoqKieG4LwPIf-17" vertex="1">
+          <mxGeometry x="11" y="25" width="206" height="146" as="geometry" />
         </mxCell>
         <mxCell id="E8Huc1iyoqKieG4LwPIf-22" value="" style="endArrow=none;html=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0;exitY=0.25;exitDx=0;exitDy=0;enumerate=0;metaEdit=0;bendable=1;labelBackgroundColor=none;fontColor=default;edgeStyle=orthogonalEdgeStyle;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="E8Huc1iyoqKieG4LwPIf-17" target="E8Huc1iyoqKieG4LwPIf-7" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
@@ -64,10 +64,10 @@
           <mxGeometry x="438" y="562" width="25" height="26" as="geometry" />
         </mxCell>
         <mxCell id="E8Huc1iyoqKieG4LwPIf-32" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;Battle&lt;/font&gt;" style="swimlane;whiteSpace=wrap;html=1;rounded=0;labelBackgroundColor=none;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="205.88" y="836" width="243.25" height="198.25" as="geometry" />
+          <mxGeometry x="205.88" y="836" width="243.25" height="206" as="geometry" />
         </mxCell>
-        <mxCell id="E8Huc1iyoqKieG4LwPIf-40" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;- id: int&lt;br&gt;- name: String&lt;br&gt;- minTeam: int&lt;br&gt;- maxTeam: int&lt;br&gt;- codeKata: File&lt;br&gt;- registrationDeadline: Date&lt;br&gt;- finalSubmissionDeadline: Date&lt;br&gt;- rank: list&amp;lt;team&amp;gt;&lt;br&gt;- evaluator: Evaluator&lt;br&gt;&lt;/font&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;rounded=0;labelBackgroundColor=none;" parent="E8Huc1iyoqKieG4LwPIf-32" vertex="1">
-          <mxGeometry x="11.25" y="27" width="217" height="163" as="geometry" />
+        <mxCell id="E8Huc1iyoqKieG4LwPIf-40" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;- id: int&lt;br&gt;- tournamentId: int&lt;br&gt;- name: String&lt;br&gt;- minTeam: int&lt;br&gt;- maxTeam: int&lt;br&gt;- codeKata: File&lt;br&gt;- registrationDeadline: Date&lt;br&gt;- finalSubmissionDeadline: Date&lt;br&gt;- rank: list&amp;lt;team&amp;gt;&lt;br&gt;- evaluator: Evaluator&lt;br&gt;&lt;/font&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;rounded=0;labelBackgroundColor=none;" parent="E8Huc1iyoqKieG4LwPIf-32" vertex="1">
+          <mxGeometry x="13.129999999999999" y="26" width="217" height="180" as="geometry" />
         </mxCell>
         <mxCell id="E8Huc1iyoqKieG4LwPIf-33" value="" style="endArrow=none;html=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;labelBackgroundColor=none;fontColor=default;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="E8Huc1iyoqKieG4LwPIf-32" target="E8Huc1iyoqKieG4LwPIf-17" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
@@ -81,7 +81,7 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="E8Huc1iyoqKieG4LwPIf-35" value="0 .. *" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;rounded=0;labelBackgroundColor=none;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="327" y="726" width="43" height="26" as="geometry" />
+          <mxGeometry x="327" y="733" width="43" height="26" as="geometry" />
         </mxCell>
         <mxCell id="E8Huc1iyoqKieG4LwPIf-36" value="1" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;rounded=0;labelBackgroundColor=none;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="327" y="810" width="25" height="26" as="geometry" />
@@ -89,7 +89,7 @@
         <mxCell id="E8Huc1iyoqKieG4LwPIf-49" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;Team&lt;/font&gt;" style="swimlane;whiteSpace=wrap;html=1;startSize=23;rounded=0;labelBackgroundColor=none;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="-123" y="629.75" width="200" height="98.25" as="geometry" />
         </mxCell>
-        <mxCell id="i6q1TH49dpJsPKsCkJf4-35" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;- id: int&lt;br&gt;- creator: String&lt;br&gt;- students: list&amp;lt;student&amp;gt;&lt;/font&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;rounded=0;labelBackgroundColor=none;" parent="E8Huc1iyoqKieG4LwPIf-49" vertex="1">
+        <mxCell id="i6q1TH49dpJsPKsCkJf4-35" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;- id: int&lt;br&gt;- students: list&amp;lt;student&amp;gt;&lt;br&gt;- battleId: int&lt;br&gt;&lt;/font&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;rounded=0;labelBackgroundColor=none;" parent="E8Huc1iyoqKieG4LwPIf-49" vertex="1">
           <mxGeometry x="12" y="28.25" width="167" height="62" as="geometry" />
         </mxCell>
         <mxCell id="E8Huc1iyoqKieG4LwPIf-50" value="" style="endArrow=none;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;labelBackgroundColor=none;fontColor=default;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="E8Huc1iyoqKieG4LwPIf-49" target="E8Huc1iyoqKieG4LwPIf-7" edge="1">
