@@ -255,7 +255,6 @@ In this section, it is given a complete description of the functional requiremen
                         \item The user visualize the register page.
                         \item The user inserts the requested personal information.
                         \item The user clicks on the "sign up" button.
-                        \item The system checks if all information are inserted.
                         \item The system checks if the username is available.
                         \item The system sends a confirmation e-mail to the user.
                         \item The user clicks on the link on the confirmation e-mail received.
@@ -266,7 +265,6 @@ In this section, it is given a complete description of the functional requiremen
                     \hline
                     \textbf{Exceptions}  & 
                     \begin{itemize}
-                        \item If some information are missing the system will throw an error message and the user will be requested to insert the missing ones.
                         \item If the chosen username is not available the system will throw an error message and the user will be requested to choose another one.
                     \end{itemize} \\
                     \hline 
@@ -282,7 +280,7 @@ In this section, it is given a complete description of the functional requiremen
                     \hline
                     \textbf{Actors} &  Educators, students. \\
                     \hline
-                    \textbf{Entry conditions}  & The user opens the CKB platform and has clicks on "log in" button. \\
+                    \textbf{Entry conditions}  & The user opens the CKB platform and clicks on "log in" button. \\
                     \hline
                     \textbf{Event flow}  & 
                     \begin{enumerate}[label=\arabic*.]
@@ -320,7 +318,7 @@ In this section, it is given a complete description of the functional requiremen
                     \textbf{Exit conditions}  & The tournament has been successfully created and can be visualize in the list of all ongoing tournaments. All registered students will receive a notification that a new tournament is available.\\
                     \hline
                     \textbf{Exceptions}  & 
-                    If there are some missing and/or incorrect information, the system will throw an error message and the educator will be requested to modify it. The system return to the entry condition. \\
+                    If there are some incorrect information, the system will throw an error message and the educator will be requested to modify it. The system return to the entry condition. \\
                     \hline 
                 \end{tabular}
         \end{table}
@@ -348,7 +346,7 @@ In this section, it is given a complete description of the functional requiremen
                     \hline
                     \textbf{Exit conditions}  & The battle has been successfully created and all students subscribed to the tournament in which it belongs have received a notification.  \\
                     \hline
-                    \textbf{Exceptions}  &  If there are some missing and/or incorrect information, the system will throw an error message and the educator will be requested to modify it.  The system return to the entry condition. \\
+                    \textbf{Exceptions}  &  If there are some incorrect information, the system will throw an error message and the educator will be requested to modify it.  The system return to the entry condition. \\
                     \hline 
                 \end{tabular}
         \end{table}
@@ -370,14 +368,13 @@ In this section, it is given a complete description of the functional requiremen
                         \item The educator visualize a list of tournaments to which he/she has access.
                         \item The educator select a tournament from the list.
                         \item The educator clicks on the button "invite educator"
-                        \item The educator search for the username of the colleague he/she wants to invite.
-                        \item The educator views the colleague's profile and selects it.
+                        \item The educator insert the username of the colleague he/she wants to invite.
                         \item The system sends an e-mail to the selected colleague.
                     \end{enumerate}\\
                     \hline
                     \textbf{Exit conditions}  & The invite has been successfully sent. \\
                     \hline
-                    \textbf{Exceptions} & If the selected username does not exist the system will throw an error message. The system will return to the entry conditions.
+                    \textbf{Exceptions} & If the selected username does not exist or belongs to a student the system will throw an error message. The system will return to the entry conditions.
                 \end{tabular}
         \end{table}
         \item \lbl{uc: closeT} \textbf{Close a tournament}
@@ -468,12 +465,7 @@ In this section, it is given a complete description of the functional requiremen
                     \hline
                     \textbf{Event flow}  & 
                     \begin{enumerate}[label=\arabic*.]
-                        \item The student clicks on the button "my tournaments".
-                        \item The student visualizes the list of tournaments he/she is registered to.
-                        \item The student selects a tournament.
-                         \item The student clicks on the button "join a battle".
-                        \item The student visualizes the list of battles that belong to that tournament.
-                        \item The student selects a battle.
+                        \item The student clicks on the link received by e-mail.
                         \item The system checks if the registration deadline is not expired.
                     \end{enumerate}\\ 
                     \hline
@@ -500,15 +492,21 @@ In this section, it is given a complete description of the functional requiremen
                         \item The student clicks on the button "my battles".
                         \item The student visualizes the list of battles he/she is registered to.
                         \item The student selects a battle.
-                        \item The student visualize his/hers current team.
+                        \item The student visualizes his/hers current team.
                         \item The student clicks on the button "invite a student".
-                        \item The system check if the registration deadline is not expired.
-                        \item The student insert the username of the student who he/she wants to invite.
+                        \item The system checks if the registration deadline is not expired.
+                        \item The student inserts the username of the student who he/she wants to invite.
+                        \item The system checks if the username inserted is enrolled in the battle.
                     \end{enumerate}\\ 
                     \hline
                     \textbf{Exit conditions}  & The invited student has received an e-mail. \\
                     \hline
-                    \textbf{Exceptions}  & If the registration deadline for the battle is expired, the system will throw an error message. The systems will return to the entry condition. \\
+                    \textbf{Exceptions}  &
+                    \begin{itemize}
+                        \item If the registration deadline for the battle is expired, the invite will not be sent.
+                        \item If the invited student is not enrolled in the invite will not be sent.
+                    \end{itemize} 
+                     In both cases the system will throw an error message and return to the entry condition.\\
                     \hline 
                 \end{tabular}
         \end{table}
@@ -653,7 +651,7 @@ In this section, it is given a complete description of the functional requiremen
                         \item The user clicks on the button "see student profile".
                         \item The user inserts the username of the student he/she wants to see.
                         \item The system check the inserted information.
-                        \item The system show the personal profile requested.
+                        \item The system show the personal profile requested if present.
                     \end{enumerate}\\ 
                     \hline
                     \textbf{Exit conditions}  & The user see the personal profile of a student. \\
@@ -720,13 +718,12 @@ In this section, it is given a complete description of the functional requiremen
                 \null & \null  & \ref{req: ranks}&\null \\
                 \null & \null  & \ref{req: notifRankB}&\null \\
                 \hline
-                
-                
+
             \end{tabular}
     \end{table}
-    
-\clearpage
-\begin{table}[h]
+
+    \clearpage
+    \begin{table}[h]
         \centering
         \renewcommand{\arraystretch}{1.5}
         \begin{tabular}{|m{3cm}|m{3cm}|m{3cm}|m{3cm}|}
@@ -739,7 +736,9 @@ In this section, it is given a complete description of the functional requiremen
             \ref{uc: profile} & \ref{goal: profile} & \ref{req: profile} & sce7 \\
             \hline
         \end{tabular}
-\end{table}
+    \end{table}
+    
+\clearpage
 \section{Performance Requirements}
 In this section are listed some performance requirements for the CKB platform that are essential to the efficiency of the entire system.
 The CKB platform should be able to guarantee the connection of 100.000 users simultaneously. \newline 
