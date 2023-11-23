@@ -11,7 +11,7 @@ The main elements are:
     \item Tournament: identifies a tournament. It contain all useful information as well as all needed method(s) that allow the educators to create it and the students to enroll into it. It also contains the final ranking of all participants.
     \item Battle: identifies a battle. It contain all useful information as well as all needed method that allow the educators to create it and the team of students to join it. It also contains the ranking of all teams.
     \item Evaluator: it contains all files and methods that are necessary for both the automatic and manual evaluation.
-    \item Badge: represent a badge with a title, description and a set of rules that regulates how a student can earn the badge. All rules must be checked in order to give the badge to the student.
+    \item Badge: represent a badge with a title, description and a set of rules that regulates how a student can earn the badge based on some variables. All rules must be checked in order to give the badge to the student.
     \item Rule: represent a rule. It contains the method(s) that check whether a student can receive the badge.
 \end{itemize}
 
@@ -95,8 +95,8 @@ In this section we will analyze all possible scenarios that can occur in using t
     As soon as Luigi has finished to evaluate all students, he will end the consolidation phase, and when the ranking are available all students will be notified.\newline
     \textbf{The score exceed the maximum value:} Luigi can make a mistake and assign a score to a student making the overall team score higher than 100. In this case the score will be automatically cut off to 100.
     \item \lbl{sce: badge} \textbf{Gamification badges management.} \newline
-    Mario, that is a registered educator, wants to create a new badge that is earned by the student who wrote the most lines of code. From his personal dashboard he select the option "create new badge", then he has to specify the name, a description and one or more rules that regulates if a student is eligible to get that badge. In this case the name will be "Top Writer" and it will be awarded to the student who wrote the most lines of code within a battle. \newline
-    Peach, that is a student, aspires to earn the "Top Writer" badge, and so she heavily contributed on the last battle. At the end of the battle the CKB platform automatically checks if any student is eligible for a badge, and Peach is assigned the "Top Writer", which will appear on her CKB profile.
+    Mario, that is a registered educator, at the creation of a tournament wants to add a badge that is earned by the student who wrote the most lines of code. From his personal dashboard he select the option "create a badge", then he has to specify the name, a description and one or more rules that regulates if a student is eligible to get that badge. In this case the name will be "Top Writer" and it will be awarded to the student who wrote the most lines of code within that tournament. \newline
+    Peach, that is a student, aspires to earn the "Top Writer" badge, and so she heavily contributed on the tournaments. At the end of the tournaments the CKB platform automatically checks if any student is eligible for a badge, and Peach is assigned the "Top Writer", which will appear on her CKB profile.
 \end{enumerate}
 
 \clearpage
@@ -161,7 +161,7 @@ Every user that have access to a battle (in the case of an educator he/she is th
 Every user can view a profile of a student by searching for his/her username. In each profile are shown badges earned, battles won, and tournament rankings. 
 
 \subsection{Create gamification badges}
-This function will be available only for educators. 
+This function will be available only for educators within the tournament creation. 
 \newline A badge can be created by specifying a title and at least one rule that must be satisfied to achieve it. Each badge is then automatically assigned to one or more students by checking the validity of the rules. Educators can also create new variables that represent relevant information for scoring. A variable is identified by a unique name and a measurement unit, that can be selected by a list of predefined (e.g. integer, float, date, ..).
 
 \clearpage

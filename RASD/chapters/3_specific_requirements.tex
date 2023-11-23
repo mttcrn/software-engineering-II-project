@@ -2,33 +2,37 @@
 
 \section{External interface Requirements}
 \subsection{User Interfaces}
-The images below will present an idea of the user interfaces of the major function of the system. Since educators and students uses the platform differently, they will have access to two different personalized dashboard. 
-\begin{figure}[H]
-        \centering
-        \includegraphics[scale=0.50]{images/interfaces_3.png}
-        \caption{Ranking Page}
-        \label{fig:rank}
-    \end{figure}
-    \clearpage
-        \begin{figure}[H]
-        \centering
-        \includegraphics[scale=0.55]{images/interfaces_2.png}
-        \caption{Student and Educator Homepage}
-        \label{fig:home_pages}
-    \end{figure}
-    \clearpage
+The images below will present an idea of the user interfaces of the major function of the system. Since educators and students uses the platform differently, they will have access to two different personalized dashboard. \newline
+Button are coloured in yellow and represents the main function that the CKB platform offers. The green fields instead represent area where the user must enter information (forms-like). \newline
 
-        \begin{figure}[H]
-        \centering
-        \includegraphics[scale=0.55]{images/interfaces_1 (1).png}
-        \caption{Sign Up and Log In Page}
-        \label{fig:interfaces_1}
-    \end{figure}
-    \clearpage
-The main differences are in the homepages.(Figure \ref{fig:home_pages})
-The grey buttons represent the main operations that the user can do ("Join Tournament, "Create Battle",...), the yellow buttons represent the actions that will be implemented as icons in the homepage.
-\subsubsection{Used by the students.}
+The figure \ref{fig:login-signin} represent the front page to which each user will have access to, and from which he/she can decide to register or log in. 
+    
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.5]{images/login-signin.png}
+    \caption{Start page with log in and sign in}
+    \label{fig:login-signin}
+\end{figure}
+
 \subsubsection{Used by the educators.}
+The "All Tournaments" section is the same as the student dashboard in the next image. \newline
+The yellow buttons marked with (*) are those that are not always available. For instance in "Manage tournament" the "Close tournament" button is available only when all battles within that tournament are closed. Furthermore, in "Manage battle" the "Perform manual evaluation" button is available only after the final submission deadline of the battle expires and the "Close consolidation stage" button is available only when the educator has performed the manual evaluation.
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.5]{images/educator_dashboard.png}
+    \caption{Educator dashboard}
+    \label{fig:edDash}
+\end{figure}
+
+\subsubsection{Used by the students.}
+As stated before yellow buttons marked with (*) are those that are not always available. For instance in "Battle dashboard" both the "Invite student" and "Leave team" buttons are available only when the registration deadline for that battle has not yet expired.
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.5]{images/student_dashboard.png}
+    \caption{Student dashboard}
+    \label{fig:stuDash}
+\end{figure}
+
 \subsection{Hardware Interfaces}
 The only hardware interface required is the personal device of the user (computer, tablet or smartphone) that will access the CKB platform through the web browser.
 \subsection{Software Interfaces}
@@ -622,15 +626,12 @@ In this section, it is given a complete description of the functional requiremen
                     \hline
                     \textbf{Actors} & Educators. \\
                     \hline
-                    \textbf{Entry conditions}  & An educator wants to create a new badge within a tournament. \\
+                    \textbf{Entry conditions}  & An educator wants to create a badge within a tournament. The educator is creating the tournament. \\
                     \hline
                     \textbf{Event flow}  & 
                     \begin{enumerate}[label=\arabic*.]
-                        \item The educator clicks on the button "my tournaments"
-                        \item The educator visualize a list of tournaments to which he/she has access.
-                        \item The educator select a tournament from the list.
                         \item The educator clicks on the button "create badge".
-                        \item The educator inserts all information requested.
+                        \item The educator inserts all information requested in a form.
                         \item The system check the correctness of the inserted information.
                     \end{enumerate}\\ 
                     \hline
