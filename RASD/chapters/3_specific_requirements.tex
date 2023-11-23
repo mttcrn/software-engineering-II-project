@@ -401,9 +401,11 @@ In this section, it is given a complete description of the functional requiremen
                         \item The educator select a tournament from the list.
                         \item The educator clicks on the button "close tournament".
                         \item The system checks whether all battles in that tournament are finished.
+                        \item The system checks if any student have fulfilled some badges rules (if present).
+                        \item The system produces the final ranking of the tournament.
                     \end{enumerate}\\
                     \hline
-                    \textbf{Exit conditions}  & The tournament has been successfully closed. \\
+                    \textbf{Exit conditions}  & The tournament has been successfully closed. The badges have been assigned correctly. The final ranking is available. All students who participated are notified by e-mail. \\
                     \hline
                     \textbf{Exceptions}  & If not all battles of the tournament are over, the system will throw an error message and the educator will not be able to close the tournament. The system returns to the entry condition.\\
                     \hline 
@@ -608,8 +610,8 @@ In this section, it is given a complete description of the functional requiremen
                     \textbf{Event flow}  & 
                     \begin{enumerate}[label=\arabic*.]
                         \item The GitHub API triggers the CKB platform.
-                        \item The system perform the automatic evaluation.
-                        \item The system update the score of each team and the real-time rank.
+                        \item The system performs the automatic evaluation.
+                        \item The system updates the real-time battle ranking and the student's tournament ranking.
                     \end{enumerate}\\ 
                     \hline
                     \textbf{Exit conditions}  &  The real-time rank is updated. \\
@@ -723,7 +725,6 @@ In this section, it is given a complete description of the functional requiremen
                 \null & \null  & \ref{req: ranks}&\null \\
                 \null & \null  & \ref{req: notifRankB}&\null \\
                 \hline
-
             \end{tabular}
     \end{table}
 
