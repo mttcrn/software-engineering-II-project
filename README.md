@@ -18,11 +18,11 @@ Platform similar to CodeKataBattle: [Code Wars](https://www.codewars.com/)
 
 3.2.3 Sequence diagrams
 
-1 - User registration
+1 - User registration ✅
 
-2 - User login
+2 - User login ✅
 
-3 - Create a tournament
+3 - Create a tournament ✅
 
 4 - Create battle
 
