@@ -38,17 +38,17 @@ Platform similar to CodeKataBattle: [Code Wars](https://www.codewars.com/)
 
 10 - Invite a student ✅
 
-11 - Leave a team
+11 - Leave a team ✅
 
-12 - View battle ranking
+12 - View battle ranking ✅
 
-13 - Perform manual evaluation
+13 - Perform manual evaluation ✅
 
-14 - Perform automatic evaluation
+14 - Perform automatic evaluation ✅
 
-15 - Create a badge
+15 - Create a badge ✅
 
-16 - See a student profile
+16 - See a student profile ✅
 
 3.2.4 Traceability matrix -gervatini
 
