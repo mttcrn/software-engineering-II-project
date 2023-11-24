@@ -24,19 +24,19 @@ Platform similar to CodeKataBattle: [Code Wars](https://www.codewars.com/)
 
 3 - Create a tournament ✅
 
-4 - Create battle
+4 - Create battle ✅
 
-5 - Invite an educator
+5 - Invite an educator ✅
 
-6 - Close a tournament
+6 - Close a tournament ✅
 
-7 - Visualize all ongoing tournament with ranking
+7 - Visualize all ongoing tournament with ranking ✅
 
-8 - Subscribe to a tournament
+8 - Subscribe to a tournament ✅
 
-9 - Enroll in a battle
+9 - Enroll in a battle ✅
 
-10 - Invite a student
+10 - Invite a student ✅
 
 11 - Leave a team
 
