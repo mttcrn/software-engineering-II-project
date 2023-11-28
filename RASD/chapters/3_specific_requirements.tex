@@ -7,9 +7,9 @@ Button are coloured in yellow and represents the main function that the CKB plat
 
 The figure \ref{fig:login-signin} represent the front page to which each user will have access to, and from which he/she can decide to register or log in. 
     
-\begin{figure}[H]
+\begin{figure}[h]
     \centering
-    \includegraphics[scale=0.5]{images/login-signin.png}
+    \includegraphics[scale=0.7]{images/login-signin.png}
     \caption{Start page with log in and sign in}
     \label{fig:login-signin}
 \end{figure}
@@ -17,18 +17,18 @@ The figure \ref{fig:login-signin} represent the front page to which each user wi
 \subsubsection{Used by the educators.}
 The "All Tournaments" section is the same as the student dashboard in the next image. \newline
 The yellow buttons marked with (*) are those that are not always available. For instance in "Manage tournament" the "Close tournament" button is available only when all battles within that tournament are closed. Furthermore, in "Manage battle" the "Perform manual evaluation" button is available only after the final submission deadline of the battle expires and the "Close consolidation stage" button is available only when the educator has performed the manual evaluation.
-\begin{figure}[H]
+\begin{figure}[h]
     \centering
-    \includegraphics[scale=0.5]{images/educator_dashboard.png}
+    \includegraphics[scale=0.7]{images/educator_dashboard.png}
     \caption{Educator dashboard}
     \label{fig:edDash}
 \end{figure}
 
 \subsubsection{Used by the students.}
 As stated before yellow buttons marked with (*) are those that are not always available. For instance in "Battle dashboard" both the "Invite student" and "Leave team" buttons are available only when the registration deadline for that battle has not yet expired.
-\begin{figure}[H]
+\begin{figure}[h]
     \centering
-    \includegraphics[scale=0.5]{images/student_dashboard.png}
+    \includegraphics[scale=0.7]{images/student_dashboard.png}
     \caption{Student dashboard}
     \label{fig:stuDash}
 \end{figure}
@@ -234,9 +234,9 @@ In this section, it is given a complete description of the functional requiremen
     
     \subsection{Use cases}
     In figure \ref{fig:use_cases_diagram} is represented a general overview of all use cases deduced from the scenarios in section \ref{desc:scenarios}. All cases include "User login" because all function provided by the platform are accessible to registered users. (except for use registration)
-    \begin{figure}[H]
+    \begin{figure}[h]
         \centering
-        \includegraphics[scale=0.35]{images/use_cases_diagram.png}
+        \includegraphics[scale=0.5]{images/use_cases_diagram.png}
         \caption{Use cases diagram}
         \label{fig:use_cases_diagram}
     \end{figure}
@@ -244,7 +244,7 @@ In this section, it is given a complete description of the functional requiremen
     
     \begin{enumerate}[label=\textbf{UC.\arabic*}]
         \item \lbl{uc: reg} \textbf{User registration}
-        \begin{table}[H]
+        \begin{table}[h]
     	    \centering
                 \renewcommand{\arraystretch}{1.5}
                 \begin{tabular}{|m{3.2cm}|m{9.8cm}|}
@@ -275,8 +275,15 @@ In this section, it is given a complete description of the functional requiremen
                     \hline 
                 \end{tabular}
         \end{table}
+        \begin{figure}[h]
+            \centering
+            \includegraphics[scale = 0.7]{images/sd/signup.png}
+            \caption{Sign up sequence diagram}
+            \label{fig:sd-signup}
+        \end{figure}
+        \clearpage
         \item \lbl{uc: login} \textbf{User login}
-        \begin{table}[H]
+        \begin{table}[h]
     	    \centering
                 \renewcommand{\arraystretch}{1.5}
                 \begin{tabular}{|m{3.2cm}|m{9.8cm}|}
@@ -302,8 +309,15 @@ In this section, it is given a complete description of the functional requiremen
                     \hline 
                 \end{tabular}
         \end{table}
+        \begin{figure}[h]
+            \centering
+            \includegraphics[scale = 0.7]{images/sd/login.png}
+            \caption{Log in sequence diagram}
+            \label{fig:sd-login}
+        \end{figure}
+        \clearpage
         \item \lbl{uc: createT} \textbf{Create a tournament}
-        \begin{table}[H]
+        \begin{table}[h]
     	    \centering
                 \renewcommand{\arraystretch}{1.5}
                 \begin{tabular}{|m{3.2cm}|m{9.8cm}|}
@@ -327,8 +341,15 @@ In this section, it is given a complete description of the functional requiremen
                     \hline 
                 \end{tabular}
         \end{table}
+        \begin{figure}[h]
+            \centering
+            \includegraphics[scale = 0.7]{images/sd/createT.png}
+            \caption{Create tournament sequence diagram}
+            \label{fig:sd-createT}
+        \end{figure}
+        \clearpage
         \item \lbl{uc: createB} \textbf{Create battle}
-        \begin{table}[H]
+        \begin{table}[h]
     	    \centering
                 \renewcommand{\arraystretch}{1.5}
                 \begin{tabular}{|m{3.2cm}|m{9.8cm}|}
@@ -355,8 +376,15 @@ In this section, it is given a complete description of the functional requiremen
                     \hline 
                 \end{tabular}
         \end{table}
+        \begin{figure}[h]
+            \centering
+            \includegraphics[scale = 0.7]{images/sd/createB.png}
+            \caption{Create battle sequence diagram}
+            \label{fig:sd-createB}
+        \end{figure}
+        \clearpage
         \item \lbl{uc: inviteE} \textbf{Invite an educator}
-        \begin{table}[H]
+        \begin{table}[h]
     	    \centering
                 \renewcommand{\arraystretch}{1.5}
                 \begin{tabular}{|m{3.2cm}|m{9.8cm}|}
@@ -372,18 +400,26 @@ In this section, it is given a complete description of the functional requiremen
                         \item The educator clicks on the button "my tournaments".
                         \item The educator visualize a list of tournaments to which he/she has access.
                         \item The educator select a tournament from the list.
-                        \item The educator clicks on the button "invite educator"
                         \item The educator insert the username of the colleague he/she wants to invite.
+                        \item The educator clicks on the button "invite educator"
                         \item The system sends an e-mail to the selected colleague.
                     \end{enumerate}\\
                     \hline
                     \textbf{Exit conditions}  & The invite has been successfully sent. \\
                     \hline
-                    \textbf{Exceptions} & If the selected username does not exist or belongs to a student the system will throw an error message. The system will return to the entry conditions.
+                    \textbf{Exceptions} & If the selected username does not exist or belongs to a student the system will throw an error message. The system will return to the entry conditions. \\
+                    \hline
                 \end{tabular}
         \end{table}
+        \begin{figure}[h]
+            \centering
+            \includegraphics[scale = 0.7]{images/sd/inviteE.png}
+            \caption{Invite educator sequence diagram}
+            \label{fig:sd-inviteE}
+        \end{figure}
+        \clearpage
         \item \lbl{uc: acceptE} \textbf{Educator accepts invite}
-        \begin{table}[H]
+        \begin{table}[h]
     	    \centering
                 \renewcommand{\arraystretch}{1.5}
                 \begin{tabular}{|m{3.2cm}|m{9.8cm}|}
@@ -406,8 +442,15 @@ In this section, it is given a complete description of the functional requiremen
                     \hline 
                 \end{tabular}
         \end{table}
+        \begin{figure}[h]
+            \centering
+            \includegraphics[scale = 0.7]{images/sd/acceptsE.png}
+            \caption{Educator accepts an invite sequence diagram}
+            \label{fig:sd-acceptE}
+        \end{figure}
+        \clearpage
         \item \lbl{uc: closeT} \textbf{Close a tournament}
-        \begin{table}[H]
+        \begin{table}[h]
     	    \centering
                 \renewcommand{\arraystretch}{1.5}
                 \begin{tabular}{|m{3.2cm}|m{9.8cm}|}
@@ -435,8 +478,15 @@ In this section, it is given a complete description of the functional requiremen
                     \hline 
                 \end{tabular}
         \end{table}
+        \begin{figure}[h]
+            \centering
+            \includegraphics[scale = 0.7]{images/sd/closeT.png}
+            \caption{Close tournament sequence diagram}
+            \label{fig:sd-closeT}
+        \end{figure}
+        \clearpage
         \item \lbl{uc: rankT} \textbf{Visualize all ongoing tournament with ranking}
-        \begin{table}[H]
+        \begin{table}[h]
     	    \centering
                 \renewcommand{\arraystretch}{1.5}
                 \begin{tabular}{|m{3.2cm}|m{9.8cm}|}
@@ -458,8 +508,15 @@ In this section, it is given a complete description of the functional requiremen
                     \hline
                 \end{tabular}
         \end{table}
+        \begin{figure}[h]
+            \centering
+            \includegraphics[scale = 0.7]{images/sd/visuAllT.png}
+            \caption{Visualize all tournaments ranking sequence diagram}
+            \label{fig:sd-rankT}
+        \end{figure}
+        \clearpage
         \item \lbl{uc: enrollT} \textbf{Subscribe to a tournament}
-        \begin{table}[H]
+        \begin{table}[h]
     	    \centering
                 \renewcommand{\arraystretch}{1.5}
                 \begin{tabular}{|m{3.2cm}|m{9.8cm}|}
@@ -482,8 +539,15 @@ In this section, it is given a complete description of the functional requiremen
                     \hline 
                 \end{tabular}
         \end{table}
+        \begin{figure}[h]
+            \centering
+            \includegraphics[scale = 0.7]{images/sd/subsT.png}
+            \caption{Subscribe to a tournament sequence diagram}
+            \label{fig:sd-subsT}
+        \end{figure}
+        \clearpage
         \item \lbl{uc: enrollB} \textbf{Enroll in a battle}
-        \begin{table}[H]
+        \begin{table}[h]
     	    \centering
                 \renewcommand{\arraystretch}{1.5}
                 \begin{tabular}{|m{3.2cm}|m{9.8cm}|}
@@ -506,8 +570,15 @@ In this section, it is given a complete description of the functional requiremen
                     \hline 
                 \end{tabular}
         \end{table}
+        \begin{figure}[h]
+            \centering
+            \includegraphics[scale = 0.7]{images/sd/enrollB.png}
+            \caption{Enroll in a battle sequence diagram}
+            \label{fig:sd-enrollB}
+        \end{figure}
+        \clearpage
         \item \lbl{uc: inviteS} \textbf{Invite a student}
-        \begin{table}[H]
+        \begin{table}[h]
     	    \centering
                 \renewcommand{\arraystretch}{1.5}
                 \begin{tabular}{|m{3.2cm}|m{9.8cm}|}
@@ -540,8 +611,15 @@ In this section, it is given a complete description of the functional requiremen
                     \hline 
                 \end{tabular}
         \end{table}
+        \begin{figure}[h]
+            \centering
+            \includegraphics[scale = 0.7]{images/sd/inviteS.png}
+            \caption{Invite students sequence diagram}
+            \label{fig:sd-inviteS}
+        \end{figure}
+        \clearpage
         \item \lbl{uc: acceptS} \textbf{Student accepts invite}
-        \begin{table}[H]
+        \begin{table}[h]
     	    \centering
                 \renewcommand{\arraystretch}{1.5}
                 \begin{tabular}{|m{3.2cm}|m{9.8cm}|}
@@ -565,8 +643,15 @@ In this section, it is given a complete description of the functional requiremen
                     \hline 
                 \end{tabular}
         \end{table}
+        \begin{figure}[h]
+            \centering
+            \includegraphics[scale = 0.7]{images/sd/acceptsS.png}
+            \caption{Student accepts invite sequence diagram}
+            \label{fig:sd-acceptS}
+        \end{figure}
+        \clearpage
         \item \lbl{uc: leaveT} \textbf{Leave a team}
-        \begin{table}[H]
+        \begin{table}[h]
     	    \centering
                 \renewcommand{\arraystretch}{1.5}
                 \begin{tabular}{|m{3.2cm}|m{9.8cm}|}
@@ -592,8 +677,15 @@ In this section, it is given a complete description of the functional requiremen
                     \hline 
                 \end{tabular}
         \end{table}
+        \begin{figure}[h]
+            \centering
+            \includegraphics[scale = 0.7]{images/sd/leaveT.png}
+            \caption{Student leaves team sequence diagram}
+            \label{fig:sd-leaveT}
+        \end{figure}
+        \clearpage
         \item \lbl{uc: rankB} \textbf{View battle ranking}
-        \begin{table}[H]
+        \begin{table}[h]
     	    \centering
                 \renewcommand{\arraystretch}{1.5}
                 \begin{tabular}{|m{3.2cm}|m{9.8cm}|}
@@ -616,8 +708,15 @@ In this section, it is given a complete description of the functional requiremen
                     \hline
                 \end{tabular}
         \end{table}
+        \begin{figure}[h]
+            \centering
+            \includegraphics[scale = 0.7]{images/sd/battleRank.png}
+            \caption{View battle ranking sequence diagram}
+            \label{fig:sd-battleRank}
+        \end{figure}
+        \clearpage
         \item \lbl{uc: evalM} \textbf{Perform manual evaluation}
-        \begin{table}[H]
+        \begin{table}[h]
     	    \centering
                 \renewcommand{\arraystretch}{1.5}
                 \begin{tabular}{|m{3.2cm}|m{9.8cm}|}
@@ -643,8 +742,15 @@ In this section, it is given a complete description of the functional requiremen
                     \hline
                 \end{tabular}
         \end{table}
+        \begin{figure}[h]
+            \centering
+            \includegraphics[scale = 0.7]{images/sd/evalM.png}
+            \caption{Perform manual evaluation sequence diagram}
+            \label{fig:sd-evalM}
+        \end{figure}
+        \clearpage
         \item \lbl{uc: evalA} \textbf{Perform automatic evaluation}
-        \begin{table}[H]
+        \begin{table}[h]
     	    \centering
                 \renewcommand{\arraystretch}{1.5}
                 \begin{tabular}{|m{3.2cm}|m{9.8cm}|}
@@ -666,8 +772,15 @@ In this section, it is given a complete description of the functional requiremen
                     \hline
                 \end{tabular}
         \end{table}
+        \begin{figure}[h]
+            \centering
+            \includegraphics[scale = 0.7]{images/sd/evalA.png}
+            \caption{Perform automatic evaluation sequence diagram}
+            \label{fig:sd-evalA}
+        \end{figure}
+        \clearpage
         \item \lbl{uc: createBadge} \textbf{Create a badge}
-        \begin{table}[H]
+        \begin{table}[h]
     	    \centering
                 \renewcommand{\arraystretch}{1.5}
                 \begin{tabular}{|m{3.2cm}|m{9.8cm}|}
@@ -689,8 +802,15 @@ In this section, it is given a complete description of the functional requiremen
                     \hline
                 \end{tabular}
         \end{table}
+        \begin{figure}[h]
+            \centering
+            \includegraphics[scale = 0.7]{images/sd/createBadges.png}
+            \caption{Create badge sequence diagram}
+            \label{fig:sd-createBadge}
+        \end{figure}
+        \clearpage
         \item \lbl{uc: profile} \textbf{See student profile}
-        \begin{table}[H]
+        \begin{table}[h]
     	    \centering
                 \renewcommand{\arraystretch}{1.5}
                 \begin{tabular}{|m{3.2cm}|m{9.8cm}|}
@@ -715,8 +835,14 @@ In this section, it is given a complete description of the functional requiremen
                     \hline
                 \end{tabular}
         \end{table}
-    \end{enumerate}
-    
+        \begin{figure}[h]
+            \centering
+            \includegraphics[scale = 0.7]{images/sd/seeProfile.png}
+            \caption{See student profile sequence diagram}
+            \label{fig:sd-seeProfile}
+        \end{figure}
+    \end{enumerate}    
+    \clearpage
 
     \subsection{Traceability matrix}
     \begin{table}[h]
@@ -739,6 +865,8 @@ In this section, it is given a complete description of the functional requiremen
                 \hline
                 \ref{uc: inviteE} & \ref{goal: createB} & \ref{req: manageT} & \ref{sce: createTB}  \\
                 \hline
+                \ref{uc: acceptE} & \ref{goal: createB} & \ref{req: manageT} & \ref{sce: createTB}  \\
+                \hline
                 \ref{uc: closeT} & \ref{goal: manageT} & \ref{req: manageT} & \ref{sce: createTB}  \\
                 \hline
                 \ref{uc: rankT} & \ref{goal: listT} & \ref{req: listT} & \ref{sce: evalM}  \\
@@ -758,20 +886,7 @@ In this section, it is given a complete description of the functional requiremen
                 \ref{uc: inviteS} & \ref{goal: formTeam} & \ref{req: formTeam} & \ref{sce: formTeam} \\
                 \null & \null  & \ref{req: notifInvite}& \null \\ 
                 \hline
-                \ref{uc: leaveT} & \ref{goal: formTeam} & \ref{req: formTeam} & \ref{sce: formTeam} \\
-                \null & \null  & \ref{req: notifInvite}& \null \\ 
-                \hline
-                \ref{uc: rankB} & \ref{goal: scoreB} & \ref{req: evalA} & \ref{sce: evalA} \\
-                \null & \null  & \ref{req: ranks}& \null \\ 
-                \null & \null  & \ref{req: evalM}&\null \\
-                \null & \null  & \ref{req: notifRankB}&\null \\
-                \hline
-                \ref{uc: evalM} & \ref{goal: scoreB} & \ref{req: evalM} & \ref{sce: evalM} \\
-                \null & \null  & \ref{req: notifRankB}&\null \\
-                \hline
-                \ref{uc: evalA} & \ref{goal: scoreB} & \ref{req: evalA} & \ref{sce: evalA} \\
-                \null & \null  & \ref{req: ranks}&\null \\
-                \null & \null  & \ref{req: notifRankB}&\null \\
+                \ref{uc: acceptS} & \ref{goal: formTeam} & \ref{req: formTeam} & \ref{sce: formTeam}  \\
                 \hline
             \end{tabular}
     \end{table}
@@ -783,6 +898,21 @@ In this section, it is given a complete description of the functional requiremen
         \begin{tabular}{|m{3cm}|m{3cm}|m{3cm}|m{3cm}|}
             \hline
             \textbf{Use Case ID} & \textbf{Goal ID} & \textbf{Req ID} & \textbf{Scenarios} \\
+            \hline
+            \ref{uc: leaveT} & \ref{goal: formTeam} & \ref{req: formTeam} & \ref{sce: formTeam} \\
+                \null & \null  & \ref{req: notifInvite}& \null \\ 
+            \hline
+            \ref{uc: rankB} & \ref{goal: scoreB} & \ref{req: evalA} & \ref{sce: evalA} \\
+                \null & \null  & \ref{req: ranks}& \null \\ 
+                \null & \null  & \ref{req: evalM}&\null \\
+                \null & \null  & \ref{req: notifRankB}&\null \\
+            \hline
+            \ref{uc: evalM} & \ref{goal: scoreB} & \ref{req: evalM} & \ref{sce: evalM} \\
+                \null & \null  & \ref{req: notifRankB}&\null \\
+            \hline
+            \ref{uc: evalA} & \ref{goal: scoreB} & \ref{req: evalA} & \ref{sce: evalA} \\
+                \null & \null  & \ref{req: ranks}&\null \\
+                \null & \null  & \ref{req: notifRankB}&\null \\
             \hline
             \ref{uc: createBadge} & \ref{goal: createBad} & \ref{req: createBad} & \ref{sce: badge} \\
             \null & \null  & \ref{req: defineRV}&\null \\

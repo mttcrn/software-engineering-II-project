@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-11-23T09:18:15.434Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36" etag="6d14Cc1Sy4UHoBrPQCZd" version="22.1.3" type="device" pages="3">
+<mxfile host="app.diagrams.net" modified="2023-11-28T15:00:01.761Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36" etag="Pfztojl7fHvRgtKBhFdt" version="22.1.4" type="device" pages="3">
   <diagram name="Student dashboard" id="eqFCrr45GRlI0DkMSjQY">
     <mxGraphModel dx="1050" dy="574" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -59,19 +59,22 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="Qa3SlvcVOTykm9FDPL1g-25" value="Battle dashboard" style="swimlane;whiteSpace=wrap;html=1;fontSize=14;" parent="1" vertex="1">
-          <mxGeometry x="420" y="360" width="300" height="260" as="geometry" />
+          <mxGeometry x="420" y="360" width="300" height="300" as="geometry" />
         </mxCell>
         <mxCell id="Qa3SlvcVOTykm9FDPL1g-28" value="Battle&#39;s ranking" style="swimlane;whiteSpace=wrap;html=1;startSize=40;fontSize=14;" parent="Qa3SlvcVOTykm9FDPL1g-25" vertex="1">
           <mxGeometry x="170" y="50" width="90" height="80" as="geometry" />
         </mxCell>
         <mxCell id="Qa3SlvcVOTykm9FDPL1g-29" value="Invite student (*)" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;labelBackgroundColor=none;fillColor=#fff2cc;strokeColor=#d6b656;" parent="Qa3SlvcVOTykm9FDPL1g-25" vertex="1">
-          <mxGeometry x="40" y="150" width="220" height="40" as="geometry" />
+          <mxGeometry x="40" y="185" width="220" height="40" as="geometry" />
         </mxCell>
         <mxCell id="Qa3SlvcVOTykm9FDPL1g-30" value="My team" style="swimlane;whiteSpace=wrap;html=1;startSize=40;fontSize=14;" parent="Qa3SlvcVOTykm9FDPL1g-25" vertex="1">
           <mxGeometry x="40" y="50" width="90" height="80" as="geometry" />
         </mxCell>
         <mxCell id="TNMWpftsrmkYmvqPjq0u-3" value="Leave team (*)" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;labelBackgroundColor=none;fillColor=#fff2cc;strokeColor=#d6b656;" parent="Qa3SlvcVOTykm9FDPL1g-25" vertex="1">
-          <mxGeometry x="40" y="200" width="220" height="40" as="geometry" />
+          <mxGeometry x="40" y="240" width="220" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="qNA26h1VEV_pxZKmDEy8-2" value="student username" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=14;" vertex="1" parent="Qa3SlvcVOTykm9FDPL1g-25">
+          <mxGeometry x="50" y="150" width="200" height="30" as="geometry" />
         </mxCell>
         <mxCell id="Oq-7-J-Ro8cwWhJverXt-1" value="Tournament dashboard" style="swimlane;whiteSpace=wrap;html=1;startSize=24;fontSize=14;" parent="1" vertex="1">
           <mxGeometry x="570" y="70" width="231" height="235" as="geometry" />
@@ -89,7 +92,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="6ma6yTve14gbqSJbeBRZ" name="Educator dashboard">
-    <mxGraphModel dx="1400" dy="765" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1167" dy="638" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -123,8 +126,8 @@
         <mxCell id="QovsHv_9VBOWK29IREkB-1" value="Create badge" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;fillColor=#fff2cc;strokeColor=#d6b656;" parent="VC_KYBVAALVG9Ox1doF0-6" vertex="1">
           <mxGeometry x="22" y="74" width="220" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="IaRVSDhwJq8iFzafPd8e-3" value="Form to be compiled" style="rounded=0;whiteSpace=wrap;html=1;align=center;fontSize=14;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="VC_KYBVAALVG9Ox1doF0-6">
-          <mxGeometry x="51.06999999999999" y="33" width="159.87" height="30" as="geometry" />
+        <mxCell id="pLuIyB9MPsEIruZ9QLj1-5" value="Form to be compiled" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=14;" vertex="1" parent="VC_KYBVAALVG9Ox1doF0-6">
+          <mxGeometry x="31" y="35" width="200" height="30" as="geometry" />
         </mxCell>
         <mxCell id="VC_KYBVAALVG9Ox1doF0-11" value="" style="endArrow=classic;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=14;" parent="1" source="VC_KYBVAALVG9Ox1doF0-21" target="VC_KYBVAALVG9Ox1doF0-12" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
@@ -181,16 +184,19 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="OZ_0LRhinvWxB8M8GtEa-4" value="Manage tournament" style="swimlane;whiteSpace=wrap;html=1;fontSize=14;" parent="1" vertex="1">
-          <mxGeometry x="370" y="450" width="290" height="220" as="geometry" />
+          <mxGeometry x="370" y="450" width="290" height="260" as="geometry" />
         </mxCell>
         <mxCell id="OZ_0LRhinvWxB8M8GtEa-6" value="Invite educator" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;fillColor=#fff2cc;strokeColor=#d6b656;" parent="OZ_0LRhinvWxB8M8GtEa-4" vertex="1">
-          <mxGeometry x="36" y="108" width="220" height="40" as="geometry" />
+          <mxGeometry x="35" y="139" width="220" height="40" as="geometry" />
         </mxCell>
         <mxCell id="OZ_0LRhinvWxB8M8GtEa-7" value="Create battle" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;fillColor=#fff2cc;strokeColor=#d6b656;" parent="OZ_0LRhinvWxB8M8GtEa-4" vertex="1">
-          <mxGeometry x="35" y="45" width="220" height="40" as="geometry" />
+          <mxGeometry x="35" y="49" width="220" height="40" as="geometry" />
         </mxCell>
         <mxCell id="OZ_0LRhinvWxB8M8GtEa-8" value="Close tournament (*)" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;fillColor=#fff2cc;strokeColor=#d6b656;" parent="OZ_0LRhinvWxB8M8GtEa-4" vertex="1">
-          <mxGeometry x="35" y="165" width="220" height="40" as="geometry" />
+          <mxGeometry x="35" y="190" width="220" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="pLuIyB9MPsEIruZ9QLj1-1" value="educator username" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=14;" vertex="1" parent="OZ_0LRhinvWxB8M8GtEa-4">
+          <mxGeometry x="44" y="103" width="200" height="30" as="geometry" />
         </mxCell>
         <mxCell id="QovsHv_9VBOWK29IREkB-2" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;fontSize=14;" parent="1" source="VC_KYBVAALVG9Ox1doF0-3" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
@@ -202,10 +208,10 @@
           <mxGeometry x="420" y="30" width="130" height="30" as="geometry" />
         </mxCell>
         <mxCell id="QovsHv_9VBOWK29IREkB-4" value="Create badge" style="swimlane;whiteSpace=wrap;html=1;fontSize=14;" parent="1" vertex="1">
-          <mxGeometry x="630" y="250" width="170" height="70" as="geometry" />
+          <mxGeometry x="620" y="250" width="192" height="70" as="geometry" />
         </mxCell>
-        <mxCell id="IaRVSDhwJq8iFzafPd8e-1" value="Form to be compiled" style="rounded=0;whiteSpace=wrap;html=1;align=center;fontSize=14;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="QovsHv_9VBOWK29IREkB-4">
-          <mxGeometry x="6" y="30" width="159.87" height="30" as="geometry" />
+        <mxCell id="pLuIyB9MPsEIruZ9QLj1-4" value="Form to be compiled" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=14;" vertex="1" parent="QovsHv_9VBOWK29IREkB-4">
+          <mxGeometry x="20" y="30" width="160" height="30" as="geometry" />
         </mxCell>
         <mxCell id="QovsHv_9VBOWK29IREkB-7" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;fontSize=14;entryX=0.5;entryY=1;entryDx=0;entryDy=0;edgeStyle=orthogonalEdgeStyle;" parent="1" source="OZ_0LRhinvWxB8M8GtEa-7" target="IaRVSDhwJq8iFzafPd8e-5" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
@@ -213,32 +219,32 @@
             <mxPoint x="533" y="420" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="IaRVSDhwJq8iFzafPd8e-5" value="Create battle" style="swimlane;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
-          <mxGeometry x="630" y="350" width="170" height="70" as="geometry" />
+        <mxCell id="IaRVSDhwJq8iFzafPd8e-5" value="Create battle" style="swimlane;whiteSpace=wrap;html=1;fontSize=14;" parent="1" vertex="1">
+          <mxGeometry x="626" y="350" width="190" height="70" as="geometry" />
         </mxCell>
-        <mxCell id="IaRVSDhwJq8iFzafPd8e-6" value="Form to be compiled" style="rounded=0;whiteSpace=wrap;html=1;align=center;fontSize=14;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="IaRVSDhwJq8iFzafPd8e-5">
-          <mxGeometry x="6" y="30" width="159.87" height="30" as="geometry" />
+        <mxCell id="pLuIyB9MPsEIruZ9QLj1-3" value="Form to be compiled" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=14;" vertex="1" parent="IaRVSDhwJq8iFzafPd8e-5">
+          <mxGeometry x="14" y="31" width="165" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="IaRVSDhwJq8iFzafPd8e-7" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;fontSize=14;entryX=0.5;entryY=0;entryDx=0;entryDy=0;edgeStyle=orthogonalEdgeStyle;" edge="1" parent="1" source="QovsHv_9VBOWK29IREkB-1" target="QovsHv_9VBOWK29IREkB-4">
+        <mxCell id="IaRVSDhwJq8iFzafPd8e-7" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;fontSize=14;entryX=0.5;entryY=0;entryDx=0;entryDy=0;edgeStyle=orthogonalEdgeStyle;" parent="1" source="QovsHv_9VBOWK29IREkB-1" target="QovsHv_9VBOWK29IREkB-4" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="635" y="525" as="sourcePoint" />
             <mxPoint x="725" y="410" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="IaRVSDhwJq8iFzafPd8e-8" value="Perfom manual evaluation" style="swimlane;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
+        <mxCell id="IaRVSDhwJq8iFzafPd8e-8" value="Perfom manual evaluation" style="swimlane;whiteSpace=wrap;html=1;fontSize=14;" parent="1" vertex="1">
           <mxGeometry x="50" y="660" width="220" height="70" as="geometry" />
         </mxCell>
-        <mxCell id="IaRVSDhwJq8iFzafPd8e-9" value="Form to be compiled" style="rounded=0;whiteSpace=wrap;html=1;align=center;fontSize=14;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="IaRVSDhwJq8iFzafPd8e-8">
-          <mxGeometry x="33.07" y="30" width="159.87" height="30" as="geometry" />
+        <mxCell id="pLuIyB9MPsEIruZ9QLj1-2" value="Form to be compiled" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=14;" vertex="1" parent="IaRVSDhwJq8iFzafPd8e-8">
+          <mxGeometry x="10" y="30" width="200" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="IaRVSDhwJq8iFzafPd8e-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="VC_KYBVAALVG9Ox1doF0-18" target="IaRVSDhwJq8iFzafPd8e-8">
+        <mxCell id="IaRVSDhwJq8iFzafPd8e-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="VC_KYBVAALVG9Ox1doF0-18" target="IaRVSDhwJq8iFzafPd8e-8" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
   <diagram id="7pK9DDgjAHsq6PjE2I_2" name="Login-Register">
-    <mxGraphModel dx="1050" dy="574" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1105" dy="604" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
