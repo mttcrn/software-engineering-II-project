@@ -10,9 +10,6 @@ Platform similar to CodeKataBattle: [Code Wars](https://www.codewars.com/)
 [Project Requirements](https://github.com/mttcrn/Cohen-Gervatini-Motti/blob/main/Assignment%20RDD%20AY%202023-2024.pdf)  
 
 # Deadlines
-
-3.2.4 Traceability matrix -gervatini (mancano i due use cases aggiunti)
-
 ## entro 1 dicembre 
 Chapter 4 - alloy
 
