@@ -3,15 +3,15 @@
 \section{External interface Requirements}
 \subsection{User Interfaces}
 The images below will present an idea of the user interfaces of the major function of the system. Since educators and students uses the platform differently, they will have access to two different personalized dashboard. \newline
-Button are coloured in yellow and represents the main function that the CKB platform offers. The green fields instead represent area where the user must enter information (forms-like). \newline
+Button coloured in yellow and represents the main function that the CKB platform offers. The green fields represent area where the user must enter information (forms-like). \newline
 
-The figure \ref{fig:login-signin} represent the front page to which each user will have access to, and from which he/she can decide to register or log in. 
+The figure \ref{fig:login-signup} represent the front page to which each user will have access to, and from which he/she can decide to sign up or log in. 
     
 \begin{figure}[h]
     \centering
-    \includegraphics[scale=0.7]{images/login-signin.png}
-    \caption{Start page with log in and sign in}
-    \label{fig:login-signin}
+    \includegraphics[scale=0.7]{images/login-signup.png}
+    \caption{Start page with log in and sign up}
+    \label{fig:login-signup}
 \end{figure}
 
 \subsubsection{Used by the educators.}
@@ -169,7 +169,8 @@ In this section, it is given a complete description of the functional requiremen
                 \print{req: notifRankB} \\
                 \hline \\
                 \print{da: internet} 
-                \print{da: autWorkFlow}\\
+                \print{da: autWorkFlow}
+                \print{da: correctSAT}\\
                 \hline
             \end{tabular} 
         \end{center}
@@ -233,7 +234,7 @@ In this section, it is given a complete description of the functional requiremen
     \clearpage
     
     \subsection{Use cases}
-    In figure \ref{fig:use_cases_diagram} is represented a general overview of all use cases deduced from the scenarios in section \ref{desc:scenarios}. All cases include "User login" because all function provided by the platform are accessible to registered users. (except for use registration)
+    In figure \ref{fig:use_cases_diagram} is represented a general overview of all use cases deduced from the scenarios in section \ref{desc:scenarios}. All cases include "User login" because all function provided by the platform are accessible to registered users. (except for user sign up)
     \begin{figure}[h]
         \centering
         \includegraphics[scale=0.5]{images/use_cases_diagram.png}
@@ -243,13 +244,13 @@ In this section, it is given a complete description of the functional requiremen
     \clearpage
     
     \begin{enumerate}[label=\textbf{UC.\arabic*}]
-        \item \lbl{uc: reg} \textbf{User registration}
+        \item \lbl{uc: reg} \textbf{User sign up}
         \begin{table}[h]
     	    \centering
                 \renewcommand{\arraystretch}{1.5}
                 \begin{tabular}{|m{3.2cm}|m{9.8cm}|}
                     \hline
-                    \textbf{Name} & User registration. \\
+                    \textbf{Name} & User sign up. \\
                     \hline
                     \textbf{Actors} & Educators, Students. \\
                     \hline
@@ -257,7 +258,7 @@ In this section, it is given a complete description of the functional requiremen
                     \hline
                     \textbf{Event flow}  & 
                     \begin{enumerate}[label=\arabic*.]
-                        \item The user visualize the register page.
+                        \item The user visualize the sign up page.
                         \item The user inserts the requested personal information.
                         \item The user clicks on the "sign up" button.
                         \item The system checks if the username is available.
@@ -927,48 +928,42 @@ In this section, it is given a complete description of the functional requiremen
 In this section are listed some performance requirements for the CKB platform that are essential to the efficiency of the entire system.
 The CKB platform should be able to guarantee the connection of 100.000 users simultaneously. \newline 
 In less than 2 seconds, it should be able to respond to user interactions, such as page loading. \newline
-In less than 5 seconds, it should be able to send a response to a query and run its algorithms on the metadata. This is crucial for having real-time evaluation of the students' submissions.
+In less than 5 seconds, it should be able to send a response to a query and run its algorithms on the metadata. 
 
 \section{Design Constraints}
 \subsection{Standards Compliance}
-The code should follow the requirements contained in this document. Furthermore, its comments should
-be clear and focused.
-The system will store in the database 3 types of data:
-\begin{enumerate}
-    \item User main information for example email-Password as primary key, name , surname...
-    \item The final rankings of a tournament. The system saves in the database the ranking of a tournament once it's finished.
-    \item The final ranking of a battle.
-\end{enumerate}
+All users information will be processed in according with the General Data Protection
+Regulation (GDPR), and e-mail addresses won't be used for commercial purposes.\newline
+The system has to adopts international standards about date and time representation. \newline
+CKB system should use stateless protocols and standard operations to allow components to be managed and updated without affecting the system as a whole. It’s crucial to design modules properly so that ease of use, security and performance will remain the core factors of the system.
 
-CKB system shall use stateless protocols and standard operations to allow components to
-be managed and updated without affecting the system as a whole.
-It’s crucial to design modules properly so that ease of use, security and performance will
-remain the core factors of the system.
 \subsection{Hardware Limitations}
-To use CKB the user needs to have a device that's at least can connect to internet and can share code on GitHub.
-The device might be connected to internet and to the GitHub account that the user put during the registration. 
-\subsection{Other Constraints}
-CKB system will send emails to the users and automatically pulls the GitHub main branch of the teams so it's important that the user allows the system to send emails and to join the GitHub project.
+The CKB platform requires the users a personal device that is able to connect to the internet. 
+
+\subsection{Any other constraint}
+The system will store all the data submitted in a standardize form, to make easier to catalog and run queries on it. \newline
+The database system supporting the CKB platform should be capable of handling efficiently great amount of data thought the use of proper indexing, query optimization, and database scaling strategies. 
 
 \section{Software System Attributes}
 \subsection{Reliability}
-The CKB platform should be highly reliable in order to guarantee the continuity of the service, every user should be able to access the platform anytime. The system should implements robust errors handling and fault tolerance mechanism to prevent error propagation and data loss. \subsection{Availability}
+The CKB platform should be highly reliable in order to guarantee the continuity of the service, every user should be able to access the platform anytime. The system should implements robust errors handling and fault tolerance mechanism to prevent error propagation and data loss. 
+
+\subsection{Availability}
 The CKB platform should be available to users 24/7, without frequent interruptions. 
 Since the system is not emergency-related, it should be up 99\% of the time.
 This means that the average downtime is around at 3.65 days per year. \newline
 In order to achieve this level of availability the system should implement a disaster recovery plan, monitoring and alerting tools, and the ability to react fast to resolve any system issues.
+
 \subsection{Security}
 As the system store some personal information about the users, security is an important issue. This stored data must be encrypted, and passwords must also be hashed. \newline
 Every time a password need to be recovered a new one must be created, by sending a verification e-mail that contain a time-limited that confirm the user identity and gives them access to reset their password.
+
 \subsection{Maintainability}
 The CKB system should be divided in different modules implementing the various functionalities. In this way ordinary maintenance and/or future fixes or improvements will be easier to be performed. \newline
 Maintenance and updates must be scheduled in advance so that they do not interfere with ongoing battles. 
-\subsection{Portability}
-The CKB platform should be accessible from any web browser.
-\subsection{Usability}
-The user interfaces of the platform should be easy to use and intuitive.
 
-\section{Other Requirements}
-\subsection{Privacy Requirements}
-At the registration every user is asked to fill the following mandatory fields:
-name, surname and e-mail. 
+\subsection{Portability}
+The CKB web platform should be accessible from any web browser.
+
+\subsection{Usability}
+The user interfaces of the platform should be easy to use and intuitive. It is expected that the 99\% of users will be able to use the platform without assistance.

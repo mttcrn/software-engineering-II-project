@@ -23,26 +23,20 @@ Below are presented the goals of CodeKataBattle. Further description will be dis
 \end{enumerate}
 
 \section{Scope}
-CodeKataBattle is an online platform that allows students to improve their development skills in a entertaining way. 
-
-
+CodeKataBattle is an online platform that allows students to improve their development skills in a entertaining way. \newline
 Educators use the platform to create a code kata battle in which teams can compete against each other. A battle is a programming exercise that the students are expected to solve by following a test-first approach. Each battle belongs to a tournament, that is also created by an educator.
 The platform shows to the registered students a list of published tournament and each student can choose to enroll into one of them (before the registration deadline) and form a group by inviting other students. \newline
 When the registration deadline expires, the platform automatically creates a GitHub repository containing all necessary code and send the link to all students who enrolled. 
 Then the students must push their code in the repository triggering the CKB platform that automatically updates the battle score of the team. \newline
 The score is a natural number between 1 and 100. It consist of both an automatic and manual evaluation.  
 The automatic evaluation is based on:
-
 \begin{itemize}
     \item functional aspects, measured in terms of number of test cases passed.
     \item timeliness, measured in terms of time passed between the registration deadline and the last commit.
-    \item quality level of the sources, extracted thorough static analysis tool that consider multiple aspects.
+    \item quality level of the sources, extracted thorough static analysis tool that consider multiple aspects selected by the educator at battle creation.
 \end{itemize}
-
 When the submission deadline expires, the educators can manually change the score (if needed) and then the platform automatically updates the personal tournament score of each students. These information are then available for all subscribed users. \newline
 The CKB platform also include gamification badges, a reward that represent the achievements of individual students. Educators can create a badge by specifying the title and one or more rules that must be fulfilled to achieve it. Each badge can be assigned to one or more students depending on the rules. Earned badges are visible on the personal profile of the student.
-
-
 
 \subsection{World Phenomena}
 \begin{enumerate}[label=\textbf{WP.\arabic*}]
@@ -54,11 +48,11 @@ The CKB platform also include gamification badges, a reward that represent the a
 \subsection{Shared Phenomena}
 \begin{enumerate}[label=\textbf{SP.\arabic*}]
         \item Educators create a new tournament by inserting on the platform all needed information.
+        \item Educators creates badges by inserting on the platform a title and one or more rules.
         \item Users visualize the list of published tournament.
-        \item Students join a new tournament.
-        \item Students invite a team member or join another group.
-	\item Educators review the score manually for each student.
-        \item Educators create new badges by inserting on the platform a title and one or more rules.
+        \item Students joins a new tournament.
+        \item Students invites a team member or joins a team.
+	\item Educators reviews the score manually for each student.
         \item Users visualize all students' personal profile with their collected badges.
         \item The system send a notification to all students when a new tournament is created.
         \item The system send a notification regarding new battles to all students enrolled in that tournament.
@@ -91,6 +85,9 @@ The CKB platform also include gamification badges, a reward that represent the a
 		WP & World Phenomena\\
 		SP & Shared Phenomena\\
             R & Requirement\\
+            DA & Domain Assumption\\
+            SC & Scenario\\
+            UC & Use Case\\
 		\bottomrule
 	\end{tabular}
 \end{center}
@@ -101,9 +98,7 @@ The CKB platform also include gamification badges, a reward that represent the a
 		\toprule
 		\textbf{Abbreviations} & \textbf{Term}\\
 		\midrule
-		e.g. & Exempli gratia\\
-		i.e. & Id est\\
-		w.r.t. & With reference to\\
+		w.r.t. & with reference to\\
 		\bottomrule
 	\end{tabular}
 \end{center}
