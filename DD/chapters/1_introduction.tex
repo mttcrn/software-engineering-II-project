@@ -1,17 +1,78 @@
-\section{Introduction}
-\subsection{Purpose}
-The main purpose of the present document is to support the development team in
-the realization of the system to be. It provides an overall description of the adopted
-system architecture and a breakdown of the various components down to a
-significant extent, also describing their interactions with each other. On top of that,
-the Design Document (DD) describes the implementation, integration and testing
-plans which are defined keeping into account priority, required effort, and impact of
-the single components on the stakeholders
-\subsection{Scope}
-\subsection{Definitions,acronyms, abbreviations}
-    \subsubsection{Definitions}
-    \subsubsection{Acronyms}
-    \subsubsection{Abbreviations}
-\subsection{Revision Documents}
-\subsection{Reference documents}
-\subsection{Overview}
+\chapter{Introduction}
+\section{Purpose}
+The main purpose of the this document is to support the development team in the implementation of the system to be. \newline
+It provides an overview of the system architecture used and a breakdown of the various 
+components, which also describes how they interact with each other. \newline
+In addition, it is described the implementation, integration, and testing plans.
+
+\section{Scope}
+As explained in the RASD, CodeKataBattle is a platform that allows students to improve their development skills in a entertaining way. \newline
+Educators use the platform to create tournaments, in which students can participate, and battles, in which teams of students can compete against each other. \newline
+The platform automatically creates a GitHub repository containing all necessary code. The students must fork the main repository and then they must push their code triggering the CKB platform that automatically updates the battle score of the team. Then the educator can also perform a manual evaluation on each student. \newline
+The CKB platform also include gamification badges, a reward that represent the achievements of individual students. Earned badges are visible in the personal profile of the student as well as battles won and tournaments ranking.
+
+\section{Glossary}
+    \subsection{Definitions}
+    \begin{center}
+	\begin{tabular}{@{}p{0.25\linewidth} p{0.71\linewidth}@{}}
+		\toprule
+		\textbf{Term} & \textbf{Definition}\\
+		\midrule
+		Users & Identify both students and educators that are logged in. \\
+            Notification & Sent via e-mail, from the system to the recipient. \\
+            Code Kata & A set of documents that consist in the description of the project (in which are listed all languages that are acceptable for a solution), the software project, test cases and build automation scripts. \\
+		\bottomrule
+	\end{tabular}
+    \end{center}
+    
+    \subsection{Acronyms}
+    \begin{center}
+	\begin{tabular}{@{}p{0.25\linewidth} p{0.71\linewidth}@{}}
+		\toprule
+		\textbf{Acronyms} & \textbf{Term}\\
+		\midrule
+		CKB & CodeKataBattle\\
+            G & Goal\\
+		WP & World Phenomena\\
+		SP & Shared Phenomena\\
+            R & Requirement\\
+            DA & Domain Assumption\\
+            SC & Scenario\\
+            UC & Use Case\\
+		\bottomrule
+	\end{tabular}
+    \end{center}
+
+    \subsection{Abbreviations}
+    \begin{center}
+	\begin{tabular}{@{}p{0.25\linewidth} p{0.71\linewidth}@{}}
+		\toprule
+		\textbf{Abbreviations} & \textbf{Term}\\
+		\midrule
+		w.r.t. & with reference to\\
+		\bottomrule
+	\end{tabular}
+    \end{center}
+    
+\section{Reference documents}
+\begin{itemize}
+	\item Project assignment specification document.
+	\item Slides of software engineering 2 course on WeBeep.
+        \item CodeKataBattle, Requirements Analysis and Specification Document. 
+\end{itemize}
+
+\section{Document Structure}
+This document is divided in 5 chapters, as follow:
+\begin{enumerate}
+	\item \textbf{Introduction}: contains a summary of the CKB system, focusing on the main architectural choices.
+
+	\item \textbf{Architectural Design}: gives a high level overview of the system, and its partitions in subsystems. Moreover, it describes how these subsystems interacts.
+
+	\item \textbf{User Interface Design}: explains in detail the functionality from the user's perspective. It analyze more in depth what was presented in the RASD document regarding the user interfaces.
+
+	\item \textbf{Requirements Traceability}: it draws a parallel between the requirements outlined in the RASD and the components of the system.
+
+	\item \textbf{Effort Spent}: keeps track of the time spent to realize this document.
+
+        \item \textbf{References}: keeps track of the software used.
+\end{enumerate}
