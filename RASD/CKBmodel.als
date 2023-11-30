@@ -5,6 +5,9 @@ sig DateTime{
 	time : Time
 }
 
+abstract sig State{}
+one sig Open extends State{}
+one sig Close extends State{}
 
 sig Username {}
 sig Email {}
@@ -22,13 +25,25 @@ sig TournamentScore{
     name : TournamentName,
     score: Int,
 }
-
+sig TournamentName{}
+sig Tournament {
+    tournamentId: one Int,
+	subscriptionDeadline : DateTime,
+	creator :one Educator,
+	name : one TournamentName,
+	collaborators : set Educator,
+	battles : some Battle,
+	partecipants : some Student,
+	isClosed : one State,
+	badges : set Badge
+}	
+	
 abstract sig User{
-	username : Username,
-	email : Email,
-	name : Name,
-	surname : Surname,
-	password : Password
+	username : one Username,
+	email : one Email,
+	name : one Name,
+	surname : one Surname,
+	password :one Password
 } 
 
 sig Student extends User{
@@ -45,10 +60,6 @@ sig Team{
 
 
 sig CodeKata{}
-abstract sig State{}
-one sig Open extends State{}
-one sig Close extends State{}
-
 sig BattleName{}
 sig Battle{
     battleId: Int,
@@ -58,11 +69,11 @@ sig Battle{
 	registrationDeadline : DateTime,
 	submissionDeadline : DateTime,
 	code : one CodeKata,
-	teams : set Team,
+	teams : set Team, --non meglio some?? o comunque si puo avere una blattle senza team
 	maxTeamSize :Int,
 	minTeamSize:Int,
 	state : one State,
-    evaluator: Evaluator
+    evaluator: one Evaluator
 }
 
 sig BadgeName{}
@@ -78,19 +89,7 @@ sig Badge {
 }
 
 
-sig TournamentName{}
-sig Tournament {
-    tournamentId: Int,
-	subscriptionDeadline : DateTime,
-	creator :one Educator,
-	name : TournamentName,
-	collaborators : set Educator,
-	battles : some Battle,
-	partecipants : some Student,
-	isClosed : one State,
-	badges : set Badge
-}	
-	
+
 ---------------------------------------------------
 --Facts
 ---------------------------------------------------
@@ -104,7 +103,9 @@ fact tournamentNameAreUnique{
 fact noTournamentNameWithoutTournament{
 	all tn: TournamentName | one t:Tournament | t.name = tn
 }
-
+fact noTournamentScoreWithoutTournament{
+	all ts: TournamentScore | one t:Tournament | t.score = ts
+}
 fact creatorIsInEducators{
 	all t : Tournament | t.creator in t.collaborators
 }
@@ -124,7 +125,9 @@ fact allBattlesHaveOneTournamentId{
     no disj t: Tournament|t.battles.tournamentId != t.tournamentId
 }
 
+
 --Battle
+
 fact uniqueBattleId{
     no disj b1,b2 : Battle| b1.battleId = b2.battleId
 }
@@ -144,7 +147,13 @@ fact StudentOnlyInOneTeam{
     no disj s : Student, t1,t2 : Battle.teams |  s in t1.members && s in t2.members
 }
 fact noEvaluatorWithoutBattle{
-  all e: Evaluator | one b : Battle | b.evaluator = e  
+	all e: Evaluator | one b : Battle | b.evaluator = e  
+}
+fact noCodekataWithoutBattle{
+	all ck:CodeKata | one b:Battle | b.code=ck
+}
+fact minSizeIsLessThanMaxSize{
+	no disj b:Battle | b.minTeamSize>b.maxTeamSize
 }
 
 --User
@@ -158,7 +167,15 @@ fact emailIsUnique{
 }
 
 
+--Username
+
+fact noUsernameWithoutUser{
+	all un: Username | one u : User | u.username=un
+}
+
+
 --Team
+
 --probabilmente va in pred da qui non si puo fare
 --fact TeamIsConstrained{
 --	all b: Battle, t : b.teams | card[t] >= minTeamSize and card[t] <= maxTeamSize
@@ -174,10 +191,16 @@ fact uniqueTeamId{
 fact allTeamsHaveOneBattleId{
     no disj b: Battle|b.teams.battleId != b.battleId
 }
+fact noTeamWithoutStudents{
+	all tm: Team | some s: Student| s in tm.members
+}
+
 -- Password
+
  fact noPasswordWithoutUser {
   all p: Password | one u: User | u. password = p
 }
+
 
 --Badges
 
@@ -186,8 +209,28 @@ fact uniqueBadgeId{
 }
 
 fact noBadgeNameWithoutBadge{
-	all bn: BadgeName | one b : Badge | b.name = bn
+	all bn: BadgeName | one b : Badge | b.title = bn
 }
+fact noBadgeWithoutTournament{
+	all b:Badge |one t:Tournament| b.tournament=t
+}
+
+
+
+
+
+---------------------------------------------------
+--Predicates
+---------------------------------------------------
+
+
+
+
+
+
+
+
+
 
 
 
