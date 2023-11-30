@@ -14,7 +14,7 @@ The figure \ref{fig:login-signup} represent the front page to which each user wi
     \label{fig:login-signup}
 \end{figure}
 
-\subsubsection{Used by the educators.}
+\subsubsection*{Used by the educators.}
 The "All Tournaments" section is the same as the student dashboard in the next image. \newline
 The yellow buttons marked with (*) are those that are not always available. For instance in "Manage tournament" the "Close tournament" button is available only when all battles within that tournament are closed. Furthermore, in "Manage battle" the "Perform manual evaluation" button is available only after the final submission deadline of the battle expires and the "Close consolidation stage" button is available only when the educator has performed the manual evaluation.
 \begin{figure}[h]
@@ -24,7 +24,7 @@ The yellow buttons marked with (*) are those that are not always available. For 
     \label{fig:edDash}
 \end{figure}
 
-\subsubsection{Used by the students.}
+\subsubsection*{Used by the students.}
 As stated before yellow buttons marked with (*) are those that are not always available. For instance in "Battle dashboard" both the "Invite student" and "Leave team" buttons are available only when the registration deadline for that battle has not yet expired.
 \begin{figure}[h]
     \centering
@@ -36,7 +36,8 @@ As stated before yellow buttons marked with (*) are those that are not always av
 \subsection{Hardware Interfaces}
 The only hardware interface required is the personal device of the user (computer, tablet or smartphone) that will access the CKB platform through the web browser.
 \subsection{Software Interfaces}
-The CKB systems uses the GitHub API in order to automatically detects a new commit to the main branch of each forked repository. This will trigger the automated workflow that will evaluate the current submission.
+The CKB systems uses the GitHub API in order to detects a new push to the main branch of each forked repository. This will trigger the automated workflow that will evaluate the current submission. \newline
+A static analysis tool is also used in order to extract quality level of the sources based on parameters selected by the educators in battle creation.
 \subsection{Communication Interfaces}
 The only communication interface used is internet, via HTTP.
 \clearpage
@@ -159,7 +160,7 @@ In this section, it is given a complete description of the functional requiremen
         \begin{center}
             \begin{tabular}{|m{13.5cm}|}
                 \hline \\
-                \textbf{\print{goal: scoreB}} \\
+                \textbf{\print{goal: rankB}} \\
                 \hline \\
                 \print{req: reg}
                 \print{req: login}
@@ -758,18 +759,21 @@ In this section, it is given a complete description of the functional requiremen
                     \hline
                     \textbf{Name} & Perform automatic evaluation. \\
                     \hline
-                    \textbf{Actors} & GitHub API. \\
+                    \textbf{Actors} & GitHub API, static analysis tool. \\
                     \hline
                     \textbf{Entry conditions}  & A team push a new solution on the GitHub repository. \\
                     \hline
                     \textbf{Event flow}  & 
                     \begin{enumerate}[label=\arabic*.]
                         \item The GitHub API triggers the CKB platform.
-                        \item The system performs the automatic evaluation.
+                        \item The system request the quality report based on the parameter chosen at battle creation.
+                        \item The static analysis tool gives back the quality report.
+                        \item The system performs functional evaluation based on tests cases.
+                        \item The system performs time evaluation.
                         \item The system updates the real-time battle ranking and the student's tournament ranking.
                     \end{enumerate}\\ 
                     \hline
-                    \textbf{Exit conditions}  &  The real-time rank is updated. \\
+                    \textbf{Exit conditions}  &  The real-time rank and the student tournament ranking is updated. \\
                     \hline
                 \end{tabular}
         \end{table}
@@ -903,15 +907,15 @@ In this section, it is given a complete description of the functional requiremen
             \ref{uc: leaveT} & \ref{goal: formTeam} & \ref{req: formTeam} & \ref{sce: formTeam} \\
                 \null & \null  & \ref{req: notifInvite}& \null \\ 
             \hline
-            \ref{uc: rankB} & \ref{goal: scoreB} & \ref{req: evalA} & \ref{sce: evalA} \\
+            \ref{uc: rankB} & \ref{goal: rankB} & \ref{req: evalA} & \ref{sce: evalA} \\
                 \null & \null  & \ref{req: ranks}& \null \\ 
                 \null & \null  & \ref{req: evalM}&\null \\
                 \null & \null  & \ref{req: notifRankB}&\null \\
             \hline
-            \ref{uc: evalM} & \ref{goal: scoreB} & \ref{req: evalM} & \ref{sce: evalM} \\
+            \ref{uc: evalM} & \ref{goal: rankB} & \ref{req: evalM} & \ref{sce: evalM} \\
                 \null & \null  & \ref{req: notifRankB}&\null \\
             \hline
-            \ref{uc: evalA} & \ref{goal: scoreB} & \ref{req: evalA} & \ref{sce: evalA} \\
+            \ref{uc: evalA} & \ref{goal: rankB} & \ref{req: evalA} & \ref{sce: evalA} \\
                 \null & \null  & \ref{req: ranks}&\null \\
                 \null & \null  & \ref{req: notifRankB}&\null \\
             \hline
