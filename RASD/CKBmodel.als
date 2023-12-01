@@ -1,13 +1,14 @@
-sig Date {}
-sig Time {}
-sig DateTime{
-	date : Date,
-	time : Time
+sig Date {
+	year: Int,
+	month :Int,
+	day: Int
 }
+
 
 abstract sig State{}
 one sig Open extends State{}
 one sig Close extends State{}
+one sig OnGoing extends State{}
 
 sig Username {}
 sig Email {}
@@ -27,23 +28,23 @@ sig TournamentScore{
 }
 sig TournamentName{}
 sig Tournament {
-    tournamentId: one Int,
-	subscriptionDeadline : DateTime,
-	creator :one Educator,
-	name : one TournamentName,
+    tournamentId:  Int,
+	subscriptionDeadline : Date,
+	creator : Educator,
+	name :  TournamentName,
 	collaborators : set Educator,
 	battles : some Battle,
 	partecipants : some Student,
-	isClosed : one State,
+	state :  State,
 	badges : set Badge
 }	
 	
 abstract sig User{
-	username : one Username,
-	email : one Email,
-	name : one Name,
-	surname : one Surname,
-	password :one Password
+	username :  Username,
+	email :  Email,
+	name : Name,
+	surname :  Surname,
+	password : Password
 } 
 
 sig Student extends User{
@@ -56,6 +57,7 @@ sig Team{
     teamId: Int,
 	members : some Student,
     battleId : Int,
+	size:Int
 }
 
 
@@ -63,17 +65,17 @@ sig CodeKata{}
 sig BattleName{}
 sig Battle{
     battleId: Int,
-    tournamentId: one Int,
+    tournamentId:  Int,
 	name :BattleName,
-	creator : one Educator,
-	registrationDeadline : DateTime,
-	submissionDeadline : DateTime,
-	code : one CodeKata,
-	teams : set Team, --non meglio some?? o comunque si puo avere una blattle senza team
+	creator : Educator,
+	registrationDeadline : Date,
+	submissionDeadline : Date,
+	code : CodeKata,
+	teams : set Team, 
 	maxTeamSize :Int,
 	minTeamSize:Int,
-	state : one State,
-    evaluator: one Evaluator
+	state :  State,
+    evaluator:  Evaluator
 }
 
 sig BadgeName{}
@@ -85,7 +87,7 @@ sig Badge {
     description : String,
     variables: set Variable,
     rules: set Rule,
-    tournament: one Tournament
+    tournament: Tournament
 }
 
 
@@ -104,7 +106,7 @@ fact noTournamentNameWithoutTournament{
 	all tn: TournamentName | one t:Tournament | t.name = tn
 }
 fact noTournamentScoreWithoutTournament{
-	all ts: TournamentScore | one t:Tournament | t.score = ts
+	all ts: TournamentScore | one t:Tournament | t.name = ts.name
 }
 fact creatorIsInEducators{
 	all t : Tournament | t.creator in t.collaborators
@@ -122,9 +124,11 @@ fact creatorIsNotCollaborator{
     no disj t : Tournament| t.creator in t.collaborators
 }
 fact allBattlesHaveOneTournamentId{
-    no disj t: Tournament|t.battles.tournamentId != t.tournamentId
+    all t: Tournament|t.battles.tournamentId = t.tournamentId
 }
-
+fact noSameStudentTwoTimes{
+	all s1,s2:Tournament.partecipants| s1!=s2
+}
 
 --Battle
 
@@ -140,7 +144,7 @@ fact noBattleNameWithoutBattle{
 	all bn: BattleName | one b : Battle | b.name = bn
 }
 fact battleCreatorIsInTournament{
-	all t:Tournament, b: t.battles | b.creator in t.collaborators
+	all t:Tournament, b: t.battles | (b.creator in t.collaborators) or ( b.creator=t.creator)
 }
 
 fact StudentOnlyInOneTeam{
@@ -154,6 +158,22 @@ fact noCodekataWithoutBattle{
 }
 fact minSizeIsLessThanMaxSize{
 	no disj b:Battle | b.minTeamSize>b.maxTeamSize
+}
+fact subDeadlineMinorRegDeadline {
+    all t: Tournament, b: t.battles |
+         (b.registrationDeadline.year > t.subscriptionDeadline.year) or
+        (b.registrationDeadline.year = t.subscriptionDeadline.year and
+         (b.registrationDeadline.month > t.subscriptionDeadline.month or
+          (b.registrationDeadline.month = t.subscriptionDeadline.month and
+           b.registrationDeadline.day > t.subscriptionDeadline.day)))
+}
+fact subMissionMajorRegDeadline {
+    all b:Battle|
+         (b.registrationDeadline.year < b.submissionDeadline.year) or
+        (b.registrationDeadline.year = b.submissionDeadline.year and
+         (b.registrationDeadline.month < b.submissionDeadline.month or
+          (b.registrationDeadline.month = b.submissionDeadline.month and
+           b.registrationDeadline.day < b.submissionDeadline.day)))
 }
 
 --User
@@ -176,10 +196,10 @@ fact noUsernameWithoutUser{
 
 --Team
 
---probabilmente va in pred da qui non si puo fare
---fact TeamIsConstrained{
---	all b: Battle, t : b.teams | card[t] >= minTeamSize and card[t] <= maxTeamSize
---}
+
+fact TeamIsConstrained{
+	all b: Battle, t : b.teams | t.size >= b.minTeamSize and t.size <= b.maxTeamSize
+}
 fact NoSharedPlayers {
   all b: Battle |
     no disj t1, t2: b.teams | t1.members & t2.members != none
@@ -223,14 +243,16 @@ fact noBadgeWithoutTournament{
 --Predicates
 ---------------------------------------------------
 
+-- pred per stato torneo 3
 
 
-
-
-
-
-
-
+pred world1{
+	#Tournament=1
+	#Student=2
+	#Battle=3
+	#Educator=1
+}
+run world1 for 5 
 
 
 
