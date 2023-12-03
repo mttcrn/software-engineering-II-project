@@ -1,14 +1,32 @@
---QUESTIONE APERTA LEVIAMO TUTTI GLI ID E COLLEGHIAMO DIRETTAMENTE LE SIG 
---Questione Aperta FORZE è POSSIBILE PULIRE IL DIAGRAMMA DA ALCUNE FRECCE ANCORA NON SO COME 
-sig Date {
+//defining date
+sig Date {}
+//Defining Users
+sig Username {}
+abstract sig User{
+	username :  Username,
+} 
+sig Educator extends User{}
+sig Student extends User{
+	collectedBadges : set Badge
 }
+//Defining team structure
+sig TeamId{}
+sig Team{
+    teamId: TeamId,
+	battleId : BattleId,
+	members : set Student,
+	size:Int
+}
+{
+	#members <=size
+}
+//Defining Tournament and Tournament rankings
+sig TournamentId{}
 abstract  sig State{}
 one sig Open extends State {}
 one sig Close extends State{}
 one sig Ongoing extends State{}
-
-sig Username {}
-sig TournamentId{}
+sig Points{}
 sig TournamentScore{
 	student : Student,
 	tournamentPoints : Points
@@ -23,28 +41,9 @@ sig Tournament {
 	badges: set Badge,
 	state :one State,
 	tournamentLeaderboard: set TournamentScore
-
-	
 }
 	
-abstract sig User{
-	username :  Username,
-} 
-sig Points{}
-sig Student extends User{
-	collectedBadges : set Badge
-}
-sig Educator extends User{}
-sig TeamId{}
-sig Team{
-    teamId: TeamId,
-	battleId : BattleId,
-	members : set Student,
-	size:Int
-}
-{
-	#members <=size
-}
+//Defining Battle and Battle rankings
 sig BattleScore{
 	team : Team,
 	battlePoints : Points
@@ -70,6 +69,7 @@ sig Battle{
 	minTeamSize > 0
 	maxTeamSize >= minTeamSize
 }
+//Defining badge Structure
 sig BadgeId{}
 sig Badge {
 	tournamentId:TournamentId,
@@ -80,9 +80,7 @@ sig Badge {
 --Facts
 ---------------------------------------------------
 
---Tournament
-
-
+//Tournament 
 
 fact uniqueTournamentId{
     all t1,t2:Tournament |t1!=t2 => t1.tournamentId != t2.tournamentId
@@ -90,7 +88,6 @@ fact uniqueTournamentId{
 fact tournamentIdHasTournament{
 	all ti : TournamentId | one t:Tournament | t.tournamentId = ti
 }
-
 fact creatorIsNotCollaborator{
     all t : Tournament| t.creator not in t.collaborators
 }
@@ -98,7 +95,7 @@ fact allBattlesHaveOneTournamentId{
     all t: Tournament, b:t.battles| b.tournamentId = t.tournamentId
 }
 
---Battle
+//Battle
 
 fact battleExistsOnlyInATournament{
 	all b: Battle |one t:Tournament | b in t.battles
@@ -118,7 +115,8 @@ fact ifStudentInBattleThenInTournament{
 fact noCodekataWithoutBattle{
 	all ck:CodeKata | one b: Battle | ck = b.code
 }
---User
+
+//User
 
 fact usernameIsUnique{
 	all u1,u2 :User |u1 !=u2 => u1.username != u2.username 
@@ -127,7 +125,7 @@ fact NoUsernameWithoutUser{
 	all un :Username | one u : User | un = u.username
 }
 
---Team
+//Team
 
 fact teamExistsOnlyInOneBattle{
 	all t: Team |one b:Battle | t in b.teams
@@ -153,7 +151,8 @@ fact allTeamStudentAreInBattle{
 fact allTeamsRespectMaxMin{
 	all b: Battle, t:b.teams | t.size <= b.maxTeamSize and t.size >= b.minTeamSize
 }
---Badges
+
+//Badges
 fact badgeExistsOnlyInATournament{
 	all b: Badge |one t:Tournament | b in t.badges 
 }
@@ -174,14 +173,15 @@ fact ifATournamentIsNotClosedAllItsBadgesAreNotAssigned{
 	all t :Tournament, bd:t.badges|t.state != Close => bd not in t.partecipants.collectedBadges
 }
 
--- State
+//State
 fact ifTournamentIsOpenDontContainsBattles{
 	all t:Tournament | t.state = Open => t.battles = none 
 }
 fact ifTournamentIsCloseAllBattlesMustBeClose{
 	all t:Tournament,b:t.battles | t.state = Close => b.state = Close
 }
---Scores and LeaderBoards
+
+//Scores and LeaderBoards
 fact CardinalityCheckForTScores{
 	all t:Tournament| #t.partecipants = #t.tournamentLeaderboard
 }
@@ -200,48 +200,85 @@ fact everyTScoreBelongsToT{
 fact everyBScoreBelongsToB{
 	all bs: BattleScore | one b:Battle | bs in b.battleLeaderboard
 }
---LE SEGUENTI NON SONO REGOLE DELLA STRUTTURA MA SERVONO A OSSERVARE IL SISTEMA IN SITUAZIONI INTERESSANTI
---Battles
-fact NofreeStudentInABattle{
-	all b: Battle, s : b.partecipants| one t : b.teams | s in t.members
-}
---Students
-fact allStudentEnrolled{
-	all s:Student | s in Tournament.partecipants
-}
---Educators 
-
-fact allEducatorsInvolved{
-	all e : Educator | (e in Tournament.creator ) or (e in Tournament.collaborators)
-}
-
-
---Tournament
-fact NofreeStudentInTournament{
-	all t:Tournament, s:t.partecipants|one b: t.battles| s in b.partecipants
-}
-
-
-
-
-
 
 ---------------------------------------------------
 --Predicates
 ---------------------------------------------------
-pred Cons {
+
+
+//The rules described in the following predicates don't belong strictly to the model
+//however are usefull to underline the not trivial solution to rapresent the model,
+//in this way we can observe clearly the structure of the model.
+
+pred allStudentEnrolled{
+	all s:Student | s in Tournament.partecipants
+}
+
+pred allEducatorsInvolved{
+	all e : Educator | (e in Tournament.creator ) or (e in Tournament.collaborators)
+}
+
+pred NofreeStudentInTournament{
+	all t:Tournament, s:t.partecipants|one b: t.battles| s in b.partecipants
+}
+
+pred NofreeStudentInABattle{
+	all b: Battle, s : b.partecipants| one t : b.teams | s in t.members
+}
+
+
+//WORLD GENERATION
+
+// WORLD1 MULTITOURNAMENT AND MULTIBATTLE STRUCTURE
+
+
+pred world1 {
+	NofreeStudentInABattle
+	NofreeStudentInTournament
+	allEducatorsInvolved
+	allStudentEnrolled
+	#Tournament = 2
+	#Battle = 2
+	#Educator = 2
+	#Student = 4
+	#Badge = 0
+	all t:Tournament  | one b:Battle | b in t.battles
+	all b:Battle | some s:Student | s in b.partecipants
+	
+}
+run world1 for 10
+
+//WORLD2 SCORE SYSTEM AND TEAM STRUCTURE
+
+pred world2 {
+	NofreeStudentInABattle
+	NofreeStudentInTournament
+	allEducatorsInvolved
+	allStudentEnrolled
 	#Tournament = 1
 	#Battle = 1
 	#Educator = 1
-	#Student = 5
+	#Student = 7
 	#Badge = 0
-	#Team =2
-	#Points >6
-	one t:Tournament | t.state = Close
+	#Team > 2
+	
 }
-run Cons for 10
+run world2 for 10
 
-
-
-
-
+// BADGE MANAGEMENT AND ASSIGNMENT DUE TO TOURNAMENT STATE
+pred world3 {
+	NofreeStudentInABattle
+	NofreeStudentInTournament
+	allEducatorsInvolved
+	allStudentEnrolled
+	#Tournament = 2
+	#Battle = 1
+	#Educator = 1
+	#Student = 2
+	#Badge = 2
+	one t:Tournament | t.state = Close
+	one t:Tournament | t.state != Close
+	all t:Tournament | one b:Badge | b in t.badges
+	
+}
+run world3 for 10
