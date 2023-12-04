@@ -11,8 +11,26 @@ Platform similar to CodeKataBattle: [Code Wars](https://www.codewars.com/)
 
 # Deadlines
 ## entro 1 dicembre 
-Chapter 4 - alloy
+alloy - da integrare nel RASD - cate
 
-## Nella prima settimana di Dicementre, mentre iniziamo il DD
-revisione completa documento rasd 
+## Lunedi 11
+Component view -> cate
+
+component view (piccolina) -> marco
+
+deployment -> marco
+
+requirements traceability -> cate
+
+runtime -> eliahu, marco
+
+component interfaces -> eliahu
+
+selected architectural styles and pattern -> cate
+
+other design decision (DB) -> eliahu
+
+## Lunedi 18
+implementation, integration and test plan -> cate
+
 
