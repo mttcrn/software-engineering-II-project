@@ -1,32 +1,52 @@
 \chapter{Requirements traceability}
-This section explains which components are needed to meet each requirement as stated in the RASD. 
+This section explains which components are needed to meet each requirement stated in the RASD. 
 
 \begin{enumerate}[label=\textbf{R.\arabic*}]
     \subsubsection*{Users}
     \item \lbl{req: reg} {The system shall allow users to register on the platform with their personal information.} \newline
-    \textbf{ciao ciao ciao}
-    \item \lbl{req: login} {The system shall allow registered users to log in the platform with valid credentials.}
-    \item \lbl{req: listT} {The system shall allow all users to see the list of ongoing tournaments.}
+    \textbf{Web platform, Dashboard manager, Users access manager}
+    \item \lbl{req: login} {The system shall allow registered users to log in the platform with valid credentials.} \newline
+    \textbf{Web platform,Dashboard manager, Users access manager}
+    \item \lbl{req: listT} {The system shall allow all users to see the list of ongoing tournaments.} \newline
+    \textbf{Web platform, Dashboard manager, Tournament manager}
     \item \lbl{req: evalA} {The system shall automatically evaluate submissions.}
-    \item \lbl{req: ranks} {The system shall allow users to be able to monitor ranking in real-time during battles and tournaments.}
-    \item \lbl{req: profile} {The system shall allow users to see other students' profile.}
+    \textbf{Automatic evaluation manager} 
+    \item \lbl{req: ranks} {The system shall allow users to be able to monitor ranking in real-time during battles and tournaments.} \newline
+    \textbf{Web platform, Dashboard manager, Tournament manager, Battle manager, Automatic evaluation manager} 
+    \item \lbl{req: profile} {The system shall allow users to see other students' profile.} \newline
+    \textbf{Web platform, Dashboard manager, User access manager}
     
     \subsubsection*{Educators}
-    \item \lbl{req: createT} {The system shall allow the educators to create tournaments.}
-    \item \lbl{req: manageT} {The system shall allow the educators to manage their tournaments, in particular invites other collaborators and ends the tournament.}
-    \item \lbl{req: createB} {The system shall allow the educators to create code kata battles within a tournament.}
-     \item \lbl{req: evalM} {The system shall allow educators to manually evaluate students (if needed) right after a battle closes, during the consolidation stage.}
-    \item \lbl{req: createBad} {The system shall allow educators to create badges.}
-    \item \lbl{req: defineRV} {The system shall allow educators to define rules and variables.}
+    \item \lbl{req: createT} {The system shall allow the educators to create tournaments.} \newline
+    \textbf{Web platform, Dashboard manager, Tournament manager}
+    \item \lbl{req: manageT} {The system shall allow the educators to manage their tournaments, in particular invites other collaborators and ends the tournament.} \newline
+    \textbf{Web platform, Dashboard manager, Tournament manager}
+    \item \lbl{req: createB} {The system shall allow the educators to create code kata battles within a tournament.} \newline
+    \textbf{Web platform, Dashboard manager, Battle manager}
+     \item \lbl{req: evalM} {The system shall allow educators to manually evaluate students (if needed) right after a battle closes, during the consolidation stage.} \newline
+     \textbf{Web platform, Dashboard manager, Battle manager}
+    \item \lbl{req: createBad} {The system shall allow educators to create badges.} \newline
+    \textbf{Web platform, Dashboard manager, Tournament manager}
+    \item \lbl{req: defineRV} {The system shall allow educators to define rules and variables for a badge.} \newline
+    \textbf{Web platform, Dashboard manager, Tournament manager}
 
     \subsubsection*{Students}
-    \item \lbl{req: enrollT} {The system shall allow students to subscribe in tournaments.}
-    \item \lbl{req: enrollB} {The system shall allow students to enroll in a battle within a tournament.}
-    \item \lbl{req: formTeam} {The system shall allow students to form team for battles, by inviting other students.}        
-    \item \lbl{req: notifT} {The system shall notify the students about new tournaments within 10 seconds.}
-    \item \lbl{req: notifB} {The system shall notify the students about upcoming battles in tournaments in which they are subscribed within 10 seconds.}
-     \item \lbl{req: notifInvite} {The system shall notify the students when they receive an invite to participate in a team within 10 seconds.}
-     \item \lbl{req: notifGitHub} {The system shall notify the students when the GitHub repository of a battle is available.}
-     \item \lbl{req: notifRankB} {The system shall notify the students when the final battle rank became available within 10 seconds.}
-     \item \lbl{req: notifRankT} {The system shall notify the students when the final tournament rank became available within 10 seconds.}
+    \item \lbl{req: enrollT} {The system shall allow students to subscribe in tournaments.} \newline
+    \textbf{Web platform, Mail manager}
+    \item \lbl{req: enrollB} {The system shall allow students to enroll in a battle within a tournament.} \newline
+    \textbf{Web platform, Mail manager}
+    \item \lbl{req: formTeam} {The system shall allow students to form team for battles, by inviting other students.} \newline
+    \textbf{Web platform, Dashboard manager, Battle manager}
+    \item \lbl{req: notifT} {The system shall notify the students about new tournaments within 10 seconds.} \newline
+    \textbf{Mail manager}
+    \item \lbl{req: notifB} {The system shall notify the students about upcoming battles in tournaments in which they are subscribed within 10 seconds.} \newline
+    \textbf{Mail manager}
+     \item \lbl{req: notifInvite} {The system shall notify the students when they receive an invite to participate in a team within 10 seconds.} \newline
+     \textbf{Mail manager}
+     \item \lbl{req: notifGitHub} {The system shall notify the students when the GitHub repository of a battle is available.} \newline
+     \textbf{Mail manager}
+     \item \lbl{req: notifRankB} {The system shall notify the students when the final battle rank became available within 10 seconds.} \newline
+     \textbf{Mail manager, Automatic evaluation manager}
+     \item \lbl{req: notifRankT} {The system shall notify the students when the final tournament rank became available within 10 seconds.} \newline
+     \textbf{Mail manager}
 \end{enumerate}

@@ -31,6 +31,53 @@ The client tier is responsible only of the presentation layer, therefore a thin-
 Further details on the system components and their interactions will be explained in detail in the following sections.
 
 \section{Component view}
+In the following section it is show the component view of the entire system, as well as all internal and external interactions. \newline
+In figure \ref{fig:comp-hl} is represented all the component and the external interactions. Furthermore, in figure \ref{fig:comp-CKBserver} is represented in detail the internal structure of the CKB server, which contains the business logic of the system.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{images/component-hl.png}
+    \caption{Component diagram}
+    \label{fig:comp-hl}
+\end{figure}
+
+The external components of the CKB system represented in figure \ref{fig:comp-hl} are:
+\begin{itemize}
+    \item Web platform: is the presentation layer of the website that allow all users to use the CKB functionalities.
+    \item Mail service: used by the CKB system to send notification to all registered users when needed.
+    \item Database: where all the data are stored. It communicate with the DBMS running on the database.
+    \item GitHub API: it trigger the CKB system when there is a new push in any forked repository of a battle, in order to perform the automatic evaluation. 
+    \item Static analysis tool API: it is used by the CKB system in order to retrieve the quality level of the student's sources, in order to perform the automatic evaluation. 
+\end{itemize}
+
+The internal components of the CKB server represented in figure \ref{fig:comp-CKBserver} are:
+\begin{itemize}
+    \item Dashboard manager: handles all the interfaces offered in the web platform and it is in charge of providing the right interface to each user.
+    \item Tournament manager: handles the main features that allows educators to create and manage a tournament. It also manages all the tournament rankings.
+    \item Battle manager: handles the main features that allows educators to create and manage a battle, and students to manage their teams. It also manages all the battle real-time rankings.
+    \item User access manager: handles the log in and sign up functions. It also manages all students profile.
+    \item Model: almost all components interacts with the model, since it is the entry point to the data stored in the database.
+    \item Entity manager: it deals with all the data management needed by the system.
+    \item Mail manager: interfaces with the Mail API to send notifications via email to all users.
+    \item Automatic evaluation manager: it deals with both the GitHub API and the static analysis tool API, in order to modify the real-time rank of a battle.
+\end{itemize}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{images/component-CKBserver.png}
+    \caption{Component CKB server diagram}
+    \label{fig:comp-CKBserver}
+\end{figure}
+
+A further explanation of the relevant internal components follows.
+
+\subsubsection*{Dashboard manager}
+\subsubsection*{Tournament manager}
+\subsubsection*{Battle manager}
+\subsubsection*{User access manager}
+\subsubsection*{Automatic evaluation manager}
+
+\clearpage
 \section{Deployment view}
 \section{Component interface}
 \section{Run-time view}
