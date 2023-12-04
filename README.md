@@ -14,13 +14,14 @@ Platform similar to CodeKataBattle: [Code Wars](https://www.codewars.com/)
 alloy - da integrare nel RASD - cate
 
 ## Lunedi 11
-Component view -> cate
+
+- [x] Component view -> cate 
 
 component view (piccolina) -> marco
 
 deployment -> marco
 
-requirements traceability -> cate
+- [x] requirements traceability -> cate
 
 runtime -> eliahu, marco
 
