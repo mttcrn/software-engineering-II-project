@@ -10,9 +10,6 @@ Platform similar to CodeKataBattle: [Code Wars](https://www.codewars.com/)
 [Project Requirements](https://github.com/mttcrn/Cohen-Gervatini-Motti/blob/main/Assignment%20RDD%20AY%202023-2024.pdf)  
 
 # Deadlines
-## entro 1 dicembre 
-alloy - da integrare nel RASD - cate
-
 ## Lunedi 11
 
 - [x] Component view -> cate 
