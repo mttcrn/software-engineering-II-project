@@ -334,7 +334,7 @@ pred world2 {
 }
 run world2 for 10
 
-//WORLD3: badge management and assignment due to tournament state
+//WORLD£: badge management and assignment due to tournament state
 pred world3 {
 	NofreeStudentInABattle
 	NofreeStudentInTournament

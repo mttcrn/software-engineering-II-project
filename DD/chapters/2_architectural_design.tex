@@ -1,10 +1,10 @@
 \chapter{Architectural Design}
-\section{Overview: high-level components and interactions}
+\section{Overview: high-level components and interactions}\label{sec: overview}
 This section provides an overview of the system's architectural components and their interactions.
 
 \begin{figure}[h]
     \centering
-    \includegraphics[scale=0.5]{images/hl-system.png}
+    \includegraphics[width=\linewidth]{images/hl-system.png}
     \caption{CKB system overview}
     \label{fig:CKBoverview}
 \end{figure}
@@ -29,6 +29,7 @@ The CKB system will be developed using the client-server paradigm:
 The application will be developed on a three-tiered architecture where the layers (presentation, application, data) are divided into three different tiers. \newline
 The client tier is responsible only of the presentation layer, therefore a thin-client has been adopted since the required client-side functionality are limited. The application tier is responsible of the application layer, it receives the request from the clients and handles them. It communicates with the data tier that is responsible of the data layer, it is able to access the data in the database. \newline
 Further details on the system components and their interactions will be explained in detail in the following sections.
+\clearpage
 
 \section{Component view}
 In the following section it is show the component view of the entire system, as well as all internal and external interactions. \newline
@@ -78,10 +79,42 @@ A further explanation of the relevant internal components follows.
 \subsubsection*{Automatic evaluation manager}
 
 \clearpage
-\section{Deployment view}
+\section{Deployment view}\label{sec: deployment}
+\begin{itemize}
+    \item Presentation layer/tier: it communicates with the application layer in order to retrieve all necessary information requested by the user and it display them. 
+    \item Application layer/tier: it manages all system functionalities. It communicates with the data layer in order to store or retrieve useful data.
+    \item Data layer/tier: it includes the database of the system and all necessary mechanism to extract and evaluate data.
+\end{itemize}
+\clearpage
 \section{Component interface}
+\clearpage
 \section{Run-time view}
+\clearpage
 \section{Selected architectural styles and patterns}
+\subsubsection*{Client-Server Architecture}
+As previously mentioned in section \ref{sec: overview} the CKB system will be developed based on the client-server architecture. Client and server are two separate objects that communicate over a network: a client makes a request for a service, the server receives this request, process it, and sends back a response. 
+\begin{figure}[h]
+    \centering 
+    \includegraphics[scale=0.8]{images/CS.png}
+    \caption{Client-Server paradigm}
+    \label{fig:CS}
+\end{figure}
+
 \subsection*{3-tier Architecture}
+As previously mentioned in section \ref{sec: overview} and in section \ref{sec: deployment} the CKB system will adopt the three-tier architecture, and for this reason it will be developed in three independent layers (or tiers).
+
 \subsection*{Model View Controller Pattern}
+The software will be implemented based on a MVC patter, that divides the program logic into three interconnected parts:
+\begin{itemize}
+    \item Model: it is the core element of the entire system that directly manage the logic of the CKB platform. 
+    \item View: it manages all user interfaces.
+    \item Controller: it handles all inputs from the view and manipulates the objects in the model.
+\end{itemize}
+\begin{figure}[h]
+    \centering 
+    \includegraphics[scale=0.8]{images/MVC.png}
+    \caption{Model-View-Controller paradigm}
+    \label{fig:MVC}
+\end{figure}
+\clearpage
 \section{Other design decision}
