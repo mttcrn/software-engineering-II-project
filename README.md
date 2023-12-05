@@ -29,7 +29,7 @@ component interfaces -> eliahu
 
 selected architectural styles and pattern -> cate
 
-other design decision (DB) -> eliahu
+- [x] other design decision (DB) -> eliahu
 
 ## Lunedi 18
 implementation, integration and test plan -> cate
