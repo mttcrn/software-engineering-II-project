@@ -135,4 +135,13 @@ In this way the client communicates only with the dashboard interface, that mana
 \clearpage
 \section{Other design decision}
 \subsection*{Relational DBMS}
-The data layer, as mentioned in section \ref{sec: deployment}, consists of a relational DBMS. 
+The data layer, as mentioned in section \ref{sec: deployment}, consists of a relational DBMS. A MySQL DBMS will be used since it is an open-source relational database management system (RDBMS). \newline
+In figure \ref{fig:DB} shows the database structure. \newline
+For clarity, the "password" attribute in the user table is represented, but will be encrypted, and the "studentID" attribute is the same as "username" for a student. 
+
+\begin{figure}[h]
+    \centering 
+    \includegraphics[width=\textwidth]{images/DB.png}
+    \caption{Database structure}
+    \label{fig:DB}
+\end{figure}
