@@ -16,7 +16,7 @@ Platform similar to CodeKataBattle: [Code Wars](https://www.codewars.com/)
 
 component view (piccolina) -> marco
 
-deployment -> marco
+- [x] deployment -> cate
 
 - [x] requirements traceability -> cate
 
@@ -24,7 +24,7 @@ runtime -> eliahu, marco
 
 component interfaces -> eliahu
 
-selected architectural styles and pattern -> cate
+- [x] selected architectural styles and pattern -> cate
 
 - [x] other design decision (DB) -> eliahu
 
