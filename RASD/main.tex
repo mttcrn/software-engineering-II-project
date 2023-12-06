@@ -45,7 +45,7 @@
 \usepackage{color}
 \definecolor{blue}{RGB}{42,0.0,255}
 \definecolor{green}{RGB}{63,127,95}
- 
+
 \lstset{
   language={alloy},
   basicstyle=\small\ttfamily, % Global Code Style
@@ -64,6 +64,17 @@
   commentstyle=\color{green}, % style of comments
   keywordstyle=\color{blue}, % style of keywords
 }
+
+\usepackage[dvipsnames]{xcolor}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=RoyalBlue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdfpagemode=FullScreen,
+}
+\urlstyle{same}
 
 \begin{document}
 	\include{structure/title}

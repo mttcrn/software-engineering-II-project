@@ -80,16 +80,27 @@ A further explanation of the relevant internal components follows.
 
 \clearpage
 \section{Deployment view}\label{sec: deployment}
+As previously stated in section \ref{sec: overview} the CKB system will be implemented through a three-tier architecture as shown in figure \ref{fig:deployment}. \newline
+The three-tired architecture is a well-established software application architecture that organizes the system into three logical and physical computing layers:
 \begin{itemize}
-    \item Presentation layer/tier: it communicates with the application layer in order to retrieve all necessary information requested by the user and it display them. 
-    \item Application layer/tier: it manages all system functionalities. It communicates with the data layer in order to store or retrieve useful data.
-    \item Data layer/tier: it includes the database of the system and all necessary mechanism to extract and evaluate data.
+    \item \textbf{Presentation layer/tier}: it is the user interface where the user interacts with the application. It communicates with the application layer in order to retrieve all necessary information requested by the user. Its main purpose is to display information and collect information from the user.
+    \item \textbf{Application layer/tier}: it manages all system functionalities. All information collected in the application layer are processed using a specific business logic. It communicates with the data layer in order to store, delete or modify useful data.
+    \item \textbf{Data layer/tier}: it includes the database of the system and all necessary mechanism to extract and evaluate data.
 \end{itemize}
+\begin{figure}[h]
+    \centering 
+    \includegraphics[scale=0.8]{images/deployment.png}
+    \caption{Deployment diagram}
+    \label{fig:deployment}
+\end{figure}
 \clearpage
+
 \section{Component interface}
 \clearpage
+
 \section{Run-time view}
 \clearpage
+
 \section{Selected architectural styles and patterns}
 \subsubsection*{Client-Server Architecture}
 As previously mentioned in section \ref{sec: overview} the CKB system will be developed based on the client-server architecture. Client and server are two separate objects that communicate over a network: a client makes a request for a service, the server receives this request, process it, and sends back a response. 
@@ -116,5 +127,12 @@ The software will be implemented based on a MVC patter, that divides the program
     \caption{Model-View-Controller paradigm}
     \label{fig:MVC}
 \end{figure}
+
+\subsection*{Facade pattern}
+The dashboard component is implemented using the facade pattern, which hide the system's complexity from the client and offers a more user-friendly interface.
+In this way the client communicates only with the dashboard interface, that manages all inputs. The dashboard manager communicates with the appropriate sub-component based on the client request.
+
 \clearpage
 \section{Other design decision}
+\subsection*{Relational DBMS}
+The data layer, as mentioned in section \ref{sec: deployment}, consists of a relational DBMS. 
