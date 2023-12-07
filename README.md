@@ -29,6 +29,6 @@ component interfaces -> eliahu
 - [x] other design decision (DB) -> eliahu
 
 ## Lunedi 18
-implementation, integration and test plan -> cate
+- [x] implementation, integration and test plan -> cate
 
 
