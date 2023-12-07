@@ -1,0 +1,67 @@
+Component Inteface
+
+Tournament Interface:
+createTournament(name,subDeadline,badges)
+inviteCollaborator(Username)
+showOngoingTournaments()
+showRanking(tournamentID)
+enterTournament(username,tournamentID)
+closeTournament()
+
+Battle Interface:
+createBattle(name,codeKata,subDeadLine,finalDeadline,minTeam,MaxTeam,TournamentID)
+leaveTeam(username,battleID)
+inviteStudent(TeamId,username)
+showOngoingBattles()
+showRanking(battleId)
+
+
+
+Entity Manager interface:
+CheckUsername(username)
+createUser(name,surname,username,password,email)
+CheckUserInfo(username,password)
+getUserInfo(username)
+createTournament(name,subDeadline,badges)
+createBattle(name,codeKata,subDeadLine,finalDeadline,minTeam,MaxTeam,TournamentID)
+leaveTeam(username,battleID)
+setTournamentClose(TournamentId)
+getRanking(TournamentId)
+getRanking(BattleId)
+getTournaments()
+getBattles()
+
+Access interface:
+signupRequest(name,surname,username,password,email)
+loginRequest(username,password)
+
+
+Model interface:
+signupRequest(name,surname,username,password,email)
+loginRequest(username,password)
+createTournament(name,subDeadline,badges)
+inviteCollaborator(Username)
+showOngoingTournaments()
+showRanking(tournamentID)
+enterTournament(username,tournamentID)
+closeTournament()
+createBattle(name,codeKata,subDeadLine,finalDeadline,minTeam,MaxTeam,TournamentID)
+leaveTeam(username,battleID)
+inviteStudent(TeamId,username)
+showRanking(battleId)
+
+
+Dashboard interface:
+signupRequest(name,surname,username,password,email)
+loginRequest(username,password)
+createTournament(name,subDeadline,badges)
+inviteCollaborator(Username)
+showOngoingTournaments()
+showRanking(tournamentID)
+enterTournament(username,tournamentID)
+closeTournament()
+createBattle(name,codeKata,subDeadLine,finalDeadline,minTeam,MaxTeam,TournamentID)
+leaveTeam(username,battleID)
+inviteStudent(TeamId,username)
+showRanking(battleId)
+createBadge(title,description,rules)
