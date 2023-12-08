@@ -4,17 +4,21 @@ Tournament Interface:
 createTournament(name,subDeadline,badges)
 inviteCollaborator(username,tournamentId)
 showOngoingTournaments()
+subscribeTournament(tournamentId,username)
 showRanking(tournamentID)
 enterTournament(username,tournamentID)
 closeTournament()
+subscribeTournamentEducator(tournamentId,username)
+subscribeTournamentStudent(tournamentId,username)
 
 Battle Interface:
 createBattle(name,codeKata,subDeadLine,finalDeadline,minTeam,MaxTeam,TournamentID)
-leaveTeam(username,battleID)
+leaveTeam(username,teamId)
 inviteStudent(teamId,username)
 showOngoingBattles()
 showRanking(battleId)
-
+subscribeBattle(battleId,username)
+subscribeTeam(teamId,username)
 
 
 Entity Manager interface:
@@ -24,13 +28,24 @@ checkUserInfo(username,password)
 getUserInfo(username)
 createTournament(name,subDeadline,badges)
 createBattle(name,codeKata,subDeadLine,finalDeadline,minTeam,MaxTeam,TournamentID)
-leaveTeam(username,battleID)
+leaveTeam(username,teamId)
 getRanking(TournamentId)
 getRanking(BattleId)
 getTournaments()
 getTournament(tournamentId)
 getBattles(date)
 closeTournament(tournamentId)
+checkDate(tournamentId)
+newCollaborator(tournamentId,username)
+newPartecipant(tournamentId,username)
+checkDate(battleId)
+newPartecipant(battleId)
+newTeamMember(teamId,username)
+checkTeamConditions(TeamId)
+getParameters(battleId)
+updateRank(battleId)
+updateRank(tournamentId)
+
 
 Access interface:
 signupRequest(name,surname,username,password,email)
@@ -50,7 +65,12 @@ createBattle(name,codeKata,subDeadLine,finalDeadline,minTeam,MaxTeam,TournamentI
 leaveTeam(username,battleID)
 inviteStudent(TeamId,username)
 showRanking(battleId)
-
+subscribeTournamentEducator(tournamentId,username)
+subscribeTournamentStudent(tournamentId,username)
+subscribeBattle(battleId,username)
+subscribeTeam(teamId,username)
+getParameters(battleId)
+updateRankings(tournamentId,BattleId)
 
 Dashboard interface:
 signupRequest(name,surname,username,password,email)
@@ -66,6 +86,10 @@ leaveTeam(username,battleID)
 inviteStudent(TeamId,username)
 showRanking(battleId)
 createBadge(title,description,rules)
+subscribeTournamentEducator(tournamentId,username)
+subscribeTournamentStudent(tournamentId,username)
+subscribeBattle(battleId,username)
+subscribeTeam(teamId,username)
 
 mail manager interface:
 sendCollaboratorMail(username,tournamentId)
