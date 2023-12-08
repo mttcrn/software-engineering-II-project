@@ -10,6 +10,7 @@ enterTournament(username,tournamentID)
 closeTournament()
 subscribeTournamentEducator(tournamentId,username)
 subscribeTournamentStudent(tournamentId,username)
+createBadge(itle,description,rules)
 
 Battle Interface:
 createBattle(name,codeKata,subDeadLine,finalDeadline,minTeam,MaxTeam,TournamentID)
@@ -45,11 +46,13 @@ checkTeamConditions(TeamId)
 getParameters(battleId)
 updateRank(battleId)
 updateRank(tournamentId)
+createBadge(itle,description,rules)
 
 
 Access interface:
 signupRequest(name,surname,username,password,email)
 loginRequest(username,password)
+getUser(username)
 
 
 Model interface:
@@ -71,6 +74,9 @@ subscribeBattle(battleId,username)
 subscribeTeam(teamId,username)
 getParameters(battleId)
 updateRankings(tournamentId,BattleId)
+createBadge(itle,description,rules)
+getUser(username)
+
 
 Dashboard interface:
 signupRequest(name,surname,username,password,email)
@@ -90,6 +96,8 @@ subscribeTournamentEducator(tournamentId,username)
 subscribeTournamentStudent(tournamentId,username)
 subscribeBattle(battleId,username)
 subscribeTeam(teamId,username)
+createBadge(itle,description,rules)
+getUser(username)
 
 mail manager interface:
 sendCollaboratorMail(username,tournamentId)
