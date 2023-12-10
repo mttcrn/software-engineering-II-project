@@ -20,9 +20,9 @@ component view (piccolina) -> marco
 
 - [x] requirements traceability -> cate
 
-- [x]runtime -> eliahu
+- [x] runtime -> eliahu
 
-- [x]component interfaces -> eliahu
+- [x] component interfaces -> eliahu
 
 - [x] selected architectural styles and pattern -> cate
 
