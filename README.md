@@ -8,27 +8,3 @@ Platform similar to CodeKataBattle: [Code Wars](https://www.codewars.com/)
 
 ## Requirements
 [Project Requirements](https://github.com/mttcrn/Cohen-Gervatini-Motti/blob/main/Assignment%20RDD%20AY%202023-2024.pdf)  
-
-# Deadlines
-## Lunedi 11
-
-- [x] Component view -> cate 
-
-component view (piccolina) -> marco
-
-- [x] deployment -> cate
-
-- [x] requirements traceability -> cate
-
-- [x] runtime -> eliahu
-
-- [x] component interfaces -> eliahu
-
-- [x] selected architectural styles and pattern -> cate
-
-- [x] other design decision (DB) -> eliahu
-
-## Lunedi 18
-- [x] implementation, integration and test plan -> cate
-
-
