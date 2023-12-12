@@ -57,6 +57,7 @@ The internal components of the CKB server represented in figure \ref{fig:comp-CK
     \item Tournament manager: handles the main features that allows educators to create and manage a tournament. It also manages all the tournament rankings.
     \item Battle manager: handles the main features that allows educators to create and manage a battle, and students to manage their teams. It also manages all the battle real-time rankings.
     \item User access manager: handles the log in and sign up functions. It also manages all students profile.
+    \item Link manager: manages all interactions that pass through a link received via email, such as subscribe in a tournament, enroll in a battle, join a tournament or a team.
     \item Model: almost all components interacts with the model, since it is the entry point to the data stored in the database.
     \item Entity manager: it deals with all the data management needed by the system.
     \item Mail manager: interfaces with the Mail API to send notifications via email to all users.
@@ -71,12 +72,63 @@ The internal components of the CKB server represented in figure \ref{fig:comp-CK
 \end{figure}
 
 A further explanation of the relevant internal components follows.
+\clearpage
 
 \subsubsection*{Dashboard manager}
-\subsubsection*{Tournament manager}
-\subsubsection*{Battle manager}
+In figure \ref{fig:dash-man} is represented the dashboard manager with its sub-components. The input manager handles all the different requests that can be made through the web platform. The student and the educator action manager manages respectively, the student and educator requests.
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale = 0.5]{images/dash-man.png}
+    \caption{Dashboard manager}
+    \label{fig:dash-man}
+\end{figure}
+
 \subsubsection*{User access manager}
+In figure \ref{fig:user-man} is represented the user access manager with its sub-components. The input manager handles all the different requests that can be made through the web platform. Then two different sub-components are responsible for the sign up and the log in functions.
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale = 0.5]{images/user-man.png}
+    \caption{User access manager}
+    \label{fig:user-man}
+\end{figure}
+\clearpage
+
+\subsubsection*{Tournament manager}
+In figure \ref{fig:tourn-man} is represented the tournament manager with its sub-components. It manages all functions that involve a tournament, from both the student and the educator point of view.
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale = 0.5]{images/tournament-man.png}
+    \caption{Tournament manager}
+    \label{fig:tourn-man}
+\end{figure}
+
+\subsubsection*{Battle manager}
+In figure \ref{fig:battle-man} is represented the battle manager with its sub-components. It manages all functions that involve a battle, from both the student and the educator point of view.
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale = 0.5]{images/battle-man.png}
+    \caption{Battle manager}
+    \label{fig:battle-man}
+\end{figure}
+\clearpage
+
+\subsubsection*{Link manager}
+In figure \ref{fig:link-man} is represented the link manager with its sub-components. It manages all functions that involve a link received by email, from both the student and the educator point of view.
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale = 0.5]{images/link-man.png}
+    \caption{Link manager}
+    \label{fig:link-man}
+\end{figure}
+
 \subsubsection*{Automatic evaluation manager}
+In figure \ref{fig:evalA-man} is represented the automatic evaluation manager with its sub-components. It manages all functions that involve the GitHub API and the static analysis tool, in order to perform the automatic evaluation.
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale = 0.5]{images/evalA-man.png}
+    \caption{Automatic evaluation manager}
+    \label{fig:evalA-man}
+\end{figure}
 
 \clearpage
 \section{Deployment view}\label{sec: deployment}
@@ -99,198 +151,274 @@ The three-tired architecture is a well-established software application architec
 This section lists all the methods that each component interface provides to the other components.
 \begin{itemize}
     \item \textbf{Dashboard Interface}:
-    
-signupRequest(name,surname,username,password,email)  
-
-loginRequest(username,password)  
-
-createTournament(name,subDeadline,badges)  
-
-inviteCollaborator(username,tournamentId) 
-
-showOngoingTournaments()  
-
-showRanking(tournamentId)  
-
-enterTournament(username,tournamentId)  
-
-closeTournament(tournamentId)  
-
-createBattle(name,codeKata,subDeadLine,finalDeadline,minTeam,MaxTeam,tournamentId)  
-
-leaveTeam(username,battleId)  
-
-inviteStudent(teamId,username)  
-
-showRanking(battleId)  
-
-createBadge(title,description,rules)  
-
-subscribeTournamentEducator(tournamentId,username)  
-
-subscribeTournamentStudent(tournamentId,username)  
-
-subscribeBattle(battleId,username)  
-
-subscribeTeam(teamId,username)  
-
-createBadge(title,description,rules)  
-
-getUser(username)  
-
-manualEvaluation(username,battleId,score) 
-
-\item\textbf{Tournament Interface}:
-
-createTournament(name,subDeadline,badges)
-
-inviteCollaborator(username,tournamentId)
-
-showOngoingTournaments()
-
-subscribeTournament(tournamentId,username)
-
-showRanking(tournamentId)
-
-enterTournament(username,tournamentId)
-
-closeTournament()
-
-subscribeTournamentEducator(tournamentId,username)
-
-subscribeTournamentStudent(tournamentId,username)
-
-createBadge(title,description,rules)
-\item\textbf{Battle Interface}:
-
-createBattle(name,codeKata,subDeadLine,finalDeadline,minTeam,MaxTeam,tournamentId)
-
-leaveTeam(username,teamId)
-
-inviteStudent(teamId,username)
-
-showOngoingBattles()
-
-showRanking(battleId)
-
-subscribeBattle(battleId,username)
-
-subscribeTeam(teamId,username)
-
-manualEvaluation(username,battleId,score)
-\item\textbf{Access Interface}:
-
-signupRequest(name,surname,username,password,email)
-
-loginRequest(username,password)
-
-getUser(username)
-\item\textbf{Model Interface}:
-
-signupRequest(name,surname,username,password,email)
-
-loginRequest(username,password)
-
-createTournament(name,subDeadline,badges)
-
-inviteCollaborator(username,tournamentId)
-
-showOngoingTournaments()
-
-showRanking(tournamentId)
-
-enterTournament(username,tournamentId)
-
-closeTournament()
-
-createBattle(name,codeKata,subDeadLine,finalDeadline,minTeam,MaxTeam,TournamentId)
-
-leaveTeam(username,battleId)
-
-inviteStudent(teamId,username)
-
-showRanking(battleId)
-
-subscribeTournamentEducator(tournamentId,username)
-
-subscribeTournamentStudent(tournamentId,username)
-
-subscribeBattle(battleId,username)
-
-subscribeTeam(teamId,username)
-
-getParameters(battleId)
-
-updateRankings(tournamentId,battleId)
-
-createBadge(title,description,rules)
-
-getUser(username)
-
-manualEvaluation(username,battleId,score)
-\item\textbf{Entity Manager Interface}:
-
-checkUsername(username)
-
-createUser(name,surname,username,password,email)
-
-checkUserInfo(username,password)
-
-getUserInfo(username)
-
-createTournament(name,subDeadline,badges)
-
-createBattle(name,codeKata,subDeadLine,finalDeadline,minTeam,MaxTeam,tournamentId)
-
-leaveTeam(username,teamId)
-
-getRanking(tournamentId)
-
-getRanking(battleId)
-
-getTournaments()
-
-getTournament(tournamentId)
-
-getBattles(date)
-
-closeTournament(tournamentId)
-
-checkDate(tournamentId)
-
-newCollaborator(tournamentId,username)
-
-newPartecipant(tournamentId,username)
-
-checkDate(battleId)
-
-newPartecipant(battleId)
-
-newTeamMember(teamId,username)
-
-checkTeamConditions(teamId)
-
-getParameters(battleId)
-
-updateRank(battleId)
-
-updateRank(tournamentId)
-
-createBadge(title,description,rules)
-
-manualEvaluation(username,battleId,score)
-\item\textbf{Mail Manager Interface}:
-
-sendCollaboratorMail(username,tournamentId)
-
-sendTeamInvitationMail(username,teamId)
-    
+        \begin{itemize}
+            \item signupRequest(name, surname, username, password, email, role) 
+            \item loginRequest(username, password)
+            \item createTournament(name, subDeadline, badges)  
+            \item inviteCollaborator(username, tournamentId) 
+            \item showOngoingTournaments()
+            \item showRanking(tournamentId)
+            \item enterTournament(username, tournamentId)
+            \item closeTournament(tournamentId)
+            \item createBattle(name, codeKata, subDeadLine, finalDeadline, minTeam, MaxTeam, tournamentId)
+            \item leaveTeam(username, battleId)
+            \item inviteStudent(teamId, username)
+            \item showRanking(battleId)
+            \item createBadge(title, description, rules)
+            \item subscribeTournamentEducator(tournamentId, username)
+            \item subscribeTournamentStudent(tournamentId, username)
+            \item subscribeBattle(battleId, username)
+            \item subscribeTeam(teamId, username)
+            \item createBadge(title, description, rules)
+            \item getUser(username)
+            \item manualEvaluation(username, battleId, score)
+        \end{itemize}
+    \item\textbf{Tournament Interface}:
+        \begin{itemize}
+            \item createTournament(name, subDeadline, badges)
+            \item inviteCollaborator(username, tournamentId)
+            \item showOngoingTournaments()
+            \item subscribeTournament(tournamentId, username)
+            \item showRanking(tournamentId)
+            \item enterTournament(username, tournamentId)
+            \item closeTournament()
+            \item subscribeTournamentEducator(tournamentId, username)
+            \item subscribeTournamentStudent(tournamentId, username)
+            \item createBadge(title, description, rules)
+        \end{itemize}
+    \item\textbf{Battle Interface}:
+        \begin{itemize}
+            \item CreateBattle(name, codeKata, subDeadLine, finalDeadline, minTeam, MaxTeam, tournamentId)
+            \item leaveTeam(username, teamId)
+            \item inviteStudent(teamId, username)
+            \item showOngoingBattles()
+            \item showRanking(battleId)
+            \item subscribeBattle(battleId, username)
+            \item subscribeTeam(teamId, username)
+            \item manualEvaluation(username, battleId, score)
+        \end{itemize}
+    \item\textbf{Access Interface}:
+        \begin{itemize}
+            \item  signupRequest(name, surname, username, password, email, role)
+            \item loginRequest(username, password)
+            \item getUser(username)
+        \end{itemize}
+    \item\textbf{Model Interface}:
+        \begin{itemize}
+            \item signupRequest(name, surname, username, password, email)
+            \item createUser(name, surname, username, password, role)
+            \item loginRequest(username, password)
+            \item createTournament(name, subDeadline, badges)
+            \item inviteCollaborator(username, tournamentId)
+            \item showOngoingTournaments()
+            \item showRanking(tournamentId)
+            \item enterTournament(username, tournamentId)
+            \item closeTournament()
+            \item createBattle(name,codeKata, subDeadLine, finalDeadline, minTeam, MaxTeam, TournamentId)
+            \item leaveTeam(username,battleId)
+            \item inviteStudent(teamId,username)
+            \item showRanking(battleId)
+            \item subscribeTournamentEducator(tournamentId, username)
+            \item subscribeTournamentStudent(tournamentId, username)
+            \item subscribeBattle(battleId, username)
+            \item subscribeTeam(teamId, username)
+            \item getParameters(battleId)
+            \item updateRankings(tournamentId, battleId)
+            \item createBadge(title, description, rules)
+            \item getUser(username)
+            \item manualEvaluation(username, battleId, score)
+            \item sendCollaboratorMail(username, email, tournamentID)
+        \end{itemize}
+    \item\textbf{Entity Manager Interface}:
+        \begin{itemize}
+            \item checkUsername(username)
+            \item createUser(name, surname, username, password, email)
+            \item checkUserInfo(username, password)
+            \item getUserInfo(username)
+            \item createTournament(name, subDeadline, badges)
+            \item createBattle(name, codeKata, subDeadLine, finalDeadline, minTeam, MaxTeam, tournamentId)
+            \item leaveTeam(username, teamId)
+            \item getRanking(tournamentId)
+            \item getRanking(battleId)
+            \item getTournaments()
+            \item getTournament(tournamentId)
+            \item getBattles(date)
+            \item closeTournament(tournamentId)
+            \item checkDate(tournamentId)
+            \item newCollaborator(tournamentId, username)
+            \item newPartecipant(tournamentId, username)
+            \item checkDate(battleId)
+            \item newPartecipant(battleId)
+            \item newTeamMember(teamId,username)
+            \item checkTeamConditions(teamId)
+            \item getParameters(battleId)
+            \item updateRank(battleId)
+            \item updateRank(tournamentId)
+            \item createBadge(title, description, rules)
+            \item manualEvaluation(username, battleId, score)
+        \end{itemize}
+    \item\textbf{Mail Manager Interface}:
+        \begin{itemize}
+            \item sendCollaboratorMail(username, tournamentId)
+            \item sendTeamInvitationMail(username, teamId)
+        \end{itemize}        
 \end{itemize}
-
-
 \clearpage
 
 \section{Run-time view}
+\subsection*{Sign up}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{images/runtime/SignUp.png}
+    \caption{Sign up runtime diagram}
+    \label{fig:rt-signup}
+\end{figure}
+\clearpage
+
+\subsection*{Log in}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{images/runtime/LogIn.png}
+    \caption{Log in runtime diagram}
+    \label{fig:rt-login}
+\end{figure}
+
+\subsection*{Create tournament}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{images/runtime/createT.png}
+    \caption{Create tournament runtime diagram}
+    \label{fig:rt-createT}
+\end{figure}
+\clearpage
+
+\subsection*{Invite educator}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{images/runtime/inviteE.png}
+    \caption{Invite educator runtime diagram}
+    \label{fig:rt-inviteE}
+\end{figure}
+
+\subsection*{Educator accepts invite}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{images/runtime/acceptE.png}
+    \caption{Educator accepts invite runtime diagram}
+    \label{fig:rt-acceptE}
+\end{figure}
+\clearpage
+
+\subsection*{Create badge}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{images/runtime/createBadge.png}
+    \caption{Create badge runtime diagram}
+    \label{fig:rt-createBadge}
+\end{figure}
+
+\subsection*{Close tournament}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{images/runtime/closeT.png}
+    \caption{Close tournament runtime diagram}
+    \label{fig:rt-closeT}
+\end{figure}
+\clearpage
+
+\subsection*{Create battle}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{images/runtime/createB.png}
+    \caption{Create battle runtime diagram}
+    \label{fig:rt-createB}
+\end{figure}
+
+\subsection*{Subscribe in a tournament}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{images/runtime/subsT.png}
+    \caption{Subscribe in a tournament runtime diagram}
+    \label{fig:rt-subsT}
+\end{figure}
+\clearpage
+
+\subsection*{Enroll in a battle}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{images/runtime/enrollB.png}
+    \caption{Enroll in a battle runtime diagram}
+    \label{fig:rt-enrollB}
+\end{figure}
+
+\subsection*{Invite student in a team}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{images/runtime/inviteS.png}
+    \caption{Invite student in a team runtime diagram}
+    \label{fig:rt-inviteS}
+\end{figure}
+\clearpage
+
+\subsection*{Student accepts invite}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{images/runtime/acceptS.png}
+    \caption{Student accepts invite runtime diagram}
+    \label{fig:rt-acceptS}
+\end{figure}
+\clearpage
+
+\subsection*{Student leaves team}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{images/runtime/leaveTeam.png}
+    \caption{Student leaves invite runtime diagram}
+    \label{fig:rt-leaveTeam}
+\end{figure}
+\clearpage
+
+\subsection*{Perform manual evaluation}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{images/runtime/evalM.png}
+    \caption{Perform manual evaluation runtime diagram}
+    \label{fig:rt-evalM}
+\end{figure}
+
+\subsection*{Perform automatic evaluation}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{images/runtime/evalA.png}
+    \caption{Perform automatic evaluation runtime diagram}
+    \label{fig:rt-evalA}
+\end{figure}
+\clearpage
+
+\subsection*{Visualize battle ranking}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{images/runtime/battleRank.png}
+    \caption{Visualize battle rankgin runtime diagram}
+    \label{fig:rt-battleRank}
+\end{figure}
+
+\subsection*{Visualize all ongoing tournament with ranking}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{images/runtime/allTRank.png}
+    \caption{Visualize all ongoing tournament with ranking runtime diagram}
+    \label{fig:rt-allT}
+\end{figure}
+\clearpage
+
+\subsection*{See a student's profile}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{images/runtime/allTRank.png}
+    \caption{See a student's profile runtime diagram}
+    \label{fig:rt-seeProfile}
+\end{figure}
 \clearpage
 
 \section{Selected architectural styles and patterns}
@@ -324,7 +452,6 @@ The software will be implemented based on a MVC patter, that divides the program
 The dashboard component is implemented using the facade pattern, which hide the system's complexity from the client and offers a more user-friendly interface.
 In this way the client communicates only with the dashboard interface, that manages all inputs. The dashboard manager communicates with the appropriate sub-component based on the client request.
 
-\clearpage
 \section{Other design decision}
 \subsection*{Relational DBMS}
 The data layer, as mentioned in section \ref{sec: deployment}, consists of a relational DBMS. A MySQL DBMS will be used since it is an open-source relational database management system (RDBMS). \newline
