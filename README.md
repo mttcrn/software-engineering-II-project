@@ -1,4 +1,4 @@
-# CodeKataBattle - Software Engineering 2 - Requirement Engineering and Design Project - A.Y. 2023-2024    
+# CodeKataBattle - Software Engineering 2 - Requirement Engineering and Design Project 
 CKB - Code Kata Battle is a Requirement Engineering and Design Project realized for the Software Engineering 2 course at Politecnico di Milano.
 Requirement analysis and design choices are widely described inside the released documents:
 - __Requirements Analysis and Specifications Document__ ([RASDv1.pdf](DeliveryFolder/RASDv1.pdf));
